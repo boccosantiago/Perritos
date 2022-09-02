@@ -1,13 +1,22 @@
-import React from "react";
+import React,  { useState } from "react";
 import { Link } from "react-router-dom";
+import Card from "./Card";
+import Filter
+ from "./Filter";
 function Main () {
-
+    const [filterData, setFilterData] = useState({
+        name: "",
+        age: "",
+        breed: "",
+        size: "",
+        color: "",
+        coat: ""
+    })
 return (
     <div>
-        <img></img>
-        <h2>PAGINA PRINCIPAL</h2>
-        <p>Descripción</p>
         <Link to='/'><a>HOME</a></Link>
+        <Filter setFilterData={setFilterData} />
+        <Card filterData={filterData}/>
     </div>
 )
 }
