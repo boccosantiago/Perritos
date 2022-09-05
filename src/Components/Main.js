@@ -1,8 +1,8 @@
 import React,  { useState } from "react";
 import { Link } from "react-router-dom";
 import Card from "./Card";
-import Filter
- from "./Filter";
+import Filter from "./Filter";
+
 function Main () {
     const [filterData, setFilterData] = useState({
         name: "",
