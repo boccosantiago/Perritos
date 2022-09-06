@@ -21,11 +21,11 @@ function Filter (props){
         <div>
             <div>
                 <p>Nombre</p>
-                <input type="text" placeholder="Kimba" onChange={(e) => {handleChange(e)}}/>
+                <input type="text" name="name" placeholder="Kimba" onChange={(e) => {handleChange(e)}}/>
             </div>
             <div>
             <p>Edad</p>
-            <input id="listAge" type="text" name="edad" list="dataListAge" placeholder="Adulto"  onChange={(e) => {handleChange(e)}} />
+            <input id="listAge" type="text" name="age" list="dataListAge" placeholder="Adulto"  onChange={(e) => {handleChange(e)}} />
             <datalist id="dataListAge">
                 <option value="Cachorro" />  
                 <option value="Joven" />
@@ -34,7 +34,7 @@ function Filter (props){
             </div>
             <div>
             <p>Sexo</p>
-            <input type="text" name="sexo" list="dataListSex" placeholder="Macho" onChange={(e) => {handleChange(e)}}/>
+            <input type="text" name="gender" list="dataListSex" placeholder="Macho" onChange={(e) => {handleChange(e)}}/>
             <datalist id="dataListSex">
                 <option value="Macho" />  
                 <option value="Hembra" />
@@ -42,7 +42,7 @@ function Filter (props){
             </div>
             <div>
             <p>Raza</p>
-            <input type="text" name="raza" list="dataListBreed" placeholder="Pitbull" onChange={(e) => {handleChange(e)}}/>
+            <input type="text" name="breed" list="dataListBreed" placeholder="Pitbull" onChange={(e) => {handleChange(e)}}/>
             <datalist id="dataListBreed">
                 <option value="Bodeguero" />  
                 <option value="Border Collie" />
@@ -73,7 +73,7 @@ function Filter (props){
             </div>
             <div>
             <p>Tamaño</p>
-            <input type="text" name="tamaño" list="dataListSize" placeholder="Grande" onChange={(e) => {handleChange(e)}}/>
+            <input type="text" name="size" list="dataListSize" placeholder="Grande" onChange={(e) => {handleChange(e)}}/>
             <datalist id="dataListSize">
                 <option value="Pequeño" />  
                 <option value="Mediano" />
@@ -82,7 +82,7 @@ function Filter (props){
             </div>
             <div>
             <p>Pelaje</p>
-            <input type="text" name="pelaje" list="dataListCoat" placeholder="Corto" onChange={(e) => {handleChange(e)}}/>
+            <input type="text" name="coat" list="dataListCoat" placeholder="Corto" onChange={(e) => {handleChange(e)}}/>
             <datalist id="dataListCoat">
                 <option value="Corto" />  
                 <option value="Mediano" />
