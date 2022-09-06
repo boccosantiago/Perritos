@@ -1,0 +1,50 @@
+.container {
+    display: flex;
+   justify-content: right;
+   align-items: center;
+   height: 100vh;
+   color: white;
+   background: url('../img/adorable-brown.jpg');
+   background-size: cover;
+ }  
+
+.main {
+   display: block;
+   text-align: center;
+   width: 40%;
+}
+
+.empezar{
+    color: rgb(117, 29, 29);
+    border: 2px solid rgb(117, 29, 29);
+    border-radius: 20px;
+    margin: 5px;
+    padding: 7px;
+    font-weight: 500;
+    cursor: pointer;
+
+}
+
+.empezar:hover{
+    background-color: rgb(117, 29, 29);
+    color: white;
+    border: 2px solid rgb(117, 29, 29);
+    border-radius: 20px;
+    margin: 5px;
+    padding: 7px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+p {
+    margin: 30px 0;
+}
+
+
+
+
+
+
+
+
