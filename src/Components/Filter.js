@@ -9,8 +9,6 @@ function Filter(props) {
   const separadas = Array.from(new Set(separ.split(',')));
 
 
-
-
   function handleChange(event) {
     const { name, value } = event.target;
     props.setFilterData((prevFilterData) => {

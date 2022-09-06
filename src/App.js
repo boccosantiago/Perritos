@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Main from './Components/Main'
 import Home from './Components/Home'
+import Profile from './Components/Profile';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Navbar from "./Components/Navbar";
@@ -84,7 +85,11 @@ function App() {
        <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/main" element={<Main/>} />
+
         <Route path="/main/:id" element={<Dogs/>} />
+
+        <Route path="/profile" element={<Profile/>} />
+
       </Routes>
       </BrowserRouter>
     </div>

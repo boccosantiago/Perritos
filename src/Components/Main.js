@@ -8,6 +8,7 @@ function Main () {
     const [filterData, setFilterData] = useState({
         name: "",
         age: "",
+        gender: "",
         breed: "",
         size: "",
         color: "",
