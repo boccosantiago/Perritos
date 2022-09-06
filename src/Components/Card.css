@@ -1,23 +1,24 @@
-
 #container-card{
     display: flex;
     flex-wrap: wrap;
 }
 
 #card{
-    border: 1px solid black;
-    border-radius: 5px;
+    border: 2px solid rgb(132, 132, 132);
+    border-radius: 20px;
     padding: 0.5rem;
     margin: 1rem;
     width: 10rem;
+    background-color: white;
 }
 #img-card{
-    width: 10rem;
+    width: 9rem;
     height: 7rem; 
     object-fit: cover;
+    border-radius: 20px;
 }
 
 #container-img {
     height: 8rem;
-    width: 5rem;
+    width: 6rem;
 }

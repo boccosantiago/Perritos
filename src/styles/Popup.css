@@ -82,6 +82,7 @@
 .error {
   color: rgb(247, 55, 55);
   font-size: 0.8em;
+  margin: 5px 0;
 }
 
 .btn-x {

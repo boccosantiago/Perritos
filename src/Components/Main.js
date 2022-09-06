@@ -2,6 +2,7 @@ import React,  { useState } from "react";
 import { Link } from "react-router-dom";
 import Card from "./Card";
 import Filter from "./Filter";
+import "../styles/Main.css";
 
 function Main () {
     const [filterData, setFilterData] = useState({
@@ -13,8 +14,8 @@ function Main () {
         coat: ""
     })
 return (
-    <div>
-        <Link to='/'><a>HOME</a></Link>
+    <div className="container-main">
+        <Link to='/'>HOME</Link>
         <Filter setFilterData={setFilterData} />
         <Card filterData={filterData}/>
     </div>

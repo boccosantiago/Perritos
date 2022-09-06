@@ -4,7 +4,7 @@ import validation from "./validation";
 import { CgClose } from "react-icons/cg";
 import { BsCheck2Circle } from "react-icons/bs";
 import { RiCloseCircleLine } from "react-icons/ri";
-import { useNavigate } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
 
 function Popup(props) {
   const [values, setValues] = useState({
@@ -74,14 +74,13 @@ function Popup(props) {
     });
   }
 
-  const navigate = useNavigate();
+ // const navigate = useNavigate();
 
   function defaultValues() {
     setIsLogged(null);
     setRegister(false);
     props.setTriggerLogin(false);
     props.setTriggerSignin(false);
-    navigate("/");
   }
 
   if (props.triggerLogin) {

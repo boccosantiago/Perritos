@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import data from "../datos"
 import "../Components/Card.css"
+import { Link } from "react-router-dom";
+
 function Card (props) {
     var value = props.filterData
     const infoProtect = data.map(item => item.pets)
@@ -12,26 +14,15 @@ function Card (props) {
     function filterPets() {
         
         
-        console.log(value, petFilter)
+        console.log('a', value, petFilter)
         if (Object.values(value).length === 0) {
             setPetFound([...petFilter])
         } else {
             console.log("hola")
         }
-        
-        //else {
-        //     const filteredName = [...petFilter].filter(item => {
-        //         return item.name.toLowerCase().includes(lowerCaseValue)
-        //     });
-        //     setPetFound(filteredName);
-        //  }
+
     }
 
-
-    
-    
-    // const name = infoProtect.map(pets => pets.map(pet => pet.name));
-    // const images = infoProtect.map(pets => pets.map(pet => console.log(`../img/id${pet.id}.jpg`)))
     
     
     const cargarImagen = require.context("../img", true);
@@ -42,12 +33,11 @@ function Card (props) {
             {petFilter.map((pets, index) => (
                 pets.map(pet => (
                     <div key={`pet.id${pet.id}`} id="card">
-                        <div id="container-img">
+                        <Link to={`${pet.id}`}><div id="container-img">
                         <img id="img-card" src= {cargarImagen(`./id${pet.id}.jpg`)}></img>
-                        </div>
+                        </div> </Link>
                         {pet.name}
                     </div>)
-                
                 )
             )) }
            <div>

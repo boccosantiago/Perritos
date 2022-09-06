@@ -6,6 +6,7 @@ import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Navbar from "./Components/Navbar";
 import Popup from "./Components/Popup";
+import Dogs from './Components/Dogs';
 
 function App() {
 
@@ -83,6 +84,7 @@ function App() {
        <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/main" element={<Main/>} />
+        <Route path="/main/:id" element={<Dogs/>} />
       </Routes>
       </BrowserRouter>
     </div>
