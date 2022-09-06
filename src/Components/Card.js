@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import data from "../datos"
 import "../Components/Card.css"
+import {Link} from  'react-router-dom'
+
 function Card (props) {
     var value = props.filterData
     const infoProtect = data.map(item => item.pets)
@@ -31,11 +33,9 @@ function Card (props) {
                     && (!lowerCaseCoat || pet.coatLength.toLowerCase().includes(lowerCaseCoat))
                     && (!lowerCaseBreed || pet.breed.includes(lowerCaseBreed))
                     && (!lowerCaseColor || pet.color.includes(lowerCaseColor))
-                                     
                 }));
         
                 setPetFound([...filteredPet])
-            
         }
     }
   
@@ -46,13 +46,12 @@ function Card (props) {
             <button onClick={filterPets}>Buscar</button>
             {petFound.map((pets, index) => (
                 pets.map(pet => (
-                    <div key={`pet.id${pet.id}`} id="card">
+                    <Link to= ""><div key={`pet.id${pet.id}`} id="card">
                         <div id="container-img">
                         <img id="img-card" src= {cargarImagen(`./id${pet.id}.jpg`)}></img>
                         </div>
                         {pet.name}
-                    </div>)
-                
+                    </div></Link>)
                 )
             )) }
            <div>
