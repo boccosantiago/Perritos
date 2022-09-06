@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import data from "../datos"
 import "../Components/Card.css"
-import {Link} from  'react-router-dom'
+
+import { Link } from "react-router-dom";
+
 
 function Card (props) {
     var value = props.filterData
@@ -12,10 +14,12 @@ function Card (props) {
 
     function filterPets() {
         
+
         if (Object.values(value).length === 0) {
             setPetFound([...infoProtect])
         } else {
-            
+ 
+       
                 const lowerCaseName = props.filterData.name.toLowerCase()
                 const lowerCaseAge = props.filterData.age.toLowerCase()
                 const lowerCaseGender = props.filterData.gender.toLowerCase()
@@ -45,10 +49,10 @@ function Card (props) {
         <div id="container-card">
             <button onClick={filterPets}>Buscar</button>
             {petFound.map((pets, index) => (
-                pets.map(pet => (
-                    <Link to= ""><div key={`pet.id${pet.id}`} id="card">
+                pets.map(pet => (<<<<<<< Santi-Dev
+                     <Link to={`${pet.id}`}><div key={pet.id${pet.id}} id="card">
                         <div id="container-img">
-                        <img id="img-card" src= {cargarImagen(`./id${pet.id}.jpg`)}></img>
+                        <img id="img-card" src= {cargarImagen(./id${pet.id}.jpg)}></img>
                         </div>
                         {pet.name}
                     </div></Link>)

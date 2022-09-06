@@ -1,24 +1,31 @@
 .navBar{
     display: flex;
+    justify-content: space-between;
+    position: fixed;
     font-size: large;
     height: 60px;
     align-items: center;
+    width: 100%;
     
 }
 
 .main-navigation{
-   
     margin: 10px;
 }
 
 .login-option{
-    margin: auto;
-    margin-right: 10px;
+   color: white;
+   float: right;
+}
+
+.login-option ul{
+    padding: 0;
 }
 
 a {
     text-decoration: none;
     padding: 0px 10px;
+    color: white;
     
 }
 
@@ -36,11 +43,11 @@ button{
         margin: 0 20px;
         padding: 10px 10px;
         border: none;
-  
         background-color: transparent;
         font-size: large;
         cursor: pointer;
         border-radius: 20px;
+        color: white;
 }
 
 .register:hover{

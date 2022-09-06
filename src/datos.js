@@ -12,7 +12,7 @@ const datos = [
           age: "cachorro",
           gender: "macho",
           size: "pequeño",
-          breed: "chihuahua",
+          breed: "Chihuahua",
           color: "blanco",
           coatLength: "corto",
           
@@ -23,7 +23,7 @@ const datos = [
           age: "cachorro",
           gender: "hembra",
           size: "pequeño",
-          breed: ["labrador retriever", "golden retriever"],
+          breed: ["Labrador", "Golden retriever"],
           color: "marron",
           coatLength: "corto",
           
@@ -34,7 +34,7 @@ const datos = [
           age: "adulto",
           gender: "macho",
           size: "mediano",
-          breed: "bodeguero",
+          breed: "Bodeguero",
           color: ["blanco", "marron", "negro"],
           coatLength: "corto",
           
@@ -54,7 +54,7 @@ const datos = [
           age: "adulto",
           gender: "macho",
           size: "grande",
-          breed: ["pastor alemán", "golden retriever"],
+          breed: ["Pastor alemán", "Golden retriever"],
           color: ["negro", "marron"],
           coatLength: "largo",
           
@@ -65,7 +65,7 @@ const datos = [
           age: "joven",
           gender: "macho",
           size: "mediano",
-          breed: "podenco",
+          breed: "Podenco",
           color: "marron",
           coatLength: "corto",
           
@@ -76,7 +76,7 @@ const datos = [
           age: "adulto",
           gender: "hembra",
           size: "grande",
-          breed: "border collie",
+          breed: "Border collie",
           color: ["marron", "blanco"],
           coatLength: "largo",
           
@@ -87,7 +87,7 @@ const datos = [
           age: "adulto",
           gender: "macho",
           size: "grande",
-          breed: ["pastor alemán", "corgi galés"],
+          breed: ["Pastor alemán", "Corgi galés"],
           color: ["negro", "marron"],
           coatLength: "largo",
           
@@ -106,7 +106,7 @@ const datos = [
           age: "cachorro",
           gender: "macho",
           size: "pequeño",
-          breed: "coker spaniel",
+          breed: "Coker spaniel",
           color: ["blanco","marron"],
           coatLength: "corto",
           
@@ -117,7 +117,7 @@ const datos = [
           age: "cachorro",
           gender: "macho",
           size: "grande",
-          breed: ["pit bull", "labrador retriever"],
+          breed: ["Pit bull", "Labrador"],
           color: ["blanco","marron"],
           coatLength: "corto",
           
@@ -128,7 +128,7 @@ const datos = [
           age: "joven",
           gender: "macho",
           size: "grande",
-          breed: "galgo",
+          breed: "Galgo",
           color: "negro",
           coatLength: "corto",
           
@@ -148,7 +148,7 @@ const datos = [
           age: "adulto",
           gender: "macho",
           size: "mediano",
-          breed: "bulldog ingles",
+          breed: "Bulldog inglés",
           color: ["blanco", "marron"],
           coatLength: "corto",
           
@@ -159,7 +159,7 @@ const datos = [
           age: "adulto",
           gender: "macho",
           size: "mediano",
-          breed: ["bulldog frances", "boston terrier"],
+          breed: ["Bulldog francés", "Boston terrier"],
           color: ["negro", "blanco"],
           coatLength: "corto",
           
@@ -170,7 +170,7 @@ const datos = [
           age: "joven",
           gender: "hembra",
           size: "grande",
-          breed: ["border collie", "golden retriever"],
+          breed: ["Border collie", "Golden retriever"],
           color: ["negro", "blanco"],
           coatLength: "largo",
           
@@ -181,7 +181,7 @@ const datos = [
           age: "adulto",
           gender: "macho",
           size: "grande",
-          breed: "pastor aleman",
+          breed: "Pastor alemán",
           color: ["negro", "marron"],
           coatLength: "medio",
           
