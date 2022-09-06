@@ -4,42 +4,47 @@ import "../Components/Card.css"
 function Card (props) {
     var value = props.filterData
     const infoProtect = data.map(item => item.pets)
-    const [petFilter, setPetFilter] = useState([...infoProtect])
-    
-    const [petFound, setPetFound] = useState([...petFilter])
+
+    const [petFound, setPetFound] = useState([...infoProtect])
 
 
     function filterPets() {
         
-        
-        console.log(value, petFilter)
         if (Object.values(value).length === 0) {
-            setPetFound([...petFilter])
+            setPetFound([...infoProtect])
         } else {
-            console.log("hola")
-        }
+            
+                const lowerCaseName = props.filterData.name.toLowerCase()
+                const lowerCaseAge = props.filterData.age.toLowerCase()
+                const lowerCaseGender = props.filterData.gender.toLowerCase()
+                const lowerCaseSize = props.filterData.size.toLowerCase()
+                const lowerCaseCoat= props.filterData.coat.toLowerCase()
+           
+                const lowerCaseBreed = props.filterData.breed.toLowerCase()
+                const lowerCaseColor= props.filterData.color.toLowerCase()
+                
+                const filteredPet = infoProtect.map(item => item.filter(pet => {
+                    return (!lowerCaseName || pet.name.toLowerCase().includes(lowerCaseName))
+                    && (!lowerCaseAge || pet.age.toLowerCase().includes(lowerCaseAge)) 
+                    && (!lowerCaseGender || pet.gender.toLowerCase().includes(lowerCaseGender)) 
+                    && (!lowerCaseSize || pet.size.toLowerCase().includes(lowerCaseSize)) 
+                    && (!lowerCaseCoat || pet.coatLength.toLowerCase().includes(lowerCaseCoat))
+                    && (!lowerCaseBreed || pet.breed.includes(lowerCaseBreed))
+                    && (!lowerCaseColor || pet.color.includes(lowerCaseColor))
+                                     
+                }));
         
-        //else {
-        //     const filteredName = [...petFilter].filter(item => {
-        //         return item.name.toLowerCase().includes(lowerCaseValue)
-        //     });
-        //     setPetFound(filteredName);
-        //  }
+                setPetFound([...filteredPet])
+            
+        }
     }
-
-
-    
-    
-    // const name = infoProtect.map(pets => pets.map(pet => pet.name));
-    // const images = infoProtect.map(pets => pets.map(pet => console.log(`../img/id${pet.id}.jpg`)))
-    
-    
+  
     const cargarImagen = require.context("../img", true);
     
     return (
         <div id="container-card">
             <button onClick={filterPets}>Buscar</button>
-            {petFilter.map((pets, index) => (
+            {petFound.map((pets, index) => (
                 pets.map(pet => (
                     <div key={`pet.id${pet.id}`} id="card">
                         <div id="container-img">
