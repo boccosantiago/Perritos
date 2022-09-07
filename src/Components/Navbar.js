@@ -56,14 +56,6 @@ function Navbar(props) {
             </ul>
           </div>
         )}
-        {/* <ul>
-        <li>
-          <a href="login.asp">Entra</a>
-        </li>
-        <li>
-          <a href="signin.asp">Registrate</a>
-        </li>
-      </ul> */}
       </div>
     
   );
