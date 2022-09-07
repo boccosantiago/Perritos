@@ -4,7 +4,7 @@ import data from "../datos";
 function Filter(props) {
 
   const mascotas = []
-  const x = data.map(item => item.pets.map(pet=> mascotas.push(pet.breed.toString())))
+  data.map(item => item.pets.map(pet=> mascotas.push(pet.breed.toString())))
   const separ = mascotas.join()
   const separadas = Array.from(new Set(separ.split(',')));
 
