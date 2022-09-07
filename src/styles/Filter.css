@@ -1,0 +1,21 @@
+.filter-main{
+    color: white;
+    padding-left: 15px;
+}
+
+.filter-main p{
+    padding: 5px;
+}
+
+.filter-main input{
+    width: 142px;
+    padding: 2px;
+    border-radius: 20px;
+}
+
+.filter-main select{
+    width: 150px;
+    text-align: center;
+    padding: 2px;
+    border-radius: 20px;
+}

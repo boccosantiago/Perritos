@@ -30,12 +30,12 @@ function Navbar(props) {
           <div className="login-option">
             <ul>
               <li>
-                <button onClick={() => props.setPopupLogin(true)}>
+                <button className="entra" onClick={() => props.setPopupLogin(true)}>
                   Entra
                 </button>
               </li>
               <li>
-                <button className='register'onClick={() => props.setPopupSignin(true)}>
+                <button className='registrate'onClick={() => props.setPopupSignin(true)}>
                   Registrate
                 </button>
               </li>

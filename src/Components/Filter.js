@@ -1,13 +1,14 @@
 import React from "react";
 import data from "../datos";
+import '../styles/Filter.css'
 
 function Filter(props) {
-
-  const mascotas = []
-  data.map(item => item.pets.map(pet=> mascotas.push(pet.breed.toString())))
-  const separ = mascotas.join()
-  const separadas = Array.from(new Set(separ.split(',')));
-
+  const mascotas = [];
+  data.map((item) =>
+    item.pets.map((pet) => mascotas.push(pet.breed.toString()))
+  );
+  const separ = mascotas.join();
+  const separadas = Array.from(new Set(separ.split(",")));
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -20,12 +21,13 @@ function Filter(props) {
   }
 
   return (
-    <div>
+    <div className="filter-main">
       <div>
         <p>Nombre</p>
         <input
           type="text"
-          placeholder="Kimba"
+          placeholder="Escriba un nombre"
+          name="name"
           onChange={(e) => {
             handleChange(e);
           }}
@@ -33,108 +35,94 @@ function Filter(props) {
       </div>
       <div>
         <p>Edad</p>
-        <input
+        <select
+          name="age"
           id="listAge"
-          type="text"
-          name="edad"
-          list="dataListAge"
-          placeholder="Adulto"
           onChange={(e) => {
             handleChange(e);
           }}
-        />
-        <datalist id="dataListAge">
-          <option value="Cachorro" />
-          <option value="Joven" />
-          <option value="Adulto" />
-        </datalist>
+        >
+          <option value="">Seleccionar</option>
+          <option value="Cachorro">Cachorro</option>
+          <option value="Joven">Joven</option>
+          <option value="Adulto">Adulto</option>
+        </select>
       </div>
       <div>
         <p>Sexo</p>
-        <input
-          type="text"
-          name="sexo"
-          list="dataListSex"
-          placeholder="Macho"
+        <select
+          name="gender"
+          id="dataListSex"
           onChange={(e) => {
             handleChange(e);
           }}
-        />
-        <datalist id="dataListSex">
-          <option value="Macho" />
-          <option value="Hembra" />
-        </datalist>
+        >
+          <option value="">Seleccionar</option>
+          <option value="Macho">Macho</option>
+          <option value="Hembra">Hembra</option>
+        </select>
       </div>
       <div>
         <p>Raza</p>
-        <input
-          type="text"
-          name="raza"
-          list="dataListBreed"
-          placeholder="Pitbull"
+        <select
+          name="breed"
+          id="listBreed"
           onChange={(e) => {
             handleChange(e);
           }}
-        />
-        <select id="dataListBreed">
-        <option value=''>Select</option>
-        {separadas.map((item)=>(
-           <option value={item} key={item}>
-            {item}
-           </option> 
-        ))}
+        >
+          <option value="">Seleccionar</option>
+          {separadas.map((item) => (
+            <option value={item} key={item}>
+              {item}
+            </option>
+          ))}
         </select>
       </div>
       <div>
         <p>Color</p>
-        <input
-          type="text"
+       <select
           name="color"
-          list="dataListColor"
-          placeholder="Negro"
+          id="listColor"
           onChange={(e) => {
             handleChange(e);
           }}
-        />
-        <datalist id="dataListColor">
-          <option value="Negro" />
-          <option value="Blanco" />
-          <option value="Marrón" />
-        </datalist>
+        >
+          <option value="">Seleccionar</option>
+          <option value="Negro">Negro</option>
+          <option value="Blanco">Blanco</option>
+          <option value="Marrón">Marrón</option>
+        </select> 
       </div>
       <div>
         <p>Tamaño</p>
-        <input
-          type="text"
-          name="tamaño"
-          list="dataListSize"
-          placeholder="Grande"
+        <select
+          name="size"
+          id="listSize"
           onChange={(e) => {
             handleChange(e);
           }}
-        />
-        <datalist id="dataListSize">
-          <option value="Pequeño" />
-          <option value="Mediano" />
-          <option value="Grande" />
-        </datalist>
+        >
+          <option value="">Seleccionar</option>
+          <option value="Pequeño">Pequeño</option>
+          <option value="Mediano">Mediano</option>
+          <option value="Grande">Grande</option>
+        </select>
       </div>
       <div>
         <p>Pelaje</p>
-        <input
-          type="text"
-          name="pelaje"
-          list="dataListCoat"
-          placeholder="Corto"
+        <select
+          name="coat"
+          id="listCoat"
           onChange={(e) => {
             handleChange(e);
           }}
-        />
-        <datalist id="dataListCoat">
-          <option value="Corto" />
-          <option value="Mediano" />
-          <option value="Largo" />
-        </datalist>
+        >
+          <option value="">Seleccionar</option>
+          <option value="Corto">Corto</option>
+          <option value="Mediano">Mediano</option>
+          <option value="Largo">Largo</option>
+        </select>
       </div>
     </div>
   );

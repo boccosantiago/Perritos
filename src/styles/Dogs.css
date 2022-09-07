@@ -1,0 +1,65 @@
+.container-dog{
+    background-color: rgb(49, 73, 193);
+    padding-top: 60px;
+    margin: auto;
+}
+
+.dog-card{
+    text-align: left;
+    margin: 20px auto;
+    border: 2px solid black;
+    padding: 20px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0px 2px 5px 0px #000000;
+    width: 350px;
+
+}
+
+.img-card{
+    width: 100%;
+    object-fit: cover;
+    margin: 20px;
+    border-radius: 20px ;
+    margin: auto ;
+}
+
+h1{
+    margin: 10px;
+}
+
+
+.dog-data{
+    display: block;
+}
+
+.regresar{
+    color: rgb(255, 255, 255);
+    font-size: 1.5em;
+    text-decoration: none;
+    padding: 0 20px;
+}
+
+.regresar:hover{
+    color: rgb(237, 76, 76);
+}
+
+.adoptame{
+    color: rgb(255, 255, 255);
+    font-size: large;
+    text-decoration: none;
+    float: right;
+    background-color: rgb(79, 79, 231);
+    padding: 10px;
+    border-radius: 20px;
+    border: 2px solid black;
+}
+
+.adoptame:hover{
+    background-color: rgb(238, 84, 84);
+}
+
+.links-dog{
+    padding: 0 0 20px 0;
+    text-align: center;
+}

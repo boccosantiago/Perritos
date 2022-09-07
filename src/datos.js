@@ -3,6 +3,7 @@ const datos = [
       shelterName: "sosperreradelosbarrios",
       email: "sosperreradelosbarrios@hotmail.com",
       address: "Lugar Ringo Rango, 21, 11370, Los Barrios, Cádiz",
+      city: "Cádiz",
       phone: "902506893",
       web: "https://www.perreradelosbarrios.com/",
       pets: [
@@ -12,7 +13,8 @@ const datos = [
           age: "Cachorro",
           gender: "Macho",
           size: "Pequeño",
-          breed: "Blanco",
+          breed: "Chihuahua",
+          color: "Blanco",
           coatLength: "Corto",
           
         },
@@ -44,6 +46,7 @@ const datos = [
       shelterName: "El arca de Noé",
       email: "elarcadenoecordoba@gmail.com",
       address: "C. Pintor, 1, 14650 Bujalance, Córdoba",
+      city: "Córdoba",
       phone: "917237835",
       web: "https://arcanoecordoba.es/",
       pets: [
@@ -97,6 +100,7 @@ const datos = [
       shelterName: "Fundacion trifolium",
       email: "fundaciontrifolium@gmail.com",
       address: "Passeig del Pitort, 25, 08860 Castelldefels, Barcelona",
+      city: "Barcelona",
       phone: "932786634",
       pets: [
         {
@@ -107,7 +111,7 @@ const datos = [
           size: "Pequeño",
           breed: "Coker spaniel",
           color: ["Blanco","Marrón"],
-          coatLength: "Corto",
+          coatLength: "Mediano",
           
         },
         {
@@ -137,7 +141,8 @@ const datos = [
     {
       shelterName: "Zarpas y Colmillos",
       email: "contacto@zarpasycolmillos.es",
-      address: "Calle Dr. Espina, 39, 28019 Madrid",
+      address: "Calle Dr. Espina, 39, 28019, Madrid",
+      city: "Madrid",
       phone: "848171717",
       web: "https://www.zarpasycolmillos.es/",
       pets: [
@@ -190,7 +195,7 @@ const datos = [
           name: "Kiara",
           age: "Cachorro",
           gender: "Hembra",
-          size: "Grande",
+          size: "Pequeño",
           breed: ["Jack Russell", "Yorkshire Terrier"],
           color: ["Blanco", "Marrón"],
           coatLength: "Corto",

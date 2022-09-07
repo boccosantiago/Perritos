@@ -1,4 +1,10 @@
+html{
+  height: 100vh;
+  background: rgb(49, 73, 193);
+}
 .container-main{
+  display: flex;
   padding-top: 70px;
-  background: #cdc4bb;
+ 
+  height: 100%;
 }

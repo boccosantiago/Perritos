@@ -1,16 +1,17 @@
 .navBar{
     display: flex;
     justify-content: space-between;
-    position: fixed;
+    position: absolute;
     font-size: large;
     height: 60px;
     align-items: center;
     width: 100%;
     
+    
 }
 
 .main-navigation{
-    margin: 10px;
+  float: right;
 }
 
 .login-option{
@@ -22,50 +23,69 @@
     padding: 0;
 }
 
-a {
+.main-navigation a {
     text-decoration: none;
     padding: 0px 10px;
     color: white;
+    transition: all 0.5s;
     
 }
 
-a:hover {
+.main-navigation a:hover {
     text-decoration: none;
-    padding: 0px 10px;
-    color: rgb(185, 141, 141);
+    color: rgb(225, 62, 62);
+    transition: all 0.5s;
 }
 
 li {
     display: inline;
   }
 
-button{
-        margin: 0 20px;
-        padding: 10px 10px;
+.login-option button{
+     
+        padding: 10px 30px;
         border: none;
         background-color: transparent;
         font-size: large;
         cursor: pointer;
         border-radius: 20px;
         color: white;
+        transition: all 0.5s;
 }
 
-.register:hover{
-    margin: 0 18px;
+.login-option .entra:hover{
+    color: rgb(0, 0, 0);
+    transition: all 0.5s ;
+    color: rgb(225, 62, 62);
+}
+
+
+.registrate:hover{
+    margin: 0 5px;
     color: white;
     border: 2px solid white;
-    background-color: rgb(255, 52, 52);
+    background-color: rgb(225, 62, 62);
     cursor: pointer;
-    padding: 10px 10px;
+
     border-radius: 20px;
-    transition: all 0.5s
+    transition: all 0.5s;
+}
+
+ul{
+    padding: 0 10px;
 }
 
 .perritos{
-    margin: 10px 10px;
-    padding: 0px 10px;
-    font-size: larger;
+    padding-right: 10px;
+    font-size: 1.5em;
     font-weight: 700;
-    color: rgb(88, 13, 13);
+    color: rgb(255, 255, 255);
+    transition: all 0.5s ;
 
+}
+
+.perritos:hover{
+    color: rgb(225, 62, 62);
+    cursor: pointer;
+    transition: all 0.5s ;
 }

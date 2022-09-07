@@ -16,29 +16,29 @@
 }
 
 .empezar{
-    color: rgb(117, 29, 29);
-    border: 2px solid rgb(117, 29, 29);
+    color: rgb(225, 62, 62);
+    border: none;
     border-radius: 20px;
+    font-size: 1em;
     margin: 5px;
-    padding: 7px;
+    padding: 10px;
     font-weight: 500;
     cursor: pointer;
-
+    transition: all 0.7s;
 }
 
 .empezar:hover{
-    background-color: rgb(117, 29, 29);
+    background-color: rgb(225, 62, 62);
     color: white;
-    border: 2px solid rgb(117, 29, 29);
     border-radius: 20px;
     margin: 5px;
-    padding: 7px;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.3s;
+    transform: scale(1.1);
 }
 
-p {
+.home-text {
     margin: 30px 0;
 }
 

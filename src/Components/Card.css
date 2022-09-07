@@ -1,24 +1,71 @@
+
 #container-card{
     display: flex;
     flex-wrap: wrap;
 }
 
 #card{
-    border: 2px solid rgb(132, 132, 132);
     border-radius: 20px;
     padding: 0.5rem;
     margin: 1rem;
     width: 10rem;
     background-color: white;
+    box-shadow: 0px 2px 5px 0px #000000;
 }
+
+#card:hover{
+    transform: scale(1.1);
+    transition: all 0.2s;
+}
+
 #img-card{
-    width: 9rem;
-    height: 7rem; 
+    width: 10rem;
+    height: 90%;
     object-fit: cover;
     border-radius: 20px;
+    
 }
 
 #container-img {
     height: 8rem;
     width: 6rem;
 }
+
+.pet-name{
+    color: rgb(45, 68, 216);
+    text-align: center;
+    font-weight: 700;
+}
+
+#container-card a{
+    text-decoration: none;
+}
+
+.buscar{
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    top: 70%;
+    border: none;
+    left: 50px;
+    cursor: pointer;
+    color: rgb(225, 62, 62);
+    border-radius: 20px;
+    font-size: 1em;
+    margin: 5px;
+    padding: 10px;
+    font-weight: 500;
+    transition: all 0.7s;
+}
+
+.buscar:hover{
+    background-color: rgb(225, 62, 62);
+    color: white;
+    margin: 5px;
+    font-weight: 500;
+    transition: all 0.3s;
+    transform: scale(1.1);
+}
+
+
+
+
