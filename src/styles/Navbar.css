@@ -6,8 +6,7 @@
     height: 60px;
     align-items: center;
     width: 100%;
-    
-    
+    z-index: 10;
 }
 
 .main-navigation{
@@ -33,7 +32,7 @@
 
 .main-navigation a:hover {
     text-decoration: none;
-    color: rgb(225, 62, 62);
+    color: rgb(255, 183, 116);
     transition: all 0.5s;
 }
 
@@ -41,9 +40,8 @@ li {
     display: inline;
   }
 
-.login-option button{
-     
-        padding: 10px 30px;
+.login-option .entra{
+        padding: 10px 10px;
         border: none;
         background-color: transparent;
         font-size: large;
@@ -52,22 +50,39 @@ li {
         color: white;
         transition: all 0.5s;
 }
-
 .login-option .entra:hover{
     color: rgb(0, 0, 0);
     transition: all 0.5s ;
-    color: rgb(225, 62, 62);
+    color: rgb(255, 183, 116);
+}
+.login-option .registrate{
+    padding: 10px 20px;
+    margin-right: 10px ;
+    border: none;
+    background-color: transparent;
+    font-size: large;
+    cursor: pointer;
+    border-radius: 20px;
+    color: white;
+    transition: all 0.5s;
+}
+
+.login-option a{
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    border-radius: 20px;
+    padding: 10px 10px;
+    box-shadow: 0 0 5px 0;
 }
 
 
 .registrate:hover{
-    margin: 0 5px;
     color: white;
-    border: 2px solid white;
     background-color: rgb(225, 62, 62);
     cursor: pointer;
-
     border-radius: 20px;
+    transform: scale(1.05);
     transition: all 0.5s;
 }
 
@@ -89,3 +104,4 @@ ul{
     cursor: pointer;
     transition: all 0.5s ;
 }
+

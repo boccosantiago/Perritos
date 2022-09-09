@@ -1,10 +1,11 @@
 import { FaHeart } from "react-icons/fa";
 import { MdExitToApp } from "react-icons/md";
 import React from "react";
+import '../styles/Profile.css'
 
 function profile(){
     return (
-    <div>
+    <div className="profile-container">
         <h1>Mi Perfil</h1>
         <div id="container__info">
         <img alt=""></img>

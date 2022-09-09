@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import data from "../datos";
-import "../Components/Card.css";
+import "../styles/Card.css";
 import { Link } from "react-router-dom";
+
 
 function Card(props) {
   const value = props.filterData;

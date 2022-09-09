@@ -1,5 +1,4 @@
 .container-dog{
-    background-color: rgb(49, 73, 193);
     padding-top: 60px;
     margin: auto;
 }
@@ -7,12 +6,13 @@
 .dog-card{
     text-align: left;
     margin: 20px auto;
-    border: 2px solid black;
+    border: none;
     padding: 20px;
     background-color: white;
     border-radius: 20px;
     box-shadow: 0px 2px 5px 0px #000000;
     width: 350px;
+    animation: appear 1s;
 
 }
 
@@ -26,6 +26,11 @@
 
 h1{
     margin: 10px;
+}
+
+.location{
+    color: gray;
+    font-weight: 400;
 }
 
 
@@ -63,3 +68,12 @@ h1{
     padding: 0 0 20px 0;
     text-align: center;
 }
+
+#svg{
+    position: fixed;
+    z-index: -1;
+    right: 0;
+    left: 0;
+    width: auto;
+
+  }

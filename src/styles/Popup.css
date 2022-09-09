@@ -17,18 +17,19 @@
   width: 80%;
   max-width: 640px;
   text-align: center;
-  background-color: rgb(182, 168, 168);
+  background-color: rgb(244, 110, 0);
   border-radius: 20px;
+  box-shadow: 0 0 5px 0px;
 }
 
 .popup-inner h2 {
-  color: rgb(231, 225, 225);
+  color: white;
   font-weight: 500;
   font-size: 2em;
 }
 
 .popup-inner label {
-  color: rgb(255, 255, 255);
+  color:white;
  
 }
 
@@ -80,7 +81,7 @@
 }
 
 .error {
-  color: rgb(247, 55, 55);
+  color: rgb(247, 212, 55);
   font-size: 0.8em;
   margin: 5px 0;
 }
@@ -100,13 +101,13 @@
 }
 
 .success {
-  color: rgb(53, 65, 53);
+  color: rgb(92, 126, 92);
   font-size: 1.5em;
   margin-top: 20px;
 }
 
 .fail {
-  color: rgb(148, 0, 0);
+  color: rgb(255, 255, 255);
   font-size: 1.5em;
   margin-top: 20px;
 }

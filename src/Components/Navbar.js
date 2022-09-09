@@ -4,6 +4,12 @@ import "../styles/Navbar.css";
 
 function Navbar(props) {
 
+  const userName = props.newUsers.filter(
+    (item) =>
+      item.email === props.userLogin.email &&
+      item.password === props.userLogin.password
+  );
+
 
   return (
     <div className="navBar">
@@ -45,11 +51,11 @@ function Navbar(props) {
           <div className="login-option">
             <ul>
               <li>
-                {/* <p>Hi, {userName[0].firstName}</p> */}
+               {<Link className="user-text" to='/profile'>{userName[0].firstName}</Link>}
               </li>
               
               <li>
-                <button onClick={() => props.setUserLogin(false)}>
+                <button className='entra' onClick={() => props.setUserLogin(false)}>
                   Salir
                 </button>
               </li>
