@@ -6,6 +6,7 @@
 }
 
 #card{
+    position: relative;
     border-radius: 20px;
     padding: 0.5rem;
     margin: 1rem;
@@ -33,7 +34,7 @@
 
 .pet-name{
     color: rgb(255, 64, 0);
-    text-align: center;
+    
     font-weight: 700;
 }
 
@@ -64,6 +65,14 @@
     font-weight: 500;
     transition: all 0.3s;
     transform: scale(1.1);
+}
+
+.heart{
+    cursor: pointer;
+    position: absolute;
+    bottom: 7px;
+    right: 10px;
+    font-size: larger;
 }
 
 @keyframes appear {

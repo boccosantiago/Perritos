@@ -10,18 +10,18 @@ function Dogs() {
   const params = useParams();
   const infoProtect = data.map((item) => item.pets);
 
-  const array = [];
-  infoProtect.map((item) => item.map((y) => array.push(y)));
-  const result = array.filter((item) => item.id === Number(params.id));
+  const arrayPets = [];
+  infoProtect.map((item) => item.map((y) => arrayPets.push(y)));
+  const result = arrayPets.filter((item) => item.id === Number(params.id));
   let dogData = result[0];
 
-  console.log("infoprotect", infoProtect);
-  console.log("result", result[0]);
-  console.log("params", typeof params.id);
+ console.log("infoprotect", result);
+ // console.log("result", result[0]);
+ // console.log("params", typeof params.id);
 
   const indexProtectora = infoProtect.findIndex(item => item.findIndex(pet => pet.id === Number(params.id)) > -1);
 
-  console.log("index", data[indexProtectora]);
+  //console.log("index", data[indexProtectora]);
 
 
 
