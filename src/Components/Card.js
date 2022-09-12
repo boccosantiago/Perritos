@@ -50,6 +50,12 @@ console.log('value', value)
     }
   }
 
+  const [like, setLike] = useState(false)
+
+  function handleLike(){
+    like ? setLike(false) : setLike(true)
+  }
+
   const cargarImagen = require.context("../img", true);
 
   return (
@@ -59,8 +65,9 @@ console.log('value', value)
       
       {petFound.map((pets, index) =>
         pets.map((pet) => (
-          <Link to={`./${pet.id}`} key={pet.id}>
-            <div id="card">
+          
+            <div id="card" key={pet.id}>
+              <Link to={`./${pet.id}`} >
               <div id="container-img">
                 <img
                   id="img-card"
@@ -68,9 +75,11 @@ console.log('value', value)
                   src={cargarImagen(`./id${pet.id}.jpg`)}
                 ></img>
               </div>
-             <p className="pet-name">{pet.name}</p> 
+             <p className="pet-name">{pet.name}</p>
+             </Link>
+             <p style={{cursor:'pointer'}} onClick={handleLike}>{like ? '💖':'🤍'}</p>
             </div>
-          </Link>
+          
         ))
       )}
      </div>

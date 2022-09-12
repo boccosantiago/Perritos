@@ -8,6 +8,7 @@ import { useState, useEffect } from 'react';
 import Navbar from "./Components/Navbar";
 import Popup from "./Components/Popup";
 import Dogs from './Components/Dogs';
+import Map from './Components/Maps/Maps'
 
 function App() {
 
@@ -85,10 +86,9 @@ function App() {
        <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/main" element={<Main/>} />
-
         <Route path="/main/:id" element={<Dogs/>} />
-
         <Route path="/profile" element={<Profile/>} />
+        <Route path="/maps" element={<Map/>} />
 
       </Routes>
       </BrowserRouter>
