@@ -75,6 +75,14 @@
     font-size: larger;
 }
 
+.heart:hover{
+    transform: scale(1.2);
+  }
+
+.heart:active{
+    transform: scale(1);
+}  
+
 @keyframes appear {
     0%{
         opacity: 0;
@@ -86,5 +94,8 @@
     }
 }
 
+span{
+    padding-left: 50px ;
+}
 
 
