@@ -1,8 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import FavoriteContext from "../contexts/favoritesContext";
 import "../styles/Navbar.css";
 
+const {useContext} = React;
+
 function Navbar(props) {
+
+  const {favoriteDogs} = useContext(FavoriteContext);
 
   const userName = props.newUsers.filter(
     (item) =>
@@ -29,6 +34,9 @@ function Navbar(props) {
         </li>
         <li>
           <a href="about.asp">Que es Perritos</a>
+        </li>
+        <li>
+          <span>💙{favoriteDogs.length}</span>
         </li>
         </ul>
         </div> 

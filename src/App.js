@@ -8,6 +8,8 @@ import { useState, useEffect } from 'react';
 import Navbar from "./Components/Navbar";
 import Popup from "./Components/Popup";
 import Dogs from './Components/Dogs';
+import Map from './Components/Maps/Maps'
+import { FavoriteProvider } from './contexts/favoritesContext';
 
 function App() {
 
@@ -56,8 +58,24 @@ function App() {
 
   const isLoggedIn = userLogin ? true : false;
 
+  const [favorites, setFavorites] = useState([])
+ 
+  const updateFavoriteDogs = (name) =>{
+    const updated = [...favorites];
+    const isFavorite = favorites.indexOf(name);
+    if(isFavorite >= 0) {
+      updated.splice(isFavorite, 1)
+    } else {
+      updated.push(name);
+    }
+    setFavorites(updated);
+  }
 
   return (
+    <FavoriteProvider value={{favoriteDogs: favorites,
+    updateFavoriteDogs: updateFavoriteDogs
+    }}
+    >
     <div className="App">
       <BrowserRouter>
       <Navbar
@@ -85,14 +103,14 @@ function App() {
        <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/main" element={<Main/>} />
-
         <Route path="/main/:id" element={<Dogs/>} />
-
         <Route path="/profile" element={<Profile/>} />
+        <Route path="/maps" element={<Map/>} />
 
       </Routes>
       </BrowserRouter>
     </div>
+    </FavoriteProvider>
   );
 }
 

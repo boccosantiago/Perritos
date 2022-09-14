@@ -4,6 +4,7 @@
 }
 
 .dog-card{
+    position: relative;
     text-align: left;
     margin: 20px auto;
     border: none;
@@ -16,7 +17,7 @@
 
 }
 
-.img-card{
+.img-dog-card{
     width: 100%;
     object-fit: cover;
     margin: 20px;
@@ -77,3 +78,19 @@ h1{
     width: auto;
 
   }
+
+  .heart-dogs{
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 2em;
+    cursor: pointer;
+  }
+
+  .heart-dogs:hover{
+    transform: scale(1.1);
+  }
+
+  .heart-dogs:active{
+    transform: scale(1);
+}  
