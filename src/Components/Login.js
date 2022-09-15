@@ -6,6 +6,7 @@ import { BsCheck2Circle } from "react-icons/bs";
 import { RiCloseCircleLine } from "react-icons/ri";
 
 export default function Login (props) {
+    console.log("loginprops", props)
     const [isLogged, setIsLogged] = useState(null);
 
     function handleLogin(e) {
