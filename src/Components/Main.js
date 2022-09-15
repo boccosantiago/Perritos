@@ -5,7 +5,7 @@ function Main () {
 return (
     <div>
         <img></img>
-        <h2>PAGINA PRINCIPAL</h2>
+        <h2>PAG PRINCIPAL</h2>
         <p>Descripción</p>
         <Link to='/'><a>HOME</a></Link>
     </div>
