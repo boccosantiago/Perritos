@@ -6,19 +6,32 @@ import Profile from './Components/Profile';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Navbar from "./Components/Navbar";
-import Popup from "./Components/Popup";
+// import Popup from "./Components/Popup";
 import Dogs from './Components/Dogs';
 import Map from './Components/Maps/Maps'
 import { FavoriteProvider } from './contexts/favoritesContext';
+import Login from "./Components/Login"
+import Signup from "./Components/Signup"
 
 function App() {
 
   const [popupLogin, setPopupLogin] = useState(false);
   const [popupSignin, setPopupSignin] = useState(false);
+
   const [loginValues, setLoginValues] = useState({
     email: "",
     password: "",
   });
+
+  function handleChangeLogin(event) {
+    const { name, value } = event.target
+    setLoginValues(preValue => {
+      return {
+        ...preValue,
+        [name]: value
+      }
+    })
+  }
 
   const [userLogin, setUserLogin] = useState(() => {
     const initial = false;
@@ -88,7 +101,7 @@ function App() {
           setUserLogin={setUserLogin}
           userLogin={userLogin}
         />
-        <Popup
+        {/* <Popup
           triggerLogin={popupLogin}
           setTriggerLogin={setPopupLogin}
           triggerSignin={popupSignin}
@@ -99,14 +112,15 @@ function App() {
           loginValues={loginValues}
           setLoginValues={setLoginValues}
           addNewUserLogin={addNewUserLogin}
-        />
+        /> */}
        <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/main" element={<Main/>} />
         <Route path="/main/:id" element={<Dogs/>} />
         <Route path="/profile" element={<Profile/>} />
         <Route path="/maps" element={<Map/>} />
-
+        <Route path="/login" element={<Login newUsers={newUsers} loginValues={loginValues} addNewUserLogin={addNewUserLogin} handleChangeLogin={handleChangeLogin} setUserLogin={setUserLogin} />} />
+        <Route path="/register" element={<Signup setNewUsers={setNewUsers} newUsers={newUsers} />} />
       </Routes>
       </BrowserRouter>
     </div>

@@ -44,14 +44,21 @@ function Navbar(props) {
           <div className="login-option">
             <ul>
               <li>
-                <button className="entra" onClick={() => props.setPopupLogin(true)}>
+                {/* <button className="entra" onClick={() => props.setPopupLogin(true)}>
                   Entra
-                </button>
+                </button> */}
+                <div>
+                  {<Link to="/login" />}
+                  Entra
+                </div>
               </li>
               <li>
-                <button className='registrate'onClick={() => props.setPopupSignin(true)}>
+                {/* <button className='registrate'onClick={() => props.setPopupSignin(true)}>
                   Registrate
-                </button>
+                </button> */}
+                <div>
+                {<Link to="/signup" />}
+                </div>
               </li>
             </ul>
           </div>
