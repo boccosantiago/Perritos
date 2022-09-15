@@ -1,12 +1,14 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import data from "../datos";
 import "../styles/Card.css";
 import { Link } from "react-router-dom";
 import FavoriteContext from "../contexts/favoritesContext";
 
+
 function Card(props) {
   const value = props.filterData;
   const infoProtect = data.map((item) => item.pets);
+  const {favoriteDogs, updateFavoriteDogs} = useContext(FavoriteContext)
   const [petFound, setPetFound] = useState([...infoProtect]);
 
   function filterPets() {
@@ -42,12 +44,21 @@ function Card(props) {
     }
   }
 
-  console.log('Perris', petFound)
-  
-  const { favoriteDogs, updateFavoriteDogs } = useContext(FavoriteContext);
-  console.log('FAVS', favoriteDogs)
+  const [favorite, setFavorite] = useState([]);
 
+  function updateFavorite (itemId) {
+    let updatedFavorite = [...favorite];
+    if (!updatedFavorite.includes(itemId)) {
+      updatedFavorite = [...favorite, itemId];
+    } else {
+      updatedFavorite = updatedFavorite.filter(
+        (favoriteItem) => itemId !== favoriteItem
+      );
+    }
+    setFavorite(updatedFavorite);
+  };
 
+  console.log('fav', favorite)
 
   const cargarImagen = require.context("../img", true);
 
@@ -58,7 +69,7 @@ function Card(props) {
       </button>
       <div id="container-card">
         {petFound.map((pets) =>
-          pets.map((pet) => (
+          pets.map((pet, index) => (
             <div id="card" key={pet.id}>
               <Link to={`./${pet.id}`}>
                 <div id="container-img">
@@ -70,18 +81,17 @@ function Card(props) {
                 </div>
                 <p className="pet-name">{pet.name}</p>
               </Link>
-              
-              {props.isLoggedIn ? (
-                <div className="heart" onClick={() => updateFavoriteDogs(pet.name)}>
-               {favoriteDogs.includes(pet.name) ? "❤️" : "🤍"}
-              </div>): <div className="heart">🤍</div>}
-              
+              <div className="heart" onClick={() => updateFavorite(pet.id)}>
+                {favorite.includes(pet.id) ? "❤️" : "🤍"}
+              </div>
             </div>
           ))
         )}
       </div>
     </div>
   );
+  
 }
 
 export default Card;
+

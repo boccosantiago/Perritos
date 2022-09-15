@@ -1,0 +1,26 @@
+.filter-main{
+    color: white;
+    padding-left: 30px;
+
+}
+
+.filter-main p{
+    padding: 5px;
+}
+
+.filter-main input{
+    width: 150px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+}
+
+.filter-main select{
+    width: 150px;
+    text-align: center;
+    padding: 2px;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+}
