@@ -70,9 +70,12 @@ function Card(props) {
                 </div>
                 <p className="pet-name">{pet.name}</p>
               </Link>
-               <div className="heart" onClick={() => updateFavoriteDogs(pet.name)}>
+              
+              {props.isLoggedIn ? (
+                <div className="heart" onClick={() => updateFavoriteDogs(pet.name)}>
                {favoriteDogs.includes(pet.name) ? "❤️" : "🤍"}
-              </div> 
+              </div>): <div className="heart">🤍</div>}
+              
             </div>
           ))
         )}

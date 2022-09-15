@@ -118,9 +118,9 @@ function App() {
         <Route path="/main" element={<Main/>} />
         <Route path="/main/:id" element={<Dogs/>} />
         <Route path="/profile" element={<Profile/>} />
-        <Route path="/maps" element={<Map/>} />
+        <Route path="/maps" element={<Map isLoggedIn={isLoggedIn}/>} />
         <Route path="/login" element={<Login newUsers={newUsers} loginValues={loginValues} addNewUserLogin={addNewUserLogin} handleChangeLogin={handleChangeLogin} setUserLogin={setUserLogin} />} />
-        <Route path="/register" element={<Signup setNewUsers={setNewUsers} newUsers={newUsers} />} />
+        <Route path="/signup" element={<Signup setNewUsers={setNewUsers} newUsers={newUsers} />} />
       </Routes>
       </BrowserRouter>
     </div>
