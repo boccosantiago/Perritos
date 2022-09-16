@@ -1,15 +1,25 @@
 import React from "react";
 import { Link } from "react-router-dom";
-function Home () {
+import "../styles/Home.css";
 
-return (
+
+function Home() {
+
+
+  
+  return (
     <div>
-        <img></img>
-        <h2>BIENVENIDO</h2>
-        <p>Descripción</p>
-        <Link to='/main'><button>Empezar</button></Link>
-    </div>
-)
+      <div className="container">
+        <div className="main">
+          <h2>BIENVENIDO</h2>
+          <p className="home-text">Todos los animales publicados en Perritos, provienen de entidades protectoras de animales (asociaciones protectoras, refugios, fundaciones, perreras, etc). Así tenemos la certeza que realmente necesitan un hogar. En Perritos no encontrarás animales que provengan de particulares. Recuerda que nuestro fin es salvar el mayor número de animales posible, y que encuentres un amigo para siempre.</p>
+          <Link to="/main">
+            <button className="empezar">Empezar</button>
+          </Link>
+        </div>
+      </div>
+      </div>
+  );
 }
 
-export default Home
+export default Home;
