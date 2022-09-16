@@ -119,9 +119,9 @@ function App() {
        <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/main" element={<Main isLoggedIn={isLoggedIn}/>} />
-        
         <Route path="/main/:id" element={
-        <Protected isLoggedIn={isLoggedIn}><Dogs/></Protected>} />
+          <Protected isLoggedIn={isLoggedIn}><Dogs/></Protected>} 
+         />
         <Route path="/profile" element={<Profile/>} />
         <Route path="/maps" element={<Map />} />
         <Route path="/login" element={<Login newUsers={newUsers} setLoginValues={setLoginValues} loginValues={loginValues} addNewUserLogin={addNewUserLogin} handleChangeLogin={handleChangeLogin} setUserLogin={setUserLogin} />} />
