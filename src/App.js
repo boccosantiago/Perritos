@@ -12,6 +12,7 @@ import Map from './Components/Maps/Maps'
 import { FavoriteProvider } from './contexts/favoritesContext';
 import Login from "./Components/Login"
 import Signup from "./Components/Signup"
+import Protected from "./Components/protected";
 
 function App() {
 
@@ -111,10 +112,14 @@ function App() {
           setLoginValues={setLoginValues}
           addNewUserLogin={addNewUserLogin}
         /> */}
+
+
        <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/main" element={<Main isLoggedIn={isLoggedIn}/>} />
-        <Route path="/main/:id" element={<Dogs/>} />
+        <Route path="/main/:id" element={
+          <Protected isLoggedIn={isLoggedIn}><Dogs/></Protected>} 
+         />
         <Route path="/profile" element={<Profile/>} />
         <Route path="/maps" element={<Map />} />
         <Route path="/login" element={<Login newUsers={newUsers} setLoginValues={setLoginValues} loginValues={loginValues} addNewUserLogin={addNewUserLogin} handleChangeLogin={handleChangeLogin} setUserLogin={setUserLogin} />} />
