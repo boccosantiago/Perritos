@@ -15,8 +15,8 @@ import Signup from "./Components/Signup"
 
 function App() {
 
-  const [popupLogin, setPopupLogin] = useState(false);
-  const [popupSignin, setPopupSignin] = useState(false);
+/*   const [popupLogin, setPopupLogin] = useState(false);
+  const [popupSignin, setPopupSignin] = useState(false); */
 
   const [loginValues, setLoginValues] = useState({
     email: "",
@@ -92,8 +92,6 @@ function App() {
     <div className="App">
       <BrowserRouter>
       <Navbar
-          setPopupLogin={setPopupLogin}
-          setPopupSignin={setPopupSignin}
           isLoggedIn={isLoggedIn}
           newUsers={newUsers}
           loginValues={loginValues}
@@ -115,10 +113,10 @@ function App() {
         /> */}
        <Routes>
         <Route path="/" element={<Home/>} />
-        <Route path="/main" element={<Main/>} />
+        <Route path="/main" element={<Main isLoggedIn={isLoggedIn}/>} />
         <Route path="/main/:id" element={<Dogs/>} />
         <Route path="/profile" element={<Profile/>} />
-        <Route path="/maps" element={<Map isLoggedIn={isLoggedIn}/>} />
+        <Route path="/maps" element={<Map />} />
         <Route path="/login" element={<Login newUsers={newUsers} setLoginValues={setLoginValues} loginValues={loginValues} addNewUserLogin={addNewUserLogin} handleChangeLogin={handleChangeLogin} setUserLogin={setUserLogin} />} />
         <Route path="/signup" element={<Signup setNewUsers={setNewUsers} newUsers={newUsers} />} />
       </Routes>
