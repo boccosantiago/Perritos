@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import data from "../datos";
 import "../styles/Card.css";
 import { Link } from "react-router-dom";
-import FavoriteContext from "../contexts/favoritesContext";
+import FavoriteDog from "./FavoriteDog";
 
 function Card(props) {
   const value = props.filterData;
@@ -21,8 +21,7 @@ function Card(props) {
       const lowerCaseBreed = props.filterData.breed;
       const lowerCaseColor = props.filterData.color;
 
-      //  console.log('lower', lowerCaseColor)
-
+    
       const filteredPet = infoProtect.map((item) =>
         item.filter((pet) => {
           return (
@@ -41,11 +40,7 @@ function Card(props) {
       setPetFound([...filteredPet]);
     }
   }
-
-  console.log('Perris', petFound)
-  
-  const { favoriteDogs, updateFavoriteDogs } = useContext(FavoriteContext);
-  console.log('FAVS', favoriteDogs)
+ 
 
 
 
@@ -70,13 +65,8 @@ function Card(props) {
                 </div>
                 <p className="pet-name">{pet.name}</p>
               </Link>
-              
-              {props.isLoggedIn ? (
-                <div className="heart" onClick={() => updateFavoriteDogs(pet.name)}>
-               {favoriteDogs.includes(pet.name) ? "❤️" : "🤍"}
-              </div>): <div className="heart">🤍</div>}
-              
-            </div>
+          <FavoriteDog isLoggedIn = {props.isLoggedIn} petName = {pet.name}/>
+           </div>
           ))
         )}
       </div>
