@@ -1,13 +1,20 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import FavoriteContext from "../contexts/favoritesContext";
 import "../styles/Navbar.css";
+import { useRef, useEffect, useState } from "react";
+import user from '../img/user.png';
+import edit from '../img/edit.png';
+import inbox from '../img/envelope.png';
+import settings from '../img/settings.png';
+import logout from '../img/log-out.png';
 
-const {useContext} = React;
+const { useContext } = React;
+
 
 function Navbar(props) {
-
-  const {favoriteDogs} = useContext(FavoriteContext);
+  const navigate = useNavigate();
+  const { favoriteDogs } = useContext(FavoriteContext);
 
   const userName = props.newUsers.filter(
     (item) =>
@@ -15,70 +22,87 @@ function Navbar(props) {
       item.password === props.userLogin.password
   );
 
+  const [open, setOpen] = useState(false);
+
+  let menuRef = useRef();
+
+  useEffect(() => {
+    let handler = (e)=>{
+      if(!menuRef.current.contains(e.target)){
+        setOpen(false);
+        console.log(menuRef.current);
+      }      
+    };
+
+    document.addEventListener("mousedown", handler);
+    
+
+    return() =>{
+      document.removeEventListener("mousedown", handler);
+    }
+
+  });
+
+  function DropdownItem(props) {
+    return (
+      <li className="dropdownItem">
+        <img src={props.img}></img>
+        <a onClick={props.onClick}> {props.text} </a>
+      </li>
+    );
+  }
+
+  function logOut(){
+    props.setUserLogin(false)
+    setOpen(!open)
+  }
 
   return (
     <div className="navBar">
-        <div className="main-navigation">
-      <ul>
-        <li className="perritos">
-          PERRITOS
-        </li>
-        <li>
-          <Link to="/">Inicio</Link>
-        </li>
-        <li>
-          <Link to="/main">Adopta</Link>
-        </li>
-        <li>
-          <a href="contact.asp">Protectoras</a>
-        </li>
-        <li>
-          <a href="about.asp">Que es Perritos</a>
-        </li>
-        <li>
-          <span>💙{favoriteDogs.length}</span>
-        </li>
+      <div className="main-navigation">
+        <ul>
+          <li className="perritos">PERRITOS</li>
+          <li>
+            <Link to="/">Inicio</Link>
+          </li>
+          <li>
+            <Link to="/main">Adopta</Link>
+          </li>
+          <li>
+            <a href="contact.asp">Protectoras</a>
+          </li>
+          <li>
+            <a href="about.asp">Que es Perritos</a>
+          </li>
+          <li>
+            <span>💙{favoriteDogs.length}</span>
+          </li>
         </ul>
-        </div> 
-        {!props.isLoggedIn ? (
-          <div className="login-option">
-            <ul>
-              <li>
-                {/* <button className="entra" onClick={() => props.setPopupLogin(true)}>
-                  Entra
-                </button> */}
-                <div>
-                  {<Link to="/login" />}
-                  Entra
-                </div>
-              </li>
-              <li>
-                {/* <button className='registrate'onClick={() => props.setPopupSignin(true)}>
-                  Registrate
-                </button> */}
-                <div>
-                {<Link to="/signup" />}
-                </div>
-              </li>
-            </ul>
-          </div>
-        ) : (
-          <div className="login-option">
-            <ul>
-              <li>
-               {<Link className="user-text" to='/profile'>{userName[0].firstName}</Link>}
-              </li>
-              
-              <li>
-                <button className='entra' onClick={() => props.setUserLogin(false)}>
-                  Salir
-                </button>
-              </li>
-            </ul>
-          </div>
-        )}
       </div>
-    
+      {!props.isLoggedIn ? (
+        <div className="login-option">
+          <Link className="entra" to="/login">
+            Entra
+          </Link>
+          <Link className="registrate" to="/signup">
+            Registrate
+          </Link>
+        </div>
+      ) : (
+        <div className='menu-container' ref={menuRef}>
+          <div className="menu-trigger" onClick={()=>{setOpen(!open)}}>{userName[0].firstName}</div>
+          <div className={`dropdown-menu ${open ? "active" : "inactive"}`}>
+            <ul>
+              <DropdownItem img={user} text={"Mi perfil"} onClick={() => navigate('./profile')} />
+              <DropdownItem img={edit} text={"Editar perfil"} />
+              <DropdownItem img={inbox} text={"Favoritos"} />
+              <DropdownItem img={settings} text={"Settings"} />
+              <DropdownItem img={logout} text={"Logout"} onClick={() => logOut()}/>
+            </ul>
+          </div>
+        </div>
+      )}
+    </div>
   );
 }
 

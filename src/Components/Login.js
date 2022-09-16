@@ -1,12 +1,14 @@
 import React, { useState } from "react";
-import "../styles/Popup.css";
-import validation from "./validation";
-import { CgClose } from "react-icons/cg";
 import { BsCheck2Circle } from "react-icons/bs";
 import { RiCloseCircleLine } from "react-icons/ri";
+import "../styles/Login.css";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Login (props) {
     const [isLogged, setIsLogged] = useState(null);
+
+    const navigate = useNavigate();
 
     function handleLogin(e) {
         e.preventDefault();
@@ -18,7 +20,7 @@ export default function Login (props) {
         if (correct.length !== 0) {
           setIsLogged(true);
           props.addNewUserLogin();
-        //   setTimeout(() => defaultValues(), 1500);
+          setTimeout(() => navigate('../main'), 1500);
         } else {
           setIsLogged(false);
         }
@@ -34,10 +36,9 @@ export default function Login (props) {
   }
    
         return (
-            <div className="popup">
-              <div className="popup-inner">
-                {/* <CgClose onClick={() => defaultValues()} className="btn-x" /> */}
-                <div className="inputs">
+            <div className="login-container">
+              <div className="login-inner">
+               <div className="inputs">
                   <h2>Bienvenido!</h2>
                   <form className="form">
                     <div>
@@ -66,10 +67,13 @@ export default function Login (props) {
       
                     <button className="sub-btn" type="submit" onClick={handleLogin}>
                       Login
-                    </button>
+                    </button> 
+                    <br/>
+                    <br/>
+                    <p>no estas registrado? <Link to='../signup'>Registrate!</Link></p>
                     {isLogged ? (
                       <p className="success">
-                        Bienvenido amigo perruno! <BsCheck2Circle />{" "}
+                        Bienvenido amigo perruno! <BsCheck2Circle />
                       </p>
                     ) : isLogged === false ? (
                       <p className="fail">

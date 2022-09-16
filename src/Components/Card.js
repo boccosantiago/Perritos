@@ -3,6 +3,7 @@ import data from "../datos";
 import "../styles/Card.css";
 import { Link } from "react-router-dom";
 import FavoriteContext from "../contexts/favoritesContext";
+import { useNavigate } from "react-router-dom";
 
 function Card(props) {
   const value = props.filterData;
@@ -51,6 +52,8 @@ function Card(props) {
 
   const cargarImagen = require.context("../img", true);
 
+  let navigate = useNavigate()
+
   return (
     <div id="container">
       <button className="buscar" onClick={filterPets}>
@@ -74,7 +77,7 @@ function Card(props) {
               {props.isLoggedIn ? (
                 <div className="heart" onClick={() => updateFavoriteDogs(pet.name)}>
                {favoriteDogs.includes(pet.name) ? "❤️" : "🤍"}
-              </div>): <div className="heart">🤍</div>}
+              </div>): <div className="heart" onClick={()=> navigate('../login')}>🤍</div>}
               
             </div>
           ))
