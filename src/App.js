@@ -16,8 +16,8 @@ import Protected from "./Components/protected";
 
 function App() {
 
-  const [popupLogin, setPopupLogin] = useState(false);
-  const [popupSignin, setPopupSignin] = useState(false);
+/*   const [popupLogin, setPopupLogin] = useState(false);
+  const [popupSignin, setPopupSignin] = useState(false); */
 
   const [loginValues, setLoginValues] = useState({
     email: "",
@@ -93,8 +93,6 @@ function App() {
     <div className="App">
       <BrowserRouter>
       <Navbar
-          setPopupLogin={setPopupLogin}
-          setPopupSignin={setPopupSignin}
           isLoggedIn={isLoggedIn}
           newUsers={newUsers}
           loginValues={loginValues}

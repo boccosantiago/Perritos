@@ -2,7 +2,9 @@ import React, { useState, useContext } from "react";
 import data from "../datos";
 import "../styles/Card.css";
 import { Link } from "react-router-dom";
+
 import FavoriteDog from "./FavoriteDog";
+
 
 function Card(props) {
   const value = props.filterData;
@@ -42,9 +44,8 @@ function Card(props) {
   }
  
 
-
-
   const cargarImagen = require.context("../img", true);
+
 
   return (
     <div id="container">
@@ -65,6 +66,7 @@ function Card(props) {
                 </div>
                 <p className="pet-name">{pet.name}</p>
               </Link>
+
           <FavoriteDog isLoggedIn = {props.isLoggedIn} petName = {pet.name}/>
            </div>
           ))
