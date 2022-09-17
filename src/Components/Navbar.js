@@ -1,13 +1,15 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import FavoriteContext from "../contexts/favoritesContext";
+import FavoriteContext from "../context/favoritesContext";
 import "../styles/Navbar.css";
 import { useRef, useEffect, useState } from "react";
-import user from '../img/user.png';
+import userImg from '../img/user.png';
 import edit from '../img/edit.png';
 import inbox from '../img/envelope.png';
 import settings from '../img/settings.png';
 import logout from '../img/log-out.png';
+import { useAuth } from "../context/AuthContext";
+
 
 const { useContext } = React;
 
@@ -15,12 +17,13 @@ const { useContext } = React;
 function Navbar(props) {
   const navigate = useNavigate();
   const { favoriteDogs } = useContext(FavoriteContext);
+  const {user} = useAuth()
 
-  const userName = props.newUsers.filter(
-    (item) =>
-      item.email === props.userLogin.email &&
-      item.password === props.userLogin.password
-  );
+  // const userName = props.newUsers.filter(
+  //   (item) =>
+  //     item.email === props.userLogin.email &&
+  //     item.password === props.userLogin.password
+  // );
 
   const [open, setOpen] = useState(false);
 
@@ -90,10 +93,11 @@ function Navbar(props) {
         </div>
       ) : (
         <div className='menu-container' ref={menuRef}>
-          <div className="menu-trigger" onClick={()=>{setOpen(!open)}}>{userName[0].firstName}</div>
+          <div className="menu-trigger" onClick={()=>{setOpen(!open)}}>BIENVENIDO</div>
+          {/* <div className="menu-trigger">{user ? "BIENVENIDO" : "Entra"}</div>  */}
           <div className={`dropdown-menu ${open ? "active" : "inactive"}`}>
             <ul>
-              <DropdownItem img={user} text={"Mi perfil"} onClick={() => navigate('./profile')} />
+              <DropdownItem img={userImg} text={"Mi perfil"} onClick={() => navigate('./profile')} />
               <DropdownItem img={edit} text={"Editar perfil"} />
               <DropdownItem img={inbox} text={"Favoritos"} />
               <DropdownItem img={settings} text={"Settings"} />

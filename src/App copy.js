@@ -20,50 +20,56 @@ function App() {
 /*   const [popupLogin, setPopupLogin] = useState(false);
   const [popupSignin, setPopupSignin] = useState(false); */
 
-  const [user, setUser] = useState({
+  const [loginValues, setLoginValues] = useState({
     email: "",
     password: "",
   });
-  console.log('userLogin', user)
-  const handleChangeLogin = ({ target: { value, name } }) =>
-    setUser({ ...user, [name]: value });
 
-  // const [userLogin, setUserLogin] = useState(() => {
-  //   const initial = false;
-  //   try {
-  //     const data = localStorage.getItem("userLogin");
-  //     return data ? JSON.parse(data) : initial;
-  //   } catch (e) {
-  //     return initial;
-  //   }
-  // });
+  function handleChangeLogin(event) {
+    const { name, value } = event.target
+    setLoginValues(preValue => {
+      return {
+        ...preValue,
+        [name]: value
+      }
+    })
+  }
 
-  // useEffect(() => {
-  //   localStorage.setItem("userLogin", JSON.stringify(userLogin));
-  // }, [userLogin]);
+  const [userLogin, setUserLogin] = useState(() => {
+    const initial = false;
+    try {
+      const data = localStorage.getItem("userLogin");
+      return data ? JSON.parse(data) : initial;
+    } catch (e) {
+      return initial;
+    }
+  });
 
-  // const [newUsers, setNewUsers] = useState(() => {
-  //   const initial = [];
-  //   try {
-  //     const data = localStorage.getItem("registeredUsers");
-  //     return data ? JSON.parse(data) : initial;
-  //   } catch (e) {
-  //     return initial;
-  //   }
-  // });
+  useEffect(() => {
+    localStorage.setItem("userLogin", JSON.stringify(userLogin));
+  }, [userLogin]);
 
-  // useEffect(() => {
-  //   localStorage.setItem("registeredUsers", JSON.stringify(newUsers));
-  // }, [newUsers]);
+  const [newUsers, setNewUsers] = useState(() => {
+    const initial = [];
+    try {
+      const data = localStorage.getItem("registeredUsers");
+      return data ? JSON.parse(data) : initial;
+    } catch (e) {
+      return initial;
+    }
+  });
 
-  // function addNewUserLogin() {
-  //   const newUserLogin = {
-  //     email: loginValues.email,
-  //     password: loginValues.password,
-  //   };
-  //   setUserLogin(newUserLogin);
-  // }
-   const [userLogin, setUserLogin] = useState(null)
+  useEffect(() => {
+    localStorage.setItem("registeredUsers", JSON.stringify(newUsers));
+  }, [newUsers]);
+
+  function addNewUserLogin() {
+    const newUserLogin = {
+      email: loginValues.email,
+      password: loginValues.password,
+    };
+    setUserLogin(newUserLogin);
+  }
 
   const isLoggedIn = userLogin ? true : false;
 
@@ -90,11 +96,11 @@ function App() {
       <BrowserRouter>
       <Navbar
           isLoggedIn={isLoggedIn}
-          
-          user={user}
-          setUser={setUser}
-          userLogin={userLogin} setUserLogin={setUserLogin}
-          
+          newUsers={newUsers}
+          loginValues={loginValues}
+          setLoginValues={setLoginValues}
+          setUserLogin={setUserLogin}
+          userLogin={userLogin}
         />
         {/* <Popup
           triggerLogin={popupLogin}
@@ -104,8 +110,8 @@ function App() {
           isLoggedIn={isLoggedIn}
           setNewUsers={setNewUsers}
           newUsers={newUsers}
-          user={user}
-          setUser={setUser}
+          loginValues={loginValues}
+          setLoginValues={setLoginValues}
           addNewUserLogin={addNewUserLogin}
         /> */}
 
@@ -118,8 +124,8 @@ function App() {
          />
         <Route path="/profile" element={<Profile/>} />
         <Route path="/maps" element={<Map />} />
-        <Route path="/login" element={<Login2 setUser={setUser} userLogin={userLogin} setUserLogin={setUserLogin} user={user} handleChangeLogin={handleChangeLogin} />} />
-        <Route path="/signup" element={<Signup2   />} />
+        <Route path="/login" element={<Login newUsers={newUsers} setLoginValues={setLoginValues} loginValues={loginValues} addNewUserLogin={addNewUserLogin} handleChangeLogin={handleChangeLogin} setUserLogin={setUserLogin} />} />
+        <Route path="/signup" element={<Signup setNewUsers={setNewUsers} newUsers={newUsers} />} />
       </Routes>
       </BrowserRouter>
     </div>

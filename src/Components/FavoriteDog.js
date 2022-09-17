@@ -1,5 +1,5 @@
 import React, {useContext} from "react";
-import FavoriteContext from "../contexts/favoritesContext";
+import FavoriteContext from "../context/favoritesContext";
 import { Link } from "react-router-dom";
 import datos from "../datos";
 export default function FavoriteDog(props){
