@@ -15,7 +15,7 @@ import Protected from "./Components/Protected";
 import { AuthProvider } from './context/AuthContext';
 import { ChatProvider } from './context/Chat';
 import MainChat from "./Components/MainChat"
-
+import FavoriteList from "./Components/FavoriteList"
 function App() {
 
   const [favorites, setFavorites] = useState([])
@@ -49,6 +49,7 @@ function App() {
                   <Protected ><Dogs /></Protected>}
                 />
                 <Route path="/profile" element={<Profile />} />
+                <Route path="/favorite" element={<FavoriteList />} />
                 <Route path="/maps" element={<Map />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />

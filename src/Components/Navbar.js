@@ -11,11 +11,11 @@ import logoutImg from '../img/log-out.png';
 import { useAuth } from "../context/AuthContext";
 
 
-function Navbar(props) {
+function Navbar() {
   const navigate = useNavigate();
   const { favoriteDogs } = useContext(FavoriteContext);
   const { user, logout } = useAuth()
-
+  console.log(favoriteDogs)
   console.log("userNavbar", user)
 
   // const userName = props.newUsers.filter(
@@ -64,6 +64,7 @@ function Navbar(props) {
   const handleSignOut = async () => {
     try {
       await logout();
+      navigate("/")
     } catch (error) {
       console.log(error);
     }
@@ -87,7 +88,7 @@ function Navbar(props) {
             <a href="about.asp">Que es Perritos</a>
           </li>
           <li>
-            <span>💙{favoriteDogs.length}</span>
+            <a href="/favorite">💙{favoriteDogs.length}</a>
           </li>
         </ul>
       </div>
@@ -110,7 +111,7 @@ function Navbar(props) {
             <ul>
               <DropdownItem img={userImg} text={"Mi perfil"} onClick={() => navigate('./profile')} />
               <DropdownItem img={edit} text={"Editar perfil"} />
-              <DropdownItem img={inbox} text={"Favoritos"} />
+              <DropdownItem img={inbox} text={"Favoritos"} onClick={() => navigate('./favorite')} />
               <DropdownItem img={settings} text={"Settings"} />
               {/* <DropdownItem img={logout} text={"Logout"} onClick={() => logOut()} /> */}
               <DropdownItem img={logoutImg} text={"Logout"} onClick={handleSignOut} />
