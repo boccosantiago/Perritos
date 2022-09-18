@@ -5,7 +5,7 @@ import "../styles/Navbar.css";
 import { useRef, useEffect, useState } from "react";
 import userImg from '../img/user.png';
 import edit from '../img/edit.png';
-import inbox from '../img/envelope.png';
+import heart from '../img/heart.png';
 import settings from '../img/settings.png';
 import logoutImg from '../img/log-out.png';
 import { useAuth } from "../context/AuthContext";
@@ -59,14 +59,10 @@ function Navbar(props) {
     );
   }
 
-  // function logOut() {
-  //   props.setUserLogin(false)
-  //   setOpen(!open)
-  // }
-
   const handleSignOut = async () => {
     try {
       await logout();
+      navigate('/')
     } catch (error) {
       console.log(error);
     }
@@ -94,8 +90,6 @@ function Navbar(props) {
           </li>
         </ul>
       </div>
-      {/* {!props.isLoggedIn ? 
-       */}
       {user == null ? (
         <div className="login-option">
           <Link className="entra" to="/login">
@@ -107,15 +101,13 @@ function Navbar(props) {
         </div>
       ) : (
         <div className='menu-container' ref={menuRef}>
-          <div className="menu-trigger" onClick={() => { setOpen(!open) }}>BIENVENIDO</div>
-          {/* <div className="menu-trigger">{user ? "BIENVENIDO" : "Entra"}</div>  */}
+          <div className="menu-trigger" onClick={() => { setOpen(!open) }}>{user.displayName || user.email}</div>
           <div className={`dropdown-menu ${open ? "active" : "inactive"}`}>
             <ul>
               <DropdownItem img={userImg} text={"Mi perfil"} onClick={() => navigate('./profile')} />
               <DropdownItem img={edit} text={"Editar perfil"} />
-              <DropdownItem img={inbox} text={"Favoritos"} />
+              <DropdownItem img={heart} text={"Favoritos"} />
               <DropdownItem img={settings} text={"Settings"} />
-              {/* <DropdownItem img={logout} text={"Logout"} onClick={() => logOut()} /> */}
               <DropdownItem img={logoutImg} text={"Logout"} onClick={handleSignOut} />
             </ul>
           </div>
