@@ -1,28 +1,21 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import FavoriteContext from "../context/favoritesContext";
 import { Link } from "react-router-dom";
-import datos from "../datos";
-export default function FavoriteDog(props){
-  console.log(props)
+import { useAuth } from "../context/AuthContext";
+
+export default function FavoriteDog(props) {
+
   const { favoriteDogs, updateFavoriteDogs } = useContext(FavoriteContext);
-  console.log('FAVS', favoriteDogs)
-//   const infoProtect = datos.map((item) => item.pets);
-//   const pets = infoProtect.map(pet => pet.name)
-//   console.log(pets)
+  const { user } = useAuth()
 
-    return(
-       
-        <div>
-        {/* {props.isLoggedIn ? (
-                <div className="heart" onClick={() => updateFavoriteDogs(props.petName)}>
-               {favoriteDogs.includes(props.petName) ? "❤️" : "🤍"}
-              </div>): <Link className="heart" to="./login">🤍</Link>}
-         */}
-         {props.isLoggedIn ? (
-                <div onClick={() => updateFavoriteDogs(props.petName)}>
-               {favoriteDogs.includes(props.petName) ? "❤️" : "🤍Hola"}
-              </div>): <Link to="./login">🤍</Link>}
+  return (
 
-        </div>
-    )
+    <div>
+      {user ? (
+        <div onClick={() => updateFavoriteDogs(props.petName)}>
+          {favoriteDogs.includes(props.petName) ? "❤️" : "🤍"}
+        </div>) : <Link to="/login">🤍</Link>}
+
+    </div>
+  )
 }

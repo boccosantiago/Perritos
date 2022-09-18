@@ -7,7 +7,7 @@ import userImg from '../img/user.png';
 import edit from '../img/edit.png';
 import inbox from '../img/envelope.png';
 import settings from '../img/settings.png';
-import logout from '../img/log-out.png';
+import logoutImg from '../img/log-out.png';
 import { useAuth } from "../context/AuthContext";
 
 
@@ -17,7 +17,9 @@ const { useContext } = React;
 function Navbar(props) {
   const navigate = useNavigate();
   const { favoriteDogs } = useContext(FavoriteContext);
-  const {user} = useAuth()
+  const { user, logout } = useAuth()
+
+  console.log("userNavbar", user)
 
   // const userName = props.newUsers.filter(
   //   (item) =>
@@ -30,17 +32,19 @@ function Navbar(props) {
   let menuRef = useRef();
 
   useEffect(() => {
-    let handler = (e)=>{
-      if(!menuRef.current.contains(e.target)){
-        setOpen(false);
-        console.log(menuRef.current);
-      }      
+    let handler = (e) => {
+      if (menuRef.current !== null && menuRef.current !== undefined) {
+        if (!menuRef.current.contains(e.target)) {
+          setOpen(false);
+          console.log('MENUREF', menuRef.current);
+        }
+      }
     };
 
     document.addEventListener("mousedown", handler);
-    
 
-    return() =>{
+
+    return () => {
       document.removeEventListener("mousedown", handler);
     }
 
@@ -55,10 +59,18 @@ function Navbar(props) {
     );
   }
 
-  function logOut(){
-    props.setUserLogin(false)
-    setOpen(!open)
-  }
+  // function logOut() {
+  //   props.setUserLogin(false)
+  //   setOpen(!open)
+  // }
+
+  const handleSignOut = async () => {
+    try {
+      await logout();
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div className="navBar">
@@ -82,7 +94,9 @@ function Navbar(props) {
           </li>
         </ul>
       </div>
-      {!props.isLoggedIn ? (
+      {/* {!props.isLoggedIn ? 
+       */}
+      {user == null ? (
         <div className="login-option">
           <Link className="entra" to="/login">
             Entra
@@ -93,7 +107,7 @@ function Navbar(props) {
         </div>
       ) : (
         <div className='menu-container' ref={menuRef}>
-          <div className="menu-trigger" onClick={()=>{setOpen(!open)}}>BIENVENIDO</div>
+          <div className="menu-trigger" onClick={() => { setOpen(!open) }}>BIENVENIDO</div>
           {/* <div className="menu-trigger">{user ? "BIENVENIDO" : "Entra"}</div>  */}
           <div className={`dropdown-menu ${open ? "active" : "inactive"}`}>
             <ul>
@@ -101,7 +115,8 @@ function Navbar(props) {
               <DropdownItem img={edit} text={"Editar perfil"} />
               <DropdownItem img={inbox} text={"Favoritos"} />
               <DropdownItem img={settings} text={"Settings"} />
-              <DropdownItem img={logout} text={"Logout"} onClick={() => logOut()}/>
+              {/* <DropdownItem img={logout} text={"Logout"} onClick={() => logOut()} /> */}
+              <DropdownItem img={logoutImg} text={"Logout"} onClick={handleSignOut} />
             </ul>
           </div>
         </div>

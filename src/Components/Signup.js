@@ -1,124 +1,81 @@
-import React, { useState } from "react";
-import validation from "./validation";
-import { BsCheck2Circle } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
+import { Alert } from "./Alert";
 
-export default function Signup(props) {
-  const [register, setRegister] = useState(false);
+export default function Signup() {
+  const { signup } = useAuth();
 
-  const [errors, setErrors] = useState({});
-
-  const [values, setValues] = useState({
-    firstName: "",
-    lastName: "",
+  const [user, setUser] = useState({
     email: "",
     password: "",
   });
+  console.log(
+    'userRegistro', user)
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
 
-  function addNewUser() {
-    const user = {
-      firstName: values.firstName,
-      lastName: values.lastName,
-      email: values.email,
-      password: values.password,
-    };
-    props.setNewUsers([...props.newUsers, user]);
-  }
-
-  function handleRegister(event) {
-    setErrors(validation(values));
-    const preventSubmit = validation(values);
-    if (Object.entries(preventSubmit).length !== 0) {
-      event.preventDefault();
-      setRegister(false);
-    } else {
-      event.preventDefault();
-      setRegister(true);
-      addNewUser();
-      //   setTimeout(() => defaultValues(), 1500);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+    try {
+      await signup(user.email, user.password);
+      navigate("/");
+    } catch (error) {
+      setError(error.message);
     }
-  }
-  function handleChange(event) {
-    const { name, value } = event.target;
-    setValues({
-      ...values,
-      [name]: value,
-    });
-  }
+  };
+
   return (
     <div className="login-container">
       <div className="login-inner">
-        {/* <CgClose onClick={() => defaultValues()} className="btn-x" /> */}
-        <div className="inputs">
-          <h2>Crea tu cuenta!</h2>
-          <form className="form-register-container">
-            <div>
-              <label>Nombre:</label>
-              <br />
-              <input
-                type="text"
-                name="firstName"
-                required
-                onChange={handleChange}
-                value={values.firstName}
-              />
-              {errors.firstName && <p className="error">{errors.firstName}</p>}
-            </div>
-            <div>
-              <label>Apellido:</label>
-              <br />
-              <input
-                type="text"
-                name="lastName"
-                required
-                onChange={handleChange}
-                value={values.lastName}
-              />
-              {errors.lastName && <p className="error">{errors.lastName}</p>}
-            </div>
-            <div>
-              <label>Email:</label>
-              <br />
-              <input
-                type="email"
-                name="email"
-                required
-                onChange={handleChange}
-                value={values.email}
-              />
-              {errors.email && <p className="error">{errors.email}</p>}
-            </div>
-            <div>
-              <label>Constraseña:</label>
-              <br />
-              <input
-                type="password"
-                name="password"
-                required
-                onChange={handleChange}
-                value={values.password}
-              />
-              {errors.password && <p className="error">{errors.password}</p>}
-            </div>
-            <br />
-            <button onClick={handleRegister} className="sub-btn" type="submit">
-              Crear Cuenta
-            </button>
-            <br />
-            <br />
-            <p>
-            ¿Ya estas registrado? <Link to="../login">Entra aquí</Link>
-            </p>
-            {register ? (
-              <p className="success">
-                {" "}
-                Cuenta creada satisfactoriamente! <BsCheck2Circle />{" "}
-              </p>
-            ) : (
-              ""
-            )}
-          </form>
-        </div>
+
+        {error && <Alert message={error} />}
+
+        <form
+          onSubmit={handleSubmit}
+          className="bg-white shadow-md rounded px-8 pt-6 pb-6 mb-4"
+        >
+          <div className="mb-4">
+            <label
+              htmlFor="email"
+              className="block text-gray-700 text-sm font-bold mb-2"
+            >
+              Email
+            </label>
+            <input
+              type="email"
+              onChange={(e) => setUser({ ...user, email: e.target.value })}
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              placeholder="youremail@company.tld"
+            />
+          </div>
+
+          <div className="mb-4">
+            <label
+              htmlFor="password"
+              className="block text-gray-700 text-sm font-bold mb-2"
+            >
+              Password
+            </label>
+            <input
+              type="password"
+              onChange={(e) => setUser({ ...user, password: e.target.value })}
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              placeholder="*************"
+            />
+          </div>
+
+          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+            Register
+          </button>
+        </form>
+        <p className="my-4 text-sm flex justify-between px-3">
+          Already have an Account?
+          <Link to="/login" className="text-blue-700 hover:text-blue-900">
+            Login
+          </Link>
+        </p>
       </div>
     </div>
   );
