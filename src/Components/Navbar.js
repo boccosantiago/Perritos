@@ -2,16 +2,13 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import FavoriteContext from "../context/favoritesContext";
 import "../styles/Navbar.css";
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, useContext } from "react";
 import userImg from '../img/user.png';
 import edit from '../img/edit.png';
 import inbox from '../img/envelope.png';
 import settings from '../img/settings.png';
 import logoutImg from '../img/log-out.png';
 import { useAuth } from "../context/AuthContext";
-
-
-const { useContext } = React;
 
 
 function Navbar(props) {

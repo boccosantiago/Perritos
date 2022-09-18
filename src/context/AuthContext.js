@@ -25,7 +25,7 @@ export function AuthProvider({ children }) {
   const auth = getAuth();
 
   // states
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [message, setMessage] = useState("");
