@@ -2,14 +2,14 @@ import React, { useState, useContext } from "react";
 import data from "../datos";
 import "../styles/Card.css";
 import { Link } from "react-router-dom";
-
 import FavoriteDog from "./FavoriteDog";
-
 
 function Card(props) {
   const value = props.filterData;
   const infoProtect = data.map((item) => item.pets);
   const [petFound, setPetFound] = useState([...infoProtect]);
+
+
 
   function filterPets() {
     if (Object.values(value).length === 0) {
@@ -23,7 +23,7 @@ function Card(props) {
       const lowerCaseBreed = props.filterData.breed;
       const lowerCaseColor = props.filterData.color;
 
-    
+
       const filteredPet = infoProtect.map((item) =>
         item.filter((pet) => {
           return (
@@ -42,7 +42,7 @@ function Card(props) {
       setPetFound([...filteredPet]);
     }
   }
- 
+
 
   const cargarImagen = require.context("../img", true);
 
@@ -67,8 +67,8 @@ function Card(props) {
                 <p className="pet-name">{pet.name}</p>
               </Link>
 
-          <FavoriteDog isLoggedIn = {props.isLoggedIn} petName = {pet.name}/>
-           </div>
+              <FavoriteDog petName={pet.name} />
+            </div>
           ))
         )}
       </div>
