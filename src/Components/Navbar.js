@@ -33,7 +33,7 @@ function Navbar() {
       if (menuRef.current !== null && menuRef.current !== undefined) {
         if (!menuRef.current.contains(e.target)) {
           setOpen(false);
-          console.log('MENUREF', menuRef.current);
+
         }
       }
     };
@@ -86,6 +86,9 @@ function Navbar() {
           </li>
           <li>
             <a href="about.asp">Que es Perritos</a>
+          </li>
+          <li>
+            <a href="/posts">Difunde</a>
           </li>
           <li>
             <a href="/favorite">💙{favoriteDogs.length}</a>

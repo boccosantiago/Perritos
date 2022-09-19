@@ -12,6 +12,7 @@ import { FavoriteProvider } from './context/favoritesContext';
 import Login from "./Components/Login"
 import Signup from "./Components/Signup"
 import Protected from "./Components/Protected";
+import Posts from "./Components/Posts/Posts";
 import { AuthProvider } from './context/AuthContext';
 import { ChatProvider } from './context/Chat';
 import MainChat from "./Components/MainChat"
@@ -50,6 +51,7 @@ function App() {
                 />
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/favorite" element={<FavoriteList />} />
+                <Route path="/posts" element={<Posts />} />
                 <Route path="/maps" element={<Map />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
