@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import FavoriteContext from "../context/favoritesContext";
 import "../styles/Navbar.css";
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, useContext } from "react";
 import userImg from '../img/user.png';
 import edit from '../img/edit.png';
 import inbox from '../img/envelope.png';
@@ -11,14 +11,11 @@ import logoutImg from '../img/log-out.png';
 import { useAuth } from "../context/AuthContext";
 
 
-const { useContext } = React;
-
-
-function Navbar(props) {
+function Navbar() {
   const navigate = useNavigate();
   const { favoriteDogs } = useContext(FavoriteContext);
   const { user, logout } = useAuth()
-
+  console.log(favoriteDogs)
   console.log("userNavbar", user)
 
   // const userName = props.newUsers.filter(
@@ -36,7 +33,7 @@ function Navbar(props) {
       if (menuRef.current !== null && menuRef.current !== undefined) {
         if (!menuRef.current.contains(e.target)) {
           setOpen(false);
-          console.log('MENUREF', menuRef.current);
+
         }
       }
     };
@@ -67,6 +64,7 @@ function Navbar(props) {
   const handleSignOut = async () => {
     try {
       await logout();
+      navigate("/")
     } catch (error) {
       console.log(error);
     }
@@ -90,7 +88,10 @@ function Navbar(props) {
             <a href="about.asp">Que es Perritos</a>
           </li>
           <li>
-            <span>💙{favoriteDogs.length}</span>
+            <a href="/posts">Difunde</a>
+          </li>
+          <li>
+            <a href="/favorite">💙{favoriteDogs.length}</a>
           </li>
         </ul>
       </div>
@@ -113,7 +114,7 @@ function Navbar(props) {
             <ul>
               <DropdownItem img={userImg} text={"Mi perfil"} onClick={() => navigate('./profile')} />
               <DropdownItem img={edit} text={"Editar perfil"} />
-              <DropdownItem img={inbox} text={"Favoritos"} />
+              <DropdownItem img={inbox} text={"Favoritos"} onClick={() => navigate('./favorite')} />
               <DropdownItem img={settings} text={"Settings"} />
               {/* <DropdownItem img={logout} text={"Logout"} onClick={() => logOut()} /> */}
               <DropdownItem img={logoutImg} text={"Logout"} onClick={handleSignOut} />
