@@ -86,7 +86,7 @@ function Navbar(props) {
             <a href="about.asp">Que es Perritos</a>
           </li>
           <li>
-            <span>💙{favoriteDogs.length}</span>
+            <span><Link to="/favorites">💙{favoriteDogs.length}</Link></span>
           </li>
         </ul>
       </div>
@@ -104,11 +104,11 @@ function Navbar(props) {
           <div className="menu-trigger" onClick={() => { setOpen(!open) }}>{user.displayName || user.email}</div>
           <div className={`dropdown-menu ${open ? "active" : "inactive"}`}>
             <ul>
-              <DropdownItem img={userImg} text={"Mi perfil"} onClick={() => navigate('./profile')} />
+              <DropdownItem img={userImg} text={"Mi perfil"} onClick={() => navigate('/profile')} />
               <DropdownItem img={edit} text={"Editar perfil"} />
-              <DropdownItem img={heart} text={"Favoritos"} />
+              <DropdownItem img={heart} text={"Favoritos"} onClick={() => navigate('/favorites')} />
               <DropdownItem img={settings} text={"Settings"} />
-              <DropdownItem img={logoutImg} text={"Logout"} onClick={handleSignOut} />
+              <DropdownItem img={logoutImg} text={"Logout"} onClick={handleSignOut}/>
             </ul>
           </div>
         </div>

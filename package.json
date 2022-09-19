@@ -7,7 +7,6 @@
     "@googlemaps/react-wrapper": "^1.1.35",
     "@react-google-maps/api": "^2.12.2",
     "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
     "firebase": "^9.10.0",
     "google-map-react": "^2.2.0",
@@ -44,5 +43,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@testing-library/react": "^13.4.0"
   }
 }
