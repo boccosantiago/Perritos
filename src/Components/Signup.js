@@ -10,8 +10,8 @@ export default function Signup() {
     email: "",
     password: "",
   });
-  console.log(
-    'userRegistro', user)
+
+
   const [error, setError] = useState("");
   const navigate = useNavigate();
 

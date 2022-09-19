@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import FavoriteContext from "../context/favoritesContext";
+
 import { Link } from "react-router-dom";
 //import { useAuth } from "../context/AuthContext";
 import datos from "../datos";
@@ -39,3 +40,4 @@ export default function FavoriteList() {
     </div>
   );
 }
+

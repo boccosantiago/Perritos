@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import FavoriteContext from "../context/favoritesContext";
 import "../styles/Navbar.css";
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, useContext } from "react";
 import userImg from '../img/user.png';
 import edit from '../img/edit.png';
 import heart from '../img/heart.png';
@@ -11,14 +11,11 @@ import logoutImg from '../img/log-out.png';
 import { useAuth } from "../context/AuthContext";
 
 
-const { useContext } = React;
-
-
-function Navbar(props) {
+function Navbar() {
   const navigate = useNavigate();
   const { favoriteDogs } = useContext(FavoriteContext);
   const { user, logout } = useAuth()
-
+  console.log(favoriteDogs)
   console.log("userNavbar", user)
 
   // const userName = props.newUsers.filter(
@@ -36,7 +33,7 @@ function Navbar(props) {
       if (menuRef.current !== null && menuRef.current !== undefined) {
         if (!menuRef.current.contains(e.target)) {
           setOpen(false);
-          console.log('MENUREF', menuRef.current);
+
         }
       }
     };
@@ -85,6 +82,14 @@ function Navbar(props) {
           <li>
             <a href="about.asp">Que es Perritos</a>
           </li>
+
+          <li>
+            <a href="/posts">Difunde</a>
+          </li>
+          <li>
+            <a href="/favorite">💙{favoriteDogs.length}</a>
+          </li>
+
         </ul>
       </div>
       {user == null ? (
@@ -102,10 +107,12 @@ function Navbar(props) {
           <div className="menu-trigger" onClick={() => { setOpen(!open) }}>{user.displayName || user.email}</div>
           <div className={`dropdown-menu ${open ? "active" : "inactive"}`}>
             <ul>
+
               <DropdownItem img={userImg} text={"Mi perfil"} onClick={() => navigate('/profile')} />
               <DropdownItem img={heart} text={"Favoritos"} onClick={() => navigate('/favorites')} />
               <DropdownItem img={envelope} text={"Mensajes"} onClick={() => navigate('/messages')} />
               <DropdownItem img={logoutImg} text={"Logout"} onClick={handleSignOut}/>
+
             </ul>
           </div>
         </div>
