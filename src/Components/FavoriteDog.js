@@ -12,10 +12,11 @@ export default function FavoriteDog(props) {
 
     <div>
       {user ? (
-        <div onClick={() => updateFavoriteDogs(props.petName)}>
-          {favoriteDogs.includes(props.petName) ? "❤️" : "🤍"}
+        <div onClick={() => updateFavoriteDogs(props.petId)}>
+          {favoriteDogs.includes(props.petId) ? "❤️" : "🤍"}
         </div>) : <Link to="/login">🤍</Link>}
 
     </div>
   )
 }
+

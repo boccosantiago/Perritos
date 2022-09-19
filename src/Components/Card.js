@@ -67,7 +67,7 @@ function Card(props) {
                 <p className="pet-name">{pet.name}</p>
               </Link>
 
-              <FavoriteDog petName={pet.name} />
+              <FavoriteDog petId={pet.id} />
             </div>
           ))
         )}

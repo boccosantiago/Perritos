@@ -5,8 +5,8 @@ import "../styles/Navbar.css";
 import { useRef, useEffect, useState, useContext } from "react";
 import userImg from '../img/user.png';
 import edit from '../img/edit.png';
-import inbox from '../img/envelope.png';
-import settings from '../img/settings.png';
+import heart from '../img/heart.png';
+import envelope from '../img/envelope.png';
 import logoutImg from '../img/log-out.png';
 import { useAuth } from "../context/AuthContext";
 
@@ -56,15 +56,10 @@ function Navbar() {
     );
   }
 
-  // function logOut() {
-  //   props.setUserLogin(false)
-  //   setOpen(!open)
-  // }
-
   const handleSignOut = async () => {
     try {
       await logout();
-      navigate("/")
+      navigate('/')
     } catch (error) {
       console.log(error);
     }
@@ -87,16 +82,16 @@ function Navbar() {
           <li>
             <a href="about.asp">Que es Perritos</a>
           </li>
+
           <li>
             <a href="/posts">Difunde</a>
           </li>
           <li>
             <a href="/favorite">💙{favoriteDogs.length}</a>
           </li>
+
         </ul>
       </div>
-      {/* {!props.isLoggedIn ? 
-       */}
       {user == null ? (
         <div className="login-option">
           <Link className="entra" to="/login">
@@ -108,16 +103,16 @@ function Navbar() {
         </div>
       ) : (
         <div className='menu-container' ref={menuRef}>
-          <div className="menu-trigger" onClick={() => { setOpen(!open) }}>BIENVENIDO</div>
-          {/* <div className="menu-trigger">{user ? "BIENVENIDO" : "Entra"}</div>  */}
+          <Link to="/favorites">💙{favoriteDogs.length}</Link>
+          <div className="menu-trigger" onClick={() => { setOpen(!open) }}>{user.displayName || user.email}</div>
           <div className={`dropdown-menu ${open ? "active" : "inactive"}`}>
             <ul>
-              <DropdownItem img={userImg} text={"Mi perfil"} onClick={() => navigate('./profile')} />
-              <DropdownItem img={edit} text={"Editar perfil"} />
-              <DropdownItem img={inbox} text={"Favoritos"} onClick={() => navigate('./favorite')} />
-              <DropdownItem img={settings} text={"Settings"} />
-              {/* <DropdownItem img={logout} text={"Logout"} onClick={() => logOut()} /> */}
-              <DropdownItem img={logoutImg} text={"Logout"} onClick={handleSignOut} />
+
+              <DropdownItem img={userImg} text={"Mi perfil"} onClick={() => navigate('/profile')} />
+              <DropdownItem img={heart} text={"Favoritos"} onClick={() => navigate('/favorites')} />
+              <DropdownItem img={envelope} text={"Mensajes"} onClick={() => navigate('/messages')} />
+              <DropdownItem img={logoutImg} text={"Logout"} onClick={handleSignOut}/>
+
             </ul>
           </div>
         </div>
