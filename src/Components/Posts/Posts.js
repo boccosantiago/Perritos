@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 import { db } from "../../firebase";
 import { useAuth } from "../../context/AuthContext";
 import AddPosts from "./AddPosts";
-import LikePosts from "./LikePosts"
-import DeletePosts from "./DeletePosts"
+import LikePosts from "./LikePosts";
+import DeletePosts from "./DeletePosts";
+import "../../styles/Posts.css";
 
 export default function Posts() {
   const [posts, setPosts] = useState([]);
-  const { user } = useAuth()
-
+  const { user } = useAuth();
 
   useEffect(() => {
     const postsRef = collection(db, "Posts");
@@ -25,7 +25,7 @@ export default function Posts() {
     });
   }, []);
   return (
-    <div>
+    <div className="posts-container">
       {posts.length === 0 ? (
         <p>No posts found!</p>
       ) : (
@@ -42,13 +42,12 @@ export default function Posts() {
             comments,
           }) => (
             <div key={id}>
-              <div >
-                <div >
+              <div className="posts">
+                <div>
                   <Link to={`/posts/${id}`}>
                     <img
                       src={imageUrl}
                       alt="title"
-                      style={{ height: 180, width: 180 }}
                     />
                   </Link>
                 </div>
@@ -56,18 +55,14 @@ export default function Posts() {
                   <div className="row">
                     <div className="col-6">
                       {createdBy && (
-                        <span className="badge bg-primary">{createdBy}</span>
+                        <span className="badge bg-primary">Creado por: {createdBy}</span>
                       )}
-                    </div>
-                    <div className="col-6 d-flex flex-row-reverse">
-                      {user && user.uid === userId && (
-                        <DeletePosts id={id} imageUrl={imageUrl} />
-                      )}
+                      <br/>
                     </div>
                   </div>
                   <h3>{title}</h3>
-                  <p>{createdAt.toDate().toDateString()}</p>
-                  <h5>{description}</h5>
+                  <p>Publicado: {createdAt.toDate().toDateString()}</p>
+                  <span>{description}</span>
 
                   <div className="d-flex flex-row-reverse">
                     {user && <LikePosts id={id} likes={likes} />}
@@ -79,6 +74,11 @@ export default function Posts() {
                         <p>{comments?.length} comments</p>
                       </div>
                     )}
+                     <div className="col-6 d-flex flex-row-reverse">
+                      {user && user.uid === userId && (
+                        <DeletePosts id={id} imageUrl={imageUrl} />
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -86,10 +86,7 @@ export default function Posts() {
           )
         )
       )}
-      <div>
-        <AddPosts />
-
+      <AddPosts />
       </div>
-    </div>
-  )
+  );
 }

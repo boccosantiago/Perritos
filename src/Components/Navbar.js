@@ -86,9 +86,6 @@ function Navbar() {
           <li>
             <a href="/posts">Difunde</a>
           </li>
-          <li>
-            <a href="/favorite">💙{favoriteDogs.length}</a>
-          </li>
 
         </ul>
       </div>

@@ -83,7 +83,7 @@ export default function AddPosts() {
   };
 
   return (
-    <div className="border p-3 mt-3 bg-light" style={{ position: "fixed" }}>
+    <div className="publish-post" >
       {!user ? (
         <>
           <h2>
@@ -94,8 +94,10 @@ export default function AddPosts() {
       ) : (
         <>
           <h2>Create article</h2>
+          <br/>
           <div className="form-group">
             <label htmlFor="">Title</label>
+            <br/>
             <input
               type="text"
               name="title"
@@ -104,41 +106,44 @@ export default function AddPosts() {
               onChange={(e) => handleChange(e)}
             />
           </div>
-
+          <br/>
           {/* description */}
           <label htmlFor="">Description</label>
+          <br/>
           <textarea
             name="description"
             className="form-control"
+            style={{resize: 'none'}}
             value={formData.description}
             onChange={(e) => handleChange(e)}
           />
-
+          <br/><br/>
           {/* image */}
-          <label htmlFor="">Image</label>
+         <label htmlFor="">Subir imagen</label> 
+         <br/>
           <input
             type="file"
             name="image"
             accept="image/*"
-            className="form-control"
+            
+            /* className="form-control" */
             onChange={(e) => handleImageChange(e)}
           />
-
+          <br/><br/>
           {progress === 0 ? null : (
             <div className="progress">
               <div
                 className="progress-bar progress-bar-striped mt-2"
-                style={{ width: `${progress}%` }}
               >
                 {`uploading image ${progress}%`}
               </div>
             </div>
           )}
           <button
-            className="form-control btn-primary mt-2"
+            /* className="form-control btn-primary mt-2" */
             onClick={handlePublish}
           >
-            Publish
+            Publicar
           </button>
         </>
       )}

@@ -23,8 +23,6 @@ export default function DeleteArticle({ id, imageUrl }) {
             <button onClick={handleDelete}
                 style={{ cursor: "pointer" }}>Delete</button>
 
-
-
         </div>
     );
 }

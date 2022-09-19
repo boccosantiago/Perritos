@@ -70,9 +70,9 @@
 .heart{
     cursor: pointer;
     position: absolute;
-    bottom: 7px;
+    font-size: 1.6rem;
+    top: 15px;
     right: 10px;
-    font-size: larger;
 }
 
 .heart:hover{
@@ -94,8 +94,6 @@
     }
 }
 
-span{
-    padding-left: 50px ;
-}
+
 
 

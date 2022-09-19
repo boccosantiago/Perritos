@@ -64,7 +64,7 @@ function Card(props) {
                     src={cargarImagen(`./id${pet.id}.jpg`)}
                   ></img>
                 </div>
-                <p className="pet-name">{pet.name}</p>
+                <span className="pet-name">{pet.name}</span>
               </Link>
 
               <FavoriteDog petId={pet.id} />
