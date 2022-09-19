@@ -6,7 +6,7 @@ import { useRef, useEffect, useState } from "react";
 import userImg from '../img/user.png';
 import edit from '../img/edit.png';
 import heart from '../img/heart.png';
-import settings from '../img/settings.png';
+import envelope from '../img/envelope.png';
 import logoutImg from '../img/log-out.png';
 import { useAuth } from "../context/AuthContext";
 
@@ -85,9 +85,6 @@ function Navbar(props) {
           <li>
             <a href="about.asp">Que es Perritos</a>
           </li>
-          <li>
-            <span><Link to="/favorites">💙{favoriteDogs.length}</Link></span>
-          </li>
         </ul>
       </div>
       {user == null ? (
@@ -101,13 +98,13 @@ function Navbar(props) {
         </div>
       ) : (
         <div className='menu-container' ref={menuRef}>
+          <Link to="/favorites">💙{favoriteDogs.length}</Link>
           <div className="menu-trigger" onClick={() => { setOpen(!open) }}>{user.displayName || user.email}</div>
           <div className={`dropdown-menu ${open ? "active" : "inactive"}`}>
             <ul>
               <DropdownItem img={userImg} text={"Mi perfil"} onClick={() => navigate('/profile')} />
-              <DropdownItem img={edit} text={"Editar perfil"} />
               <DropdownItem img={heart} text={"Favoritos"} onClick={() => navigate('/favorites')} />
-              <DropdownItem img={settings} text={"Settings"} />
+              <DropdownItem img={envelope} text={"Mensajes"} onClick={() => navigate('/messages')} />
               <DropdownItem img={logoutImg} text={"Logout"} onClick={handleSignOut}/>
             </ul>
           </div>
