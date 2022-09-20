@@ -21,7 +21,6 @@ export default function Profile() {
                 {user ?
                     <div>
                      {user.photoURL ? <img alt="imgProfile" src={user.photoURL} /> : <img alt="imgProfile" style={{width:'100px'}} src={userImg} />} 
-
                         <p>{user.displayName}</p>
                         <p>{user.email}</p>
                         <p>Formulario</p></div>

@@ -89,7 +89,7 @@ function Navbar() {
 
         </ul>
       </div>
-      {user == null ? (
+      {user === null ? (
         <div className="login-option">
           <Link className="entra" to="/login">
             Entra

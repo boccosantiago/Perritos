@@ -21,7 +21,7 @@ import FavoriteList from './Components/FavoriteList';
 
 
 function App() {
-console.log('hola', process.env.REACT_APP_API_KEY)
+
   const [favorites, setFavorites] = useState([])
 
   console.log('favorites', favorites)

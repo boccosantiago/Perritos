@@ -4,7 +4,7 @@ import { useAuth } from "../context/AuthContext";
 import { Alert } from "./Alert";
 import "../styles/Login.css";
 
-export default function Login() {
+export default function Login(props) {
 
 
 
@@ -47,6 +47,7 @@ export default function Login() {
       setError(error.message);
     }
   };
+
 
 
   // const handleResetPassword = async (e) => {
@@ -97,7 +98,6 @@ export default function Login() {
               name="password"
               id="password"
               onChange={handleChangeLogin}
-
               placeholder="*************"
             />
           </div>
