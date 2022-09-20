@@ -60,7 +60,7 @@ function App() {
                 <Route path="/maps" element={<Map />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
-                <Route path='/chat' element={<MainChat />} />
+                {/* <Route path='/chat' element={<MainChat />} /> */}
               </Routes>
             </BrowserRouter>
           </div>

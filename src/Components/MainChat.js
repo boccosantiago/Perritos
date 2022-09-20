@@ -8,14 +8,13 @@ import "../styles/Chat.css"
 
 export default function MainChat(props) {
 
-    const navigate = useNavigate();
-    const { user, persistUser, signOut } = useContext(authContext);
+    //const navigate = useNavigate();
+    const { user } = useContext(authContext);
     const { sendMessage, getChatHistory, chatData, loading, updateChatHistory } =
         useContext(ChatContext);
     const [messageToSave, setMessageToSave] = useState("");
-
-    //const { user } = useAuth()
-    console.log("userChat", user)
+    console.log(props.userClicked)
+    
 
     useEffect(() => {
         // if (!persistUser()) {

@@ -7,11 +7,14 @@ import AddPosts from "./AddPosts";
 import LikePosts from "./LikePosts";
 import DeletePosts from "./DeletePosts";
 import "../../styles/Posts.css";
+import MainChat from "../MainChat";
 
 export default function Posts() {
   const [posts, setPosts] = useState([]);
   const { user } = useAuth();
-
+  const [userClicked, setUserClicked] = useState(null)
+  console.log(userClicked)
+  const [show, setShow] = useState(false)
   useEffect(() => {
     const postsRef = collection(db, "Posts");
     const q = query(postsRef, orderBy("createdAt", "desc"));
@@ -21,9 +24,11 @@ export default function Posts() {
         ...doc.data(),
       }));
       setPosts(post);
-      console.log(post);
+      
     });
   }, []);
+  console.log(posts);
+
   return (
     <div className="posts-container">
       {posts.length === 0 ? (
@@ -40,8 +45,9 @@ export default function Posts() {
             userId,
             likes,
             comments,
+            email
           }) => (
-            <div key={id}>
+            <div key={id} onClick={()=>setUserClicked({email,userId})}>
               <div className="posts">
                 <div>
                   <Link to={`/posts/${id}`}>
@@ -80,13 +86,20 @@ export default function Posts() {
                       )}
                     </div>
                   </div>
+                  <button onClick={()=>setShow(!show)}>
+                    Escríbeme!
+                  </button>
                 </div>
               </div>
             </div>
           )
         )
       )}
+
       <AddPosts />
+      <div>
+      {show ? <MainChat userClicked = {userClicked} /> : <div></div>}
+      </div>
       </div>
   );
 }
