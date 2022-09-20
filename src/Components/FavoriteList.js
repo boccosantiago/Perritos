@@ -8,7 +8,7 @@ import "../styles/FavoriteList.css";
 
 
 export default function FavoriteList() {
-  const { favoriteDogs, updateFavoriteDogs } = useContext(FavoriteContext);
+  const { favoriteDogs } = useContext(FavoriteContext);
 
   const array = [];
 

@@ -77,7 +77,7 @@ function Navbar() {
             <Link to="/main">Adopta</Link>
           </li>
           <li>
-            <a href="contact.asp">Protectoras</a>
+            <Link to="/shelters">Protectoras</Link>
           </li>
           <li>
             <a href="about.asp">Que es Perritos</a>

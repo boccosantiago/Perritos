@@ -7,7 +7,7 @@ import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import { useState } from 'react';
 import Navbar from "./Components/Navbar";
 import Dogs from './Components/Dogs';
-import Map from './Components/Maps/Maps'
+import Shelters from './Components/Maps/Shelters'
 import { FavoriteProvider } from './context/favoritesContext';
 import Login from "./Components/Login"
 import Signup from "./Components/Signup"
@@ -21,7 +21,7 @@ import FavoriteList from './Components/FavoriteList';
 
 
 function App() {
-
+console.log('hola', process.env.REACT_APP_API_KEY)
   const [favorites, setFavorites] = useState([])
 
   console.log('favorites', favorites)
@@ -57,7 +57,7 @@ function App() {
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/favorites" element={<FavoriteList />} />
                 <Route path="/posts" element={<Posts />} />
-                <Route path="/maps" element={<Map />} />
+                <Route path="/shelters" element={<Shelters />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
                 <Route path='/chat' element={<MainChat />} />
