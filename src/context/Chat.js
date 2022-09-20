@@ -16,6 +16,7 @@ export const ChatProvider = ({ children }) => {
     // state del chat
     const [chatData, setChatData] = useState({
         from: "",
+        to: "",
         time: "",
         message: ""
     });
@@ -23,11 +24,15 @@ export const ChatProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
 
     // saving messages
-    const sendMessage = async (from, message) => {
+    const sendMessage = async (from, to, message) => {
+        const user1 = from;
+        const user2 = to;
+        const id = user1 > user2 ? `${user1 + user2}` : `${user2 + user1}`;
         try {
             if (message === "") return;
-            const docRef = await addDoc(collection(db, "ChatDevApp"), {
+            const docRef = await addDoc(collection(db, "ChatDevApp", id, "chat"), {
                 from: from,
+                to: to,
                 message: message,
                 time: Date.now()
             });

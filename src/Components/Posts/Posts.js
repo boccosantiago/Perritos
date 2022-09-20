@@ -7,7 +7,8 @@ import AddPosts from "./AddPosts";
 import LikePosts from "./LikePosts";
 import DeletePosts from "./DeletePosts";
 import "../../styles/Posts.css";
-import MainChat from "../MainChat";
+import MainChat from "../Chat/MainChat";
+// import User from "../Chat/User"
 
 export default function Posts() {
   const [posts, setPosts] = useState([]);
@@ -24,7 +25,7 @@ export default function Posts() {
         ...doc.data(),
       }));
       setPosts(post);
-      
+
     });
   }, []);
   console.log(posts);
@@ -47,7 +48,7 @@ export default function Posts() {
             comments,
             email
           }) => (
-            <div key={id} onClick={()=>setUserClicked({email,userId})}>
+            <div key={id} onClick={() => setUserClicked({ email, userId })}>
               <div className="posts">
                 <div>
                   <Link to={`/posts/${id}`}>
@@ -63,7 +64,7 @@ export default function Posts() {
                       {createdBy && (
                         <span className="badge bg-primary">Creado por: {createdBy}</span>
                       )}
-                      <br/>
+                      <br />
                     </div>
                   </div>
                   <h3>{title}</h3>
@@ -80,15 +81,17 @@ export default function Posts() {
                         <p>{comments?.length} comments</p>
                       </div>
                     )}
-                     <div className="col-6 d-flex flex-row-reverse">
+                    <div className="col-6 d-flex flex-row-reverse">
                       {user && user.uid === userId && (
                         <DeletePosts id={id} imageUrl={imageUrl} />
                       )}
                     </div>
                   </div>
-                  <button onClick={()=>setShow(!show)}>
+                  {/* <button onClick={() => setShow(!show)}>
                     Escríbeme!
-                  </button>
+                  </button> */}
+                  {/* <User user1={user} user={userClicked} /> */}
+                  <button>Chat</button>
                 </div>
               </div>
             </div>
@@ -97,9 +100,10 @@ export default function Posts() {
       )}
 
       <AddPosts />
-      <div>
-      {show ? <MainChat userClicked = {userClicked} /> : <div></div>}
-      </div>
-      </div>
+      {/* <div>
+        {show ? <MainChat userClicked={userClicked} /> : <div></div>}
+      </div> */}
+
+    </div>
   );
 }

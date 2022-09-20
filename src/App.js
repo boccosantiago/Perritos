@@ -14,10 +14,11 @@ import Signup from "./Components/Signup"
 import Protected from "./Components/Protected";
 import Posts from "./Components/Posts/Posts";
 import { AuthProvider } from './context/AuthContext';
-import { ChatProvider } from './context/Chat';
-import MainChat from "./Components/MainChat"
+import { ChatContextProvider } from './context/ChatContext';
+// import MainChat from "./Components/MainChat"
 
 import FavoriteList from './Components/FavoriteList';
+import HomeChat from './Components/HomeChat';
 
 
 function App() {
@@ -39,7 +40,7 @@ function App() {
 
   return (
     <AuthProvider>
-      <ChatProvider>
+      <ChatContextProvider>
         <FavoriteProvider value={{
           favoriteDogs: favorites,
           updateFavoriteDogs: updateFavoriteDogs
@@ -60,12 +61,13 @@ function App() {
                 <Route path="/maps" element={<Map />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
+                <Route path="/chat" element={<HomeChat />} />
                 {/* <Route path='/chat' element={<MainChat />} /> */}
               </Routes>
             </BrowserRouter>
           </div>
         </FavoriteProvider>
-      </ChatProvider>
+      </ChatContextProvider>
     </AuthProvider>
   );
 }

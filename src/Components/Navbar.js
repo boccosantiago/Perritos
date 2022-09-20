@@ -86,6 +86,9 @@ function Navbar() {
           <li>
             <a href="/posts">Difunde</a>
           </li>
+          <li>
+            <a href="/chat">Chatea</a>
+          </li>
 
         </ul>
       </div>
@@ -108,7 +111,7 @@ function Navbar() {
               <DropdownItem img={userImg} text={"Mi perfil"} onClick={() => navigate('/profile')} />
               <DropdownItem img={heart} text={"Favoritos"} onClick={() => navigate('/favorites')} />
               <DropdownItem img={envelope} text={"Mensajes"} onClick={() => navigate('/messages')} />
-              <DropdownItem img={logoutImg} text={"Logout"} onClick={handleSignOut}/>
+              <DropdownItem img={logoutImg} text={"Logout"} onClick={handleSignOut} />
 
             </ul>
           </div>

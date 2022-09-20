@@ -7,6 +7,7 @@ export default function Signup() {
   const { signup } = useAuth();
 
   const [user, setUser] = useState({
+    name: "",
     email: "",
     password: "",
   });
@@ -19,7 +20,7 @@ export default function Signup() {
     e.preventDefault();
     setError("");
     try {
-      await signup(user.email, user.password);
+      await signup(user.name, user.email, user.password);
       navigate("/");
     } catch (error) {
       setError(error.message);
