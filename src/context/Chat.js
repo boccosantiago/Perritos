@@ -16,12 +16,13 @@ export const ChatProvider = ({ children }) => {
     // state del chat
     const [chatData, setChatData] = useState({
         from: "",
+        to: "",
         time: "",
         message: ""
     });
 
     const [loading, setLoading] = useState(true);
-
+    
     // saving messages
     const sendMessage = async (from, message) => {
         try {
