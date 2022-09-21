@@ -1,21 +1,23 @@
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { db } from "../../firebase";
-import { useAuth } from "../../context/AuthContext";
+
 import AddPosts from "./AddPosts";
 import LikePosts from "./LikePosts";
 import DeletePosts from "./DeletePosts";
 import "../../styles/Posts.css";
 import MainChat from "../Chat/MainChat";
 // import User from "../Chat/User"
+import { AuthContext } from "../../context/auth";
 
 export default function Posts() {
   const [posts, setPosts] = useState([]);
-  const { user } = useAuth();
-  const [userClicked, setUserClicked] = useState(null)
-  console.log(userClicked)
-  const [show, setShow] = useState(false)
+
+  const { user } = useContext(AuthContext)
+
+  console.log(user)
+  console.log(posts)
   useEffect(() => {
     const postsRef = collection(db, "Posts");
     const q = query(postsRef, orderBy("createdAt", "desc"));
@@ -46,9 +48,10 @@ export default function Posts() {
             userId,
             likes,
             comments,
-            email
+            email,
+
           }) => (
-            <div key={id} onClick={() => setUserClicked({ email, userId })}>
+            <div key={id} >
               <div className="posts">
                 <div>
                   <Link to={`/posts/${id}`}>
@@ -91,7 +94,7 @@ export default function Posts() {
                     Escríbeme!
                   </button> */}
                   {/* <User user1={user} user={userClicked} /> */}
-                  <button>Chat</button>
+                  <Link to="/chat">Contacta con {createdBy}!</Link>
                 </div>
               </div>
             </div>

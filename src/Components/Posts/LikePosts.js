@@ -1,11 +1,12 @@
-import React from "react";
-// import { useAuthState } from "react-firebase-hooks/auth";
+import React, { useContext } from "react";
+
 import { db } from "../../firebase";
 import { arrayRemove, arrayUnion, doc, updateDoc } from "firebase/firestore";
-import { useAuth } from "../../context/AuthContext";
 
+import { AuthContext } from "../../context/auth";
 export default function LikeArticle({ id, likes }) {
-    const { user } = useAuth();
+
+    const { user } = useContext(AuthContext)
 
     const likesRef = doc(db, "Posts", id);
 

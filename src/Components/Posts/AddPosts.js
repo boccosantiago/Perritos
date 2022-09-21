@@ -1,13 +1,16 @@
-import { useAuth } from "../../context/AuthContext";
+
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Timestamp, collection, addDoc } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { storage, db } from "../../firebase";
 import { toast } from "react-toastify"
+import { AuthContext } from "../../context/auth";
 
 export default function AddPosts() {
-  const { user } = useAuth()
+
+  const { user } = useContext(AuthContext)
+  console.log("userAdd", user)
   const [formData, setFormData] = useState({
     title: "",
     description: "",
@@ -94,10 +97,10 @@ export default function AddPosts() {
       ) : (
         <>
           <h2>Create article</h2>
-          <br/>
+          <br />
           <div className="form-group">
             <label htmlFor="">Title</label>
-            <br/>
+            <br />
             <input
               type="text"
               name="title"
@@ -106,30 +109,30 @@ export default function AddPosts() {
               onChange={(e) => handleChange(e)}
             />
           </div>
-          <br/>
+          <br />
           {/* description */}
           <label htmlFor="">Description</label>
-          <br/>
+          <br />
           <textarea
             name="description"
             className="form-control"
-            style={{resize: 'none'}}
+            style={{ resize: 'none' }}
             value={formData.description}
             onChange={(e) => handleChange(e)}
           />
-          <br/><br/>
+          <br /><br />
           {/* image */}
-         <label htmlFor="">Subir imagen</label> 
-         <br/>
+          <label htmlFor="">Subir imagen</label>
+          <br />
           <input
             type="file"
             name="image"
             accept="image/*"
-            
+
             /* className="form-control" */
             onChange={(e) => handleImageChange(e)}
           />
-          <br/><br/>
+          <br /><br />
           {progress === 0 ? null : (
             <div className="progress">
               <div

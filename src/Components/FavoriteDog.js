@@ -1,12 +1,13 @@
 import React, { useContext } from "react";
 import FavoriteContext from "../context/favoritesContext";
 import { Link } from "react-router-dom";
-import { useAuth } from "../context/AuthContext";
+import { AuthContext } from "../context/auth";
 
 export default function FavoriteDog(props) {
 
   const { favoriteDogs, updateFavoriteDogs } = useContext(FavoriteContext);
-  const { user } = useAuth()
+  const { user } = useContext(AuthContext)
+  console.log(user)
 
   return (
 

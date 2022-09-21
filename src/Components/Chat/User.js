@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
-// import Img from "../../image1.jpg";
+import Img from "../../image1.jpg";
 import { onSnapshot, doc } from "firebase/firestore";
 import { db } from "../../firebase";
 
 const User = ({ user1, user, selectUser, chat }) => {
-    console.log(user)
     const user2 = user?.uid;
     const [data, setData] = useState("");
 
@@ -19,20 +18,20 @@ const User = ({ user1, user, selectUser, chat }) => {
     return (
         <>
             <div
-                // className={`user_wrapper ${chat.name === user.name && "selected_user"}`}
+                className={`user_wrapper ${chat.name === user.name && "selected_user"}`}
                 onClick={() => selectUser(user)}
             >
                 <div className="user_info">
                     <div className="user_detail">
-                        {/* <img src={user.avatar || Img} alt="avatar" className="avatar" /> */}
-                        {/* <h4>{user.email}</h4> */}
+                        <img src={user.avatar || Img} alt="avatar" className="avatar" />
+                        <h4>{user.name}</h4>
                         {data?.from !== user1 && data?.unread && (
                             <small className="unread">New</small>
                         )}
                     </div>
-                    {/* <div
+                    <div
                         className={`user_status ${user.isOnline ? "online" : "offline"}`}
-                    ></div> */}
+                    ></div>
                 </div>
                 {data && (
                     <p className="truncate">
@@ -43,16 +42,14 @@ const User = ({ user1, user, selectUser, chat }) => {
             </div>
             <div
                 onClick={() => selectUser(user)}
-            // className={`sm_container ${chat.name === user.name && "selected_user"}`}
+                className={`sm_container ${chat.name === user.name && "selected_user"}`}
             >
-                {/* <img
-                    src={Img}
+                <img
+                    src={user.avatar || Img}
                     alt="avatar"
                     className="avatar sm_screen"
-                /> */}
+                />
             </div>
-
-
         </>
     );
 };

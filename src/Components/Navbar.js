@@ -8,13 +8,17 @@ import edit from '../img/edit.png';
 import heart from '../img/heart.png';
 import envelope from '../img/envelope.png';
 import logoutImg from '../img/log-out.png';
-import { useAuth } from "../context/AuthContext";
-
+import { AuthContext } from "../context/auth";
+import { updateDoc, doc } from "firebase/firestore";
+import { auth, db } from "../firebase";
+import { signOut } from "firebase/auth";
 
 function Navbar() {
   const navigate = useNavigate();
   const { favoriteDogs } = useContext(FavoriteContext);
-  const { user, logout } = useAuth()
+  //const { user, logout } = useAuth()
+  const { user } = useContext(AuthContext)
+
   console.log(favoriteDogs)
   console.log("userNavbar", user)
 
@@ -55,7 +59,7 @@ function Navbar() {
       </li>
     );
   }
-
+  const logout = () => signOut(auth);
   const handleSignOut = async () => {
     try {
       await logout();
@@ -64,7 +68,6 @@ function Navbar() {
       console.log(error);
     }
   };
-
   return (
     <div className="navBar">
       <div className="main-navigation">
@@ -110,7 +113,7 @@ function Navbar() {
 
               <DropdownItem img={userImg} text={"Mi perfil"} onClick={() => navigate('/profile')} />
               <DropdownItem img={heart} text={"Favoritos"} onClick={() => navigate('/favorites')} />
-              <DropdownItem img={envelope} text={"Mensajes"} onClick={() => navigate('/messages')} />
+              <DropdownItem img={envelope} text={"Mensajes"} onClick={() => navigate('/chat')} />
               <DropdownItem img={logoutImg} text={"Logout"} onClick={handleSignOut} />
 
             </ul>
