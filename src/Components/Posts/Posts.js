@@ -15,6 +15,7 @@ export default function Posts() {
   const [userClicked, setUserClicked] = useState(null)
   console.log(userClicked)
   const [show, setShow] = useState(false)
+  
   useEffect(() => {
     const postsRef = collection(db, "Posts");
     const q = query(postsRef, orderBy("createdAt", "desc"));

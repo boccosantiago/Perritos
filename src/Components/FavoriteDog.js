@@ -7,7 +7,7 @@ export default function FavoriteDog(props) {
 
   const { favoriteDogs, updateFavoriteDogs } = useContext(FavoriteContext);
   const { user } = useAuth()
-
+  
   return (
 
     <div>

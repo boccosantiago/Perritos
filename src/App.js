@@ -1,10 +1,9 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import './App.css';
 import Main from './Components/Main'
 import Home from './Components/Home'
 import Profile from './Components/Profile';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
-import { useState } from 'react';
 import Navbar from "./Components/Navbar";
 import Dogs from './Components/Dogs';
 import Map from './Components/Maps/Maps'
@@ -15,18 +14,33 @@ import Protected from "./Components/Protected";
 import Posts from "./Components/Posts/Posts";
 import { AuthProvider } from './context/AuthContext';
 import { ChatProvider } from './context/Chat';
-import MainChat from "./Components/MainChat"
+// import MainChat from "./Components/MainChat2.js"
 
 import FavoriteList from './Components/FavoriteList';
 
 
 function App() {
 
-  const [favorites, setFavorites] = useState([])
+  const [favorites, setFavorites] = useState(
+    () => {
+        const initial = [];
 
-  console.log('favorites', favorites)
+        try {
+            const data = localStorage.getItem("favorites");
+            return data ? JSON.parse(data) : initial
+        } catch (e) {
+            return initial
+        }
 
-  const updateFavoriteDogs = (name) => {
+    });
+
+
+useEffect(() => {
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+}, [favorites])
+
+
+   const updateFavoriteDogs = (name) => {
     const updated = [...favorites];
     const isFavorite = favorites.indexOf(name);
     if (isFavorite >= 0) {
@@ -47,7 +61,7 @@ function App() {
         >
           <div className="App">
             <BrowserRouter>
-              <Navbar />
+              <Navbar setFavorites={setFavorites}/>
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/main" element={<Main />} />

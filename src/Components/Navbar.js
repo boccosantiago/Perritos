@@ -11,7 +11,7 @@ import logoutImg from '../img/log-out.png';
 import { useAuth } from "../context/AuthContext";
 
 
-function Navbar() {
+function Navbar(props) {
   const navigate = useNavigate();
   const { favoriteDogs } = useContext(FavoriteContext);
   const { user, logout } = useAuth()
@@ -23,6 +23,7 @@ function Navbar() {
   //     item.email === props.userLogin.email &&
   //     item.password === props.userLogin.password
   // );
+
 
   const [open, setOpen] = useState(false);
 
@@ -60,7 +61,8 @@ function Navbar() {
     try {
       await logout();
       navigate('/')
-    } catch (error) {
+      props.setFavorites([])
+  } catch (error) {
       console.log(error);
     }
   };
