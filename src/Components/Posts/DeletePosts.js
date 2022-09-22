@@ -21,7 +21,7 @@ export default function DeleteArticle({ id, imageUrl }) {
     return (
         <div>
             <button onClick={handleDelete}
-                style={{ cursor: "pointer" }}>Delete</button>
+               classname='btn' style={{ cursor: "pointer" }}>Delete</button>
 
         </div>
     );

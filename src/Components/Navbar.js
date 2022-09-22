@@ -56,7 +56,7 @@ function Navbar() {
   };
 
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-base-100 sticky top-0 z-50">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -97,7 +97,7 @@ function Navbar() {
             </li>
           </ul>
         </div>
-        <a className="btn btn-ghost normal-case text-xl">PERRITOS</a>
+        <a className=" btn btn-secondary normal-case text-xl 	">PERRITOS</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">
@@ -131,10 +131,27 @@ function Navbar() {
         </div>
       ) : (
         <div className="navbar-end">
-          <Link to="/favorites">💙{favoriteDogs.length}</Link>
+          <Link to="/favorites">
+            <button className="btn btn-circle btn-outline btn-secondary">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                />
+              </svg>
+            </button>
+          </Link>
 
           <div className="dropdown dropdown-end">
-            <label tabIndex={0} className="btn m-1">
+            <label tabIndex={0} className="btn btn-outline btn-primary m-1">
               {user.displayName || user.email}
             </label>
             <ul

@@ -4,10 +4,10 @@ import { useState } from "react";
 import { Timestamp, collection, addDoc } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { storage, db } from "../../firebase";
-import { toast } from "react-toastify"
+import { toast } from "react-toastify";
 
 export default function AddPosts() {
-  const { user } = useAuth()
+  const { user } = useAuth();
   const [formData, setFormData] = useState({
     title: "",
     description: "",
@@ -68,7 +68,7 @@ export default function AddPosts() {
             userId: user.uid,
             email: user.email,
             likes: [],
-            comments: []
+            comments: [],
           })
             .then(() => {
               toast("Article added successfully", { type: "success" });
@@ -83,7 +83,7 @@ export default function AddPosts() {
   };
 
   return (
-    <div className="publish-post" >
+    <div className="publish-post">
       {!user ? (
         <>
           <h2>
@@ -93,56 +93,51 @@ export default function AddPosts() {
         </>
       ) : (
         <>
-          <h2>Create article</h2>
-          <br/>
+          <p className="text-2xl">Publica tu mascota en adopcion</p>
+          <br />
           <div className="form-group">
-            <label htmlFor="">Title</label>
-            <br/>
+            <label htmlFor="">Titulo</label>
+            <br />
             <input
               type="text"
               name="title"
-              className="form-control"
+              className="input w-full max-w-xs"
               value={formData.title}
               onChange={(e) => handleChange(e)}
             />
           </div>
-          <br/>
+          <br />
           {/* description */}
-          <label htmlFor="">Description</label>
-          <br/>
+          <label htmlFor="">Descripcion</label>
+          <br />
           <textarea
             name="description"
-            className="form-control"
-            style={{resize: 'none'}}
+            className="input w-full max-w-xs"
+            style={{ resize: "none" }}
             value={formData.description}
             onChange={(e) => handleChange(e)}
           />
-          <br/><br/>
+          <br />
           {/* image */}
-         <label htmlFor="">Subir imagen</label> 
-         <br/>
+          <label htmlFor="">Subir imagen</label>
+          <br />
           <input
             type="file"
             name="image"
             accept="image/*"
-            
             /* className="form-control" */
             onChange={(e) => handleImageChange(e)}
           />
-          <br/><br/>
+          <br />
+          <br />
           {progress === 0 ? null : (
             <div className="progress">
-              <div
-                className="progress-bar progress-bar-striped mt-2"
-              >
+              <div className="progress-bar progress-bar-striped mt-2">
                 {`uploading image ${progress}%`}
               </div>
             </div>
           )}
-          <button
-            /* className="form-control btn-primary mt-2" */
-            onClick={handlePublish}
-          >
+          <button className="btn btn-primary" onClick={handlePublish}>
             Publicar
           </button>
         </>

@@ -37,30 +37,30 @@
     text-decoration: none;
 }
 
-.buscar{
+/* .buscar{
     position: absolute;
     background-color: rgb(255, 255, 255);
-    top: 410px;
+    top: 640px;
     border: none;
-    left: 65px;
+    left: 35px;
     cursor: pointer;
     color: rgb(225, 62, 62);
-    border-radius: 20px;
+    border-radius: 10px;
     font-size: 1em;
     margin: 5px;
     padding: 10px;
     font-weight: 500;
     transition: all 0.7s;
-}
+} */
 
-.buscar:hover{
+/* .buscar:hover{
     background-color: rgb(225, 62, 62);
     color: white;
     margin: 5px;
     font-weight: 500;
     transition: all 0.3s;
     transform: scale(1.1);
-}
+} */
 
 .heart{
     cursor: pointer;

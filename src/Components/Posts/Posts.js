@@ -25,7 +25,10 @@ export default function Posts() {
     });
   }, []);
   return (
-    <div className="posts-container">
+  <>
+  <AddPosts />
+    <div className="container m-auto flex w-1/4 flex-wrap">
+      
       {posts.length === 0 ? (
         <p>No posts found!</p>
       ) : (
@@ -41,17 +44,18 @@ export default function Posts() {
             likes,
             comments,
           }) => (
-            <div key={id}>
-              <div className="posts">
+            <div key={id} className='posts-main m-auto'>
+              <div className="border rounded-xl p-5 m-7 ">
                 <div>
                   <Link to={`/posts/${id}`}>
                     <img
+                      className=" m-auto"
                       src={imageUrl}
                       alt="title"
                     />
                   </Link>
                 </div>
-                <div className="col-9 ps-3">
+                <div className="row">
                   <div className="row">
                     <div className="col-6">
                       {createdBy && (
@@ -64,7 +68,7 @@ export default function Posts() {
                   <p>Publicado: {createdAt.toDate().toDateString()}</p>
                   <span>{description}</span>
 
-                  <div className="d-flex flex-row-reverse">
+                  <div className="">
                     {user && <LikePosts id={id} likes={likes} />}
                     <div className="pe-2">
                       <p>{likes?.length} likes</p>
@@ -74,7 +78,7 @@ export default function Posts() {
                         <p>{comments?.length} comments</p>
                       </div>
                     )}
-                     <div className="col-6 d-flex flex-row-reverse">
+                     <div className="">
                       {user && user.uid === userId && (
                         <DeletePosts id={id} imageUrl={imageUrl} />
                       )}
@@ -86,7 +90,6 @@ export default function Posts() {
           )
         )
       )}
-      <AddPosts />
-      </div>
+      </div></>
   );
 }

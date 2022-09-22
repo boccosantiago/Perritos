@@ -16,7 +16,7 @@ function Main() {
         coat: ""
     })
     return (
-        <div className="container-main">
+        <div className="container-main bg-stone-100	">
             <Filter setFilterData={setFilterData} />
             <Card filterData={filterData} />
         </div>

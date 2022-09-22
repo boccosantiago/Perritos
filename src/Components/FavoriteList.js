@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 import datos from "../datos";
 import "../styles/FavoriteList.css";
 
-
 export default function FavoriteList() {
   const { favoriteDogs } = useContext(FavoriteContext);
 
@@ -22,22 +21,25 @@ export default function FavoriteList() {
   return (
     <div id="favorite-container">
       {dogList.map((pet) => (
-        <div id="favorite-card" key={pet.id}>
-          <Link className="favorite-cardlink" to={`/main/${pet.id}`}>
-            <div id="favorite-img-container">
-              <img
-                id="favorite-img"
-                alt=""
-                src={cargarImagen(`./id${pet.id}.jpg`)}
-              ></img>
+        <div className="card sm:card-side bg-base-100 shadow-xl m-7">
+          <figure>
+            <img
+              style={{height:'180px', borderRadius:'20px'}}
+              
+              id="favorite-img"
+              alt=""
+              src={cargarImagen(`./id${pet.id}.jpg`)}
+            />
+          </figure>
+          <div className="card-body">
+            <h2 className="card-title">{pet.name}</h2>
+            <p>Click the button to watch on Jetflix app.</p>
+            <div className="card-actions justify-end">
+              <button className="btn btn-primary">Adoptame</button>
             </div>
-            <div>
-            <span className="favorite-name">{pet.name}</span>
-            </div>
-          </Link>
+          </div>
         </div>
       ))}
     </div>
   );
 }
-
