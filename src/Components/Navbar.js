@@ -13,7 +13,7 @@ import { auth, db } from "../firebase";
 import { signOut } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
 
-function Navbar() {
+function Navbar(props) {
   const navigate = useNavigate();
   const { favoriteDogs } = useContext(FavoriteContext);
   //const { user, logout } = useAuth()
@@ -27,7 +27,7 @@ function Navbar() {
   //     item.email === props.userLogin.email &&
   //     item.password === props.userLogin.password
   // );
- 
+
   const [open, setOpen] = useState(false);
 
   let menuRef = useRef();
@@ -64,7 +64,8 @@ function Navbar() {
     try {
       await logout();
       navigate('/')
-    } catch (error) {
+      props.setFavorites([])
+  } catch (error) {
       console.log(error);
     }
   };
