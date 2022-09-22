@@ -6,8 +6,8 @@ import { ChatProvider } from './context/Chat';
 
 import AppRoutes from './router/Routes';
 
-
-function App() {
+export default function App() {
+    
 
   const [favorites, setFavorites] = useState(
     () => {
@@ -23,9 +23,9 @@ function App() {
     });
 
 
-useEffect(() => {
+  useEffect(() => {
     localStorage.setItem("favorites", JSON.stringify(favorites));
-}, [favorites])
+  }, [favorites]);
 
 
    const updateFavoriteDogs = (name) => {
@@ -36,8 +36,8 @@ useEffect(() => {
     } else {
       updated.push(name);
     }
-    setFavorites(updated);
   }
+  
 
   return (
     <AuthProvider>
@@ -55,5 +55,3 @@ useEffect(() => {
     </AuthProvider>
   );
 }
-
-export default App;

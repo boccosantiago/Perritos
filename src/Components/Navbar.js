@@ -8,13 +8,17 @@ import edit from '../img/edit.png';
 import heart from '../img/heart.png';
 import envelope from '../img/envelope.png';
 import logoutImg from '../img/log-out.png';
-import { useAuth } from "../context/AuthContext";
-
+import { AuthContext } from "../context/auth";
+import { auth, db } from "../firebase";
+import { signOut } from "firebase/auth";
+import { doc, getDoc } from "firebase/firestore";
 
 function Navbar(props) {
   const navigate = useNavigate();
   const { favoriteDogs } = useContext(FavoriteContext);
-  const { user, logout } = useAuth()
+  //const { user, logout } = useAuth()
+  const { user } = useContext(AuthContext)
+
   console.log(favoriteDogs)
   console.log("userNavbar", user)
 
@@ -23,7 +27,6 @@ function Navbar(props) {
   //     item.email === props.userLogin.email &&
   //     item.password === props.userLogin.password
   // );
-
 
   const [open, setOpen] = useState(false);
 
@@ -56,7 +59,7 @@ function Navbar(props) {
       </li>
     );
   }
-
+  const logout = () => signOut(auth);
   const handleSignOut = async () => {
     try {
       await logout();
@@ -66,6 +69,20 @@ function Navbar(props) {
       console.log(error);
     }
   };
+  
+  // getData()
+  // async function getData(){
+  //   const result = await signInWithEmailAndPassword(auth, email, password);
+  //   const docRef = doc(db, "users", result.user.uid);
+  //   const docSnap = await getDoc(docRef);
+  
+  //   if (docSnap) {
+  //   console.log("Document data:", docSnap.data());
+  // } else {
+  //   // doc.data() will be undefined in this case
+  //   console.log("No such document!");
+  // }
+  // }
 
   return (
     <div className="navBar">
@@ -88,6 +105,9 @@ function Navbar(props) {
           <li>
             <a href="/posts">Difunde</a>
           </li>
+          <li>
+            <a href="/chat">Chatea</a>
+          </li>
 
         </ul>
       </div>
@@ -109,8 +129,8 @@ function Navbar(props) {
 
               <DropdownItem img={userImg} text={"Mi perfil"} onClick={() => navigate('/profile')} />
               <DropdownItem img={heart} text={"Favoritos"} onClick={() => navigate('/favorites')} />
-              <DropdownItem img={envelope} text={"Mensajes"} onClick={() => navigate('/messages')} />
-              <DropdownItem img={logoutImg} text={"Logout"} onClick={handleSignOut}/>
+              <DropdownItem img={envelope} text={"Mensajes"} onClick={() => navigate('/chat')} />
+              <DropdownItem img={logoutImg} text={"Logout"} onClick={handleSignOut} />
 
             </ul>
           </div>

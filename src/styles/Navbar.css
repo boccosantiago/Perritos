@@ -10,7 +10,7 @@
 .navBar{
     display: flex;
     justify-content: space-between;
-    position: absolute;
+    /* position: absolute; */
     font-size: large;
     height: 60px;
     align-items: center;
