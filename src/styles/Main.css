@@ -6,12 +6,11 @@ html{
 .container-main{
   position: relative;
   text-align: center;
-  padding-top: 70px;
+  padding-top: 40px;
   height: 100%;
 }
 
-.container-main svg{
-  position: fixed;
-  z-index: -1;
-  width: auto;
-}
+
+
+
+

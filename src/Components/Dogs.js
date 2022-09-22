@@ -18,7 +18,7 @@ function Dogs() {
   const dogData = result[0];
 
   const indexProtectora = infoProtect.findIndex(item => item.findIndex(pet => pet.id === Number(params.id)) > -1);
-  console.log("dogData.name", dogData)
+  //console.log("infoprotectora", indexProtectora)
 
   return (
 
@@ -37,11 +37,7 @@ function Dogs() {
           <br />
           <h3>Detalles: <Link to={"/main"} className='adoptame'> Adoptame </Link></h3>
           <br />
-          <p>Edad: {dogData.age} </p>
-          <p>Raza: {dogData.breed.toString()} </p>
-          <p>Sexo: {dogData.gender} </p>
-          <p>Tamaño: {dogData.size} </p>
-          <p>Pelo: {dogData.coatLength} </p>
+         
         </div>
         <br />
         <h3>Descripcion: </h3>

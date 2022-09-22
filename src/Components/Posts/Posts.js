@@ -34,80 +34,73 @@ export default function Posts(props) {
   console.log(posts);
 
   return (
-    <div className="posts-container">
-      {posts.length === 0 ? (
-        <p>No posts found!</p>
-      ) : (
-        posts.map(
-          ({
-            id,
-            title,
-            description,
-            imageUrl,
-            createdAt,
-            createdBy,
-            userId,
-            likes,
-            comments,
-            email,
+    <>
+      <AddPosts registeredName={props.registeredName} />
+      <div className="container m-auto flex w-1/4 flex-wrap">
 
-          }) => (
-            <div key={id} >
-              <div className="posts">
-                <div>
-                  <Link to={`/posts/${id}`}>
-                    <img
-                      src={imageUrl}
-                      alt="title"
-                    />
-                  </Link>
-                </div>
-                <div className="col-9 ps-3">
+        {posts.length === 0 ? (
+          <p>No posts found!</p>
+        ) : (
+          posts.map(
+            ({
+              id,
+              title,
+              description,
+              imageUrl,
+              createdAt,
+              createdBy,
+              userId,
+              likes,
+              comments,
+              email,
+
+            }) => (
+              <div key={id} className='posts-main m-auto'>
+                <div className="border rounded-xl p-5 m-7 ">
+                  <div>
+                    <Link to={`/posts/${id}`}>
+                      <img
+                        className=" m-auto"
+                        src={imageUrl}
+                        alt="title"
+                      />
+                    </Link>
+                  </div>
                   <div className="row">
-                    <div className="col-6">
-                      {createdBy && (
-                        <span className="badge bg-primary">Creado por: {createdBy}</span>
-                      )}
-                      <br />
-                    </div>
-                  </div>
-                  <h3>{title}</h3>
-                  <p>Publicado: {createdAt.toDate().toDateString()}</p>
-                  <span>{description}</span>
-
-                  <div className="d-flex flex-row-reverse">
-                    {user && <LikePosts id={id} likes={likes} />}
-                    <div className="pe-2">
-                      <p>{likes?.length} likes</p>
-                    </div>
-                    {comments && comments.length > 0 && (
-                      <div className="pe-2">
-                        <p>{comments?.length} comments</p>
+                    <div className="row">
+                      <div className="col-6">
+                        {createdBy && (
+                          <span className="badge bg-primary">Creado por: {createdBy}</span>
+                        )}
+                        <br />
                       </div>
-                    )}
-                    <div className="col-6 d-flex flex-row-reverse">
-                      {user && user.uid === userId && (
-                        <DeletePosts id={id} imageUrl={imageUrl} />
+                    </div>
+                    <h3>{title}</h3>
+                    <p>Publicado: {createdAt.toDate().toDateString()}</p>
+                    <span>{description}</span>
+
+                    <div className="">
+                      {user && <LikePosts id={id} likes={likes} />}
+                      <div className="pe-2">
+                        <p>{likes?.length} likes</p>
+                      </div>
+                      {comments && comments.length > 0 && (
+                        <div className="pe-2">
+                          <p>{comments?.length} comments</p>
+                        </div>
                       )}
+                      <div className="">
+                        {user && user.uid === userId && (
+                          <DeletePosts id={id} imageUrl={imageUrl} />
+                        )}
+                      </div>
                     </div>
                   </div>
-                  {/* <button onClick={() => setShow(!show)}>
-                    Escríbeme!
-                  </button> */}
-                  {/* <User user1={user} user={userClicked} /> */}
-                  <Link to="/chat">Contacta con {createdBy}!</Link>
                 </div>
               </div>
-            </div>
+            )
           )
-        )
-      )}
-
-      <AddPosts nameRegister={props.nameRegister} />
-      {/* <div>
-        {show ? <MainChat userClicked={userClicked} /> : <div></div>}
-      </div> */}
-
-    </div>
+        )}
+      </div></>
   );
 }

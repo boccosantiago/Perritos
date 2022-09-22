@@ -3,7 +3,12 @@
     padding-top: 100px;
     margin: auto;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    height: 100vh;
+}
+
+.posts-main{
+    text-align: center;
 }
 
 .posts{
@@ -21,20 +26,23 @@
     width: 300px;
     height: 200px;
    
-}
+} 
 
-.publish-post{
-    width: 300px;
-    position: fixed;
-    right: 10px;
-}
 
 .form-group > input{
-    width: 250px;
+    width: 100%;
     height: auto;
 }
 
-.form-control{
-    width: 250px;
-    height: 100px;
+
+
+
+.publish-post{
+    width: 100%;
+    position: sticky;
+    padding: 20px;
+    background-color: rgb(212, 212, 212);
+    border-radius: 10px;
+    text-align: center;
+   
 }

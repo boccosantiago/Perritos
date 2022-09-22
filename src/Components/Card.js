@@ -9,11 +9,19 @@ function Card(props) {
   const infoProtect = data.map((item) => item.pets);
   const [petFound, setPetFound] = useState([...infoProtect]);
 
+  console.log('filter', props.filterData)
+
+  const indexProtectora = infoProtect.findIndex(item => item.findIndex(pet => pet.id) > -1);
+
+
+  console.log('DATA', data[0].city)
+
   function filterPets() {
     if (Object.values(value).length === 0) {
       setPetFound([...infoProtect]);
     } else {
       const lowerCaseName = props.filterData.name.toLowerCase();
+      const lowerCaseCity = props.filterData.city;
       const lowerCaseAge = props.filterData.age;
       const lowerCaseGender = props.filterData.gender;
       const lowerCaseSize = props.filterData.size;
@@ -21,11 +29,14 @@ function Card(props) {
       const lowerCaseBreed = props.filterData.breed;
       const lowerCaseColor = props.filterData.color;
 
+      
+
       const filteredPet = infoProtect.map((item) =>
         item.filter((pet) => {
+          
           return (
-            (!lowerCaseName ||
-              pet.name.toLowerCase().includes(lowerCaseName)) &&
+            (!lowerCaseName || pet.name.toLowerCase().includes(lowerCaseName)) &&
+            (!lowerCaseCity || data[indexProtectora].city.includes(lowerCaseCity)) &&
             (!lowerCaseAge || pet.age.includes(lowerCaseAge)) &&
             (!lowerCaseGender || pet.gender.includes(lowerCaseGender)) &&
             (!lowerCaseSize || pet.size.includes(lowerCaseSize)) &&
@@ -44,7 +55,7 @@ function Card(props) {
 
   return (
     <div id="container">
-      <button className="btn m-auto" onClick={filterPets}>
+      <button className="btn m-auto buscar" onClick={filterPets}>
         Buscar
       </button>
       <div id="container-card">

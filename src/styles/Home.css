@@ -1,46 +1,8 @@
-.container {
-    display: flex;
-   justify-content: right;
-   align-items: center;
-   height: 100vh;
-   color: white;
-   background: url('../img/adorable-brown.jpg');
-   background-size: cover;
- }  
 
-.main {
-   display: block;
-   text-align: center;
-   width: 40%;
-   padding-right: 20px;
-}
 
-.empezar{
-    color: rgb(225, 62, 62);
-    border: none;
-    border-radius: 20px;
-    font-size: 1em;
-    margin: 5px;
-    padding: 10px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.7s;
-}
 
-.empezar:hover{
-    background-color: rgb(225, 62, 62);
-    color: white;
-    border-radius: 20px;
-    margin: 5px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s;
-    transform: scale(1.1);
-}
 
-.home-text {
-    margin: 30px 0;
-}
+
 
 
 

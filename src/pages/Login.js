@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { doc, getDoc } from "firebase/firestore";
 
-const Login = ({ setNameRegister }) => {
+const Login = ({ setRegisteredName }) => {
     const [data, setData] = useState({
         email: "",
         password: "",
@@ -36,7 +36,7 @@ const Login = ({ setNameRegister }) => {
             const docRef = doc(db, "users", result.user.uid);
             const docSnap = await getDoc(docRef);
             if (docSnap.exists()) {
-                setNameRegister(docSnap.data().name)
+                setRegisteredName(docSnap.data().name)
                 console.log("Document data:", docSnap.data());
             } else {
                 // doc.data() will be undefined in this case
