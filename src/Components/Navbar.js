@@ -65,17 +65,17 @@ function Navbar(props) {
       await logout();
       navigate('/')
       props.setFavorites([])
-  } catch (error) {
+    } catch (error) {
       console.log(error);
     }
   };
-  
+
   // getData()
   // async function getData(){
   //   const result = await signInWithEmailAndPassword(auth, email, password);
   //   const docRef = doc(db, "users", result.user.uid);
   //   const docSnap = await getDoc(docRef);
-  
+
   //   if (docSnap) {
   //   console.log("Document data:", docSnap.data());
   // } else {

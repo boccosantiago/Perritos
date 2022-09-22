@@ -9,8 +9,6 @@ function Card(props) {
   const infoProtect = data.map((item) => item.pets);
   const [petFound, setPetFound] = useState([...infoProtect]);
 
-
-
   function filterPets() {
     if (Object.values(value).length === 0) {
       setPetFound([...infoProtect]);

@@ -13,8 +13,8 @@ import {
     getDoc,
     updateDoc,
 } from "firebase/firestore";
-import { ref, getDownloadURL, uploadBytes } from "firebase/storage";
-import User from "./User";
+// import { ref, getDownloadURL, uploadBytes } from "firebase/storage";
+// import User from "./User";
 import MessageForm from "./MessageForm";
 import Message from "./Message";
 import Posts from "../Posts/Posts";

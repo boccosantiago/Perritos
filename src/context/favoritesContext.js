@@ -8,4 +8,3 @@ const FavoriteContext = createContext({
 export const FavoriteProvider = FavoriteContext.Provider;
 
 export default FavoriteContext;
-

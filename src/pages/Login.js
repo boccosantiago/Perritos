@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import { auth, db } from "../firebase";
+import { auth } from "../firebase";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { doc, getDoc } from "firebase/firestore";
+
 
 const Login = () => {
     const [data, setData] = useState({
@@ -43,10 +43,10 @@ const Login = () => {
         } catch (err) {
             setData({ ...data, error: err.message, loading: false });
         }
-       
+
     };
 
-    
+
     const handleGoogleSignin = async () => {
         try {
             await loginWithGoogle();
@@ -61,7 +61,7 @@ const Login = () => {
         const googleProvider = new GoogleAuthProvider();
         return signInWithPopup(auth, googleProvider);
     };
-   
+
 
     return (
         <section>

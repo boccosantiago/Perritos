@@ -18,7 +18,7 @@ export default function Posts() {
 
   console.log(user)
   console.log(posts)
-  
+
   useEffect(() => {
     const postsRef = collection(db, "Posts");
     const q = query(postsRef, orderBy("createdAt", "desc"));
