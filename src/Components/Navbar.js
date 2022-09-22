@@ -9,9 +9,9 @@ import heart from '../img/heart.png';
 import envelope from '../img/envelope.png';
 import logoutImg from '../img/log-out.png';
 import { AuthContext } from "../context/auth";
-import { updateDoc, doc } from "firebase/firestore";
 import { auth, db } from "../firebase";
 import { signOut } from "firebase/auth";
+import { doc, getDoc } from "firebase/firestore";
 
 function Navbar() {
   const navigate = useNavigate();
@@ -27,7 +27,7 @@ function Navbar() {
   //     item.email === props.userLogin.email &&
   //     item.password === props.userLogin.password
   // );
-
+ 
   const [open, setOpen] = useState(false);
 
   let menuRef = useRef();
@@ -68,6 +68,21 @@ function Navbar() {
       console.log(error);
     }
   };
+  
+  // getData()
+  // async function getData(){
+  //   const result = await signInWithEmailAndPassword(auth, email, password);
+  //   const docRef = doc(db, "users", result.user.uid);
+  //   const docSnap = await getDoc(docRef);
+  
+  //   if (docSnap) {
+  //   console.log("Document data:", docSnap.data());
+  // } else {
+  //   // doc.data() will be undefined in this case
+  //   console.log("No such document!");
+  // }
+  // }
+
   return (
     <div className="navBar">
       <div className="main-navigation">

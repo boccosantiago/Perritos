@@ -14,7 +14,7 @@
 }
 
 /* Navbar */
-nav {
+/* nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -29,9 +29,9 @@ nav a {
 }
 nav div a {
   margin-right: 20px;
-}
+} */
 
-section {
+form {
   max-width: 500px;
   margin: 0 auto;
   margin-top: 100px;
@@ -39,7 +39,7 @@ section {
   padding: 10px 20px;
   border-radius: 5px;
 }
-section h3 {
+form h3 {
   text-align: center;
   font-size: 20px;
   color: var(--color-4);

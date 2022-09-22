@@ -54,9 +54,11 @@ const Register = () => {
         }
     };
     return (
-        <section>
+        <div className="login-container">
+            <div className="login-inner">
+            
+            <form  onSubmit={handleSubmit}>
             <h3>Create An Account</h3>
-            <form className="form" onSubmit={handleSubmit}>
                 <div className="input_container">
                     <label htmlFor="name">Name</label>
                     <input type="text" name="name" value={name} onChange={handleChange} />
@@ -86,7 +88,8 @@ const Register = () => {
                     </button>
                 </div>
             </form>
-        </section>
+            </div>
+        </div>
     );
 };
 

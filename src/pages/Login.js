@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth, db } from "../firebase";
-import { updateDoc, doc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { doc, getDoc } from "firebase/firestore";
 
 const Login = () => {
     const [data, setData] = useState({
@@ -15,7 +15,7 @@ const Login = () => {
 
     const navigate = useNavigate();
 
-    const { name, email, password, error, loading } = data;
+    const { email, password, error, loading } = data;
 
     const handleChange = (e) => {
         setData({ ...data, [e.target.name]: e.target.value });
@@ -28,7 +28,7 @@ const Login = () => {
             setData({ ...data, error: "All fields are required" });
         }
         try {
-            //const result = await signInWithEmailAndPassword(auth, email, password);
+            const result = await signInWithEmailAndPassword(auth, email, password);
 
             // await updateDoc(doc(db, "users", result.user.uid), {
             //     isOnline: true,
@@ -43,23 +43,25 @@ const Login = () => {
         } catch (err) {
             setData({ ...data, error: err.message, loading: false });
         }
+       
     };
 
+    
+    const handleGoogleSignin = async () => {
+        try {
+            await loginWithGoogle();
+            // props.setUserLogin(true)
+            navigate("/");
+        } catch (error) {
+            console.log(error.message);
+        }
+    };
 
-    // const handleGoogleSignin = async () => {
-    //     try {
-    //         await loginWithGoogle();
-    //         // props.setUserLogin(true)
-    //         navigate("/");
-    //     } catch (error) {
-    //         console.log(error.message);
-    //     }
-    // };
-
-    // const loginWithGoogle = () => {
-    //     const googleProvider = new GoogleAuthProvider();
-    //     return signInWithPopup(auth, googleProvider);
-    // };
+    const loginWithGoogle = () => {
+        const googleProvider = new GoogleAuthProvider();
+        return signInWithPopup(auth, googleProvider);
+    };
+   
 
     return (
         <section>
@@ -90,12 +92,12 @@ const Login = () => {
                     </button>
                 </div>
             </form>
-            {/* <button
+            <button
                 onClick={handleGoogleSignin}
                 className="bg-slate-50 hover:bg-slate-200 text-black  shadow rounded border-2 border-gray-300 py-2 px-4 w-full"
             >
                 Google login
-            </button> */}
+            </button>
             <p className="my-4 text-sm flex justify-between px-3">
                 Don't have an account?
                 <Link to="/signup" className="text-blue-700 hover:text-blue-900">
