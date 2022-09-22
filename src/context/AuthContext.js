@@ -8,6 +8,7 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
   sendPasswordResetEmail,
+  updateProfile
 } from "firebase/auth";
 import { auth } from "../firebase";
 
@@ -30,11 +31,25 @@ export function AuthProvider({ children }) {
   const [error, setError] = useState(false);
   const [message, setMessage] = useState("");
 
+  
 
-  //Create new user
-  const signup = (email, password) => {
-    return createUserWithEmailAndPassword(auth, email, password);
+  
+
+  // Create new user
+ const signup = async ( email, password) => {
+    return  createUserWithEmailAndPassword(auth,  email, password)
   };
+  console.log("userAuth", user)
+ /*  const signup = async (user) => {
+      const { email, password } = await createUserWithEmailAndPassword(auth, email, password)
+     // console.log(`User ${user.uid} created`)
+      await updateProfile(user, {
+        displayName: user.name
+      });
+      console.log("User profile updated")
+    
+  } */
+  
 
   const login = (email, password) => {
     return signInWithEmailAndPassword(auth, email, password);
