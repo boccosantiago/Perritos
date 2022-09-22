@@ -3,7 +3,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { Alert } from "./Alert";
 
+
 export default function Signup() {
+
   const { signup } = useAuth();
 
   const [user, setUser] = useState({
@@ -11,8 +13,7 @@ export default function Signup() {
     email: "",
     password: "",
   });
-
-
+ 
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
@@ -22,21 +23,37 @@ export default function Signup() {
     try {
       await signup(user.name, user.email, user.password);
       navigate("/");
+    
     } catch (error) {
       setError(error.message);
     }
   };
-
+ 
+  console.log('user', user)
   return (
     <div className="login-container">
       <div className="login-inner">
-
         {error && <Alert message={error} />}
 
         <form
           onSubmit={handleSubmit}
           className="bg-white shadow-md rounded px-8 pt-6 pb-6 mb-4"
         >
+          <div className="mb-4">
+            <label
+              htmlFor="name"
+              className="block text-gray-700 text-sm font-bold mb-2"
+            >
+              Name
+            </label>
+            <input
+              type="text"
+              onChange={(e) => setUser({ ...user, name: e.target.value })}
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              placeholder="name"
+            />
+          </div>
+
           <div className="mb-4">
             <label
               htmlFor="email"

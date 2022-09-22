@@ -20,66 +20,8 @@ import "./index.css";
 import Footer from "./Components/Footer";
 import { ToastContainer } from "react-toastify";
 import FavoriteList from "./Components/FavoriteList";
-import { useNavigate } from "react-router-dom";
-
-//login
-
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth, db } from "./firebase";
-
-//getData
-import { doc, getDoc } from "firebase/firestore";
 
 function App() {
-
-  //Login 
-  const [nameRegister, setNameRegister] = useState()
-
-  // const [data, setData] = useState({
-  //   email: "",
-  //   password: "",
-  //   error: null,
-  //   loading: false,
-  // });
-  // const { email, password, error, loading } = data;
-
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   setData({ ...data, error: null, loading: true });
-  //   if (!email || !password) {
-  //     setData({ ...data, error: "All fields are required" });
-  //   }
-  //   try {
-  //     const result = await signInWithEmailAndPassword(auth, email, password);
-
-  //     // await updateDoc(doc(db, "users", result.user.uid), {
-  //     //     isOnline: true,
-  //     // });
-  //     const docRef = doc(db, "users", result.user.uid);
-  //     const docSnap = await getDoc(docRef);
-  //     if (docSnap.exists()) {
-  //       setNameRegister(docSnap.data().name)
-  //       console.log("Document data:", docSnap.data());
-  //     } else {
-  //       // doc.data() will be undefined in this case
-  //       console.log("No such document!");
-  //     }
-  //     setData({
-  //       email: "",
-  //       password: "",
-  //       error: null,
-  //       loading: false,
-  //     });
-
-  //   } catch (err) {
-  //     setData({ ...data, error: err.message, loading: false });
-  //   }
-
-  // };
-
-  console.log("nombreRegistrado", nameRegister)
-
-  //Favoritos
   const [favorites, setFavorites] = useState(() => {
     const initial = [];
 
@@ -119,7 +61,7 @@ function App() {
       >
         <div className="App">
           <BrowserRouter>
-            <Navbar setFavorites={setFavorites} nameRegister={nameRegister} />
+            <Navbar setFavorites={setFavorites} />
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/main" element={<Main />} />
@@ -133,9 +75,9 @@ function App() {
               />
               <Route path="/profile" element={<Profile />} />
               <Route path="/favorites" element={<FavoriteList />} />
-              <Route path="/posts" element={<Posts nameRegister={nameRegister} />} />
+              <Route path="/posts" element={<Posts />} />
               {/* <Route path="/shelters" element={<Shelters />} /> */}
-              <Route path="/login" element={<Login setNameRegister={setNameRegister} />} />
+              <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/chat" element={
                 <Protected>

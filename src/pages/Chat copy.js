@@ -109,7 +109,6 @@ const Home = () => {
     return (
         <div className="home_container">
             <div className="users_container">
-                <h3>USUARIOS</h3>
                 {users.map((user) => (
                     <User
                         key={user.uid}

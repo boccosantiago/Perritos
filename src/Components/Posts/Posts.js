@@ -11,7 +11,7 @@ import MainChat from "../Chat/MainChat";
 // import User from "../Chat/User"
 import { AuthContext } from "../../context/auth";
 
-export default function Posts() {
+export default function Posts(props) {
   const [posts, setPosts] = useState([]);
 
   const { user } = useContext(AuthContext)
@@ -103,7 +103,7 @@ export default function Posts() {
         )
       )}
 
-      <AddPosts />
+      <AddPosts nameRegister={props.nameRegister} />
       {/* <div>
         {show ? <MainChat userClicked={userClicked} /> : <div></div>}
       </div> */}

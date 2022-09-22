@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import { auth } from "../firebase";
+import { auth, db } from "../firebase";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { doc, getDoc } from "firebase/firestore";
 
-
-const Login = () => {
+const Login = ({ setNameRegister }) => {
     const [data, setData] = useState({
         email: "",
         password: "",
@@ -33,6 +33,15 @@ const Login = () => {
             // await updateDoc(doc(db, "users", result.user.uid), {
             //     isOnline: true,
             // });
+            const docRef = doc(db, "users", result.user.uid);
+            const docSnap = await getDoc(docRef);
+            if (docSnap.exists()) {
+                setNameRegister(docSnap.data().name)
+                console.log("Document data:", docSnap.data());
+            } else {
+                // doc.data() will be undefined in this case
+                console.log("No such document!");
+            }
             setData({
                 email: "",
                 password: "",

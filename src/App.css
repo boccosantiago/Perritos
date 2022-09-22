@@ -122,12 +122,14 @@ section .form {
 }
 
 .home_container {
-  position: relative;
+  margin: auto;
+  background-color: rgb(216, 216, 215);
+  /* position: relative; */
   display: grid;
   grid-template-columns: 1fr 3fr;
   overflow: hidden;
   height: calc(100vh - 70px);
-  width: 100vw;
+  width: 50vw;
 }
 .users_container {
   margin-top: 10px;

@@ -5,7 +5,7 @@ html{
 }
 .container-main{
   position: relative;
-  display: flex;
+  text-align: center;
   padding-top: 70px;
   height: 100%;
 }

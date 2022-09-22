@@ -7,7 +7,7 @@ import { storage, db } from "../../firebase";
 import { toast } from "react-toastify"
 import { AuthContext } from "../../context/auth";
 
-export default function AddPosts() {
+export default function AddPosts(props) {
 
   const { user } = useContext(AuthContext)
   console.log("userAdd", user)
@@ -67,7 +67,7 @@ export default function AddPosts() {
             description: formData.description,
             imageUrl: url,
             createdAt: Timestamp.now().toDate(),
-            createdBy: user.displayName,
+            createdBy: props.nameRegister,
             userId: user.uid,
             email: user.email,
             likes: [],

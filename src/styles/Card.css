@@ -21,16 +21,11 @@
     transition: all 0.2s;
 }
 
-#img-card{
-    width: 9rem;
-    height: 90%;
-    object-fit: cover;
-    border-radius: 20px;
+ #img-card{
+    width: 25rem;
 }
 
-#container-img {
-    height: 8rem;
-}
+
 
 .pet-name{
     color: rgb(255, 64, 0);

@@ -9,6 +9,10 @@ function Card(props) {
   const infoProtect = data.map((item) => item.pets);
   const [petFound, setPetFound] = useState([...infoProtect]);
 
+
+
+
+
   function filterPets() {
     if (Object.values(value).length === 0) {
       setPetFound([...infoProtect]);
@@ -20,6 +24,7 @@ function Card(props) {
       const lowerCaseCoat = props.filterData.coat;
       const lowerCaseBreed = props.filterData.breed;
       const lowerCaseColor = props.filterData.color;
+
 
       const filteredPet = infoProtect.map((item) =>
         item.filter((pet) => {
@@ -40,36 +45,35 @@ function Card(props) {
     }
   }
 
+
   const cargarImagen = require.context("../img", true);
 
+
   return (
+
+    
     <div id="container">
-      <button className="btn m-auto" onClick={filterPets}>
+      
+      <button className="buscar" onClick={filterPets}>
         Buscar
       </button>
       <div id="container-card">
         {petFound.map((pets) =>
           pets.map((pet) => (
-            <div key={pet.id} className="card  card-compact w-96 bg-base-100 shadow-xl m-5">
+            <div id="card" key={pet.id}>
               <Link to={`./${pet.id}`}>
-              <figure>
-              <img
+                <div id="container-img">
+                  <img
                     id="img-card"
                     alt=""
                     src={cargarImagen(`./id${pet.id}.jpg`)}
                   />
-              </figure>
-              <div className="card-body">
-                <h2 className="card-title">{pet.name}</h2>
-                <p>If a dog chews shoes whose shoes does he choose?</p>
-                <div className="card-actions justify-end">
-                  <button className="btn btn-primary">Adoptame</button>
                 </div>
-              </div>
+                <span className="pet-name">{pet.name}</span>
               </Link>
+
               <FavoriteDog petId={pet.id} />
             </div>
-            
           ))
         )}
       </div>

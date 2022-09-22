@@ -56,38 +56,38 @@ const Register = () => {
     return (
         <div className="login-container">
             <div className="login-inner">
-            
-            <form  onSubmit={handleSubmit}>
-            <h3>Create An Account</h3>
-                <div className="input_container">
-                    <label htmlFor="name">Name</label>
-                    <input type="text" name="name" value={name} onChange={handleChange} />
-                </div>
-                <div className="input_container">
-                    <label htmlFor="email">Email</label>
-                    <input
-                        type="text"
-                        name="email"
-                        value={email}
-                        onChange={handleChange}
-                    />
-                </div>
-                <div className="input_container">
-                    <label htmlFor="password">Password</label>
-                    <input
-                        type="password"
-                        name="password"
-                        value={password}
-                        onChange={handleChange}
-                    />
-                </div>
-                {error ? <p className="error">{error}</p> : null}
-                <div className="btn_container">
-                    <button className="btn" disabled={loading}>
-                        {loading ? "Creating ..." : "Register"}
-                    </button>
-                </div>
-            </form>
+
+                <form onSubmit={handleSubmit}>
+                    <h3>Create An Account</h3>
+                    <div className="input_container">
+                        <label htmlFor="name">Name</label>
+                        <input type="text" name="name" value={name} onChange={handleChange} />
+                    </div>
+                    <div className="input_container">
+                        <label htmlFor="email">Email</label>
+                        <input
+                            type="text"
+                            name="email"
+                            value={email}
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <div className="input_container">
+                        <label htmlFor="password">Password</label>
+                        <input
+                            type="password"
+                            name="password"
+                            value={password}
+                            onChange={handleChange}
+                        />
+                    </div>
+                    {error ? <p className="error">{error}</p> : null}
+                    <div className="btn_container">
+                        <button className="btn" disabled={loading}>
+                            {loading ? "Creating ..." : "Register"}
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     );

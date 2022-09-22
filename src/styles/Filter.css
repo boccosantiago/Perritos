@@ -1,7 +1,7 @@
 .filter-main{
-    color: white;
-    padding-left: 30px;
-
+   text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
 .filter-main p{
@@ -10,15 +10,16 @@
 
 .filter-main input{
     width: 150px;
-    padding: 5px 10px;
+    padding: 0 4px;
     border-radius: 20px;
     outline: none;
-    border: none;
+    border: 1px solid rgb(176, 176, 176);
 }
 
 .filter-main select{
-    width: 150px;
+    width: 100px;
     padding: 2px;
+    margin: 10px;
     border-radius: 20px;
     outline: none;
     border: none;
