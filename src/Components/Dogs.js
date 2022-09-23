@@ -6,7 +6,6 @@ import "../styles/Dogs.css";
 import { IoLocationSharp } from "react-icons/io5";
 import FavoriteDog from "./FavoriteDog";
 
-
 function Dogs() {
   const loadImage = require.context("../img", true);
   const params = useParams();
@@ -17,39 +16,44 @@ function Dogs() {
   const result = arrayPets.filter((item) => item.id === Number(params.id));
   const dogData = result[0];
 
-  const indexProtectora = infoProtect.findIndex(item => item.findIndex(pet => pet.id === Number(params.id)) > -1);
+  const indexProtectora = infoProtect.findIndex(
+    (item) => item.findIndex((pet) => pet.id === Number(params.id)) > -1
+  );
   //console.log("infoprotectora", indexProtectora)
 
   return (
-
     <div className="container-dog">
       <div className="dog-card">
-        <h1>{dogData.name}</h1>
-        <FavoriteDog petId={dogData.id} />
-        <img
-          className="img-dog-card"
-          alt=""
-          src={loadImage(`./id${params.id}.jpg`)}
-        ></img>
-        {infoProtect.name}
-        <div className="dog-data">
-          <h3 className="location"><IoLocationSharp />{data[indexProtectora].city}</h3>
-          <br />
-          <h3>Detalles: <Link to={"/main"} className='adoptame'> Adoptame </Link></h3>
-          <br />
-         
+        <div className="card w-96 mx-auto bg-base-100 shadow-xl">
+          <figure>
+            <img
+              style={{ width: "100%" }}
+              className="img-dog-card w-auto"
+              alt=""
+              src={loadImage(`./id${params.id}.jpg`)}
+            />
+          </figure>
+          <div className="card-body">
+          <FavoriteDog petId={dogData.id} />
+            <p className="flex text-gray-400">
+              <IoLocationSharp />
+              {data[indexProtectora].city}
+            </p>
+            <h2 className="card-title text-2xl ">{dogData.name}</h2>
+            <h2 className="text-xl">Detalles: </h2>
+            <p>Edad: {dogData.age}</p>
+            <p>Sexo: {dogData.gender}</p>
+            <p>Tamaño: {dogData.size}</p>
+            <p>Raza: {dogData.breed}</p>
+            <p>Pelo: {dogData.coatLength}</p>
+            <div className="card-actions justify-end">
+              <button className="btn btn-primary">Adoptame</button>
+            </div>
+          </div>
         </div>
-        <br />
-        <h3>Descripcion: </h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      </div>
-      <div className="links-dog">
-        <Link to={"/main"} className='regresar'> Regresar </Link>
       </div>
     </div>
-
   );
 }
-
 
 export default Dogs;
