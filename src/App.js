@@ -7,7 +7,7 @@ import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Navbar from "./Components/Navbar";
 import Dogs from "./Components/Dogs";
-// import Shelters from "./Components/Maps/Shelters";
+import Shelters from "./Components/Maps/Shelters";
 import { FavoriteProvider } from "./context/favoritesContext";
 import Login from "./pages/Login";
 import Signup from "./pages/Register";
@@ -91,7 +91,7 @@ function App() {
               <Route path="/profile" element={<Profile />} />
               <Route path="/favorites" element={<FavoriteList />} />
               <Route path="/posts" element={<Posts registeredName={registeredName} />} />
-              {/* <Route path="/shelters" element={<Shelters />} /> */}
+              <Route path="/shelters" element={<Shelters />} />
               <Route path="/login" element={<Login setRegisteredName={setRegisteredName} />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/chat" element={

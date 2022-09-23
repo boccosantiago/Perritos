@@ -40,16 +40,7 @@ const User = ({ user1, user, selectUser, chat }) => {
                     </p>
                 )}
             </div>
-            <div
-                onClick={() => selectUser(user)}
-                className={`sm_container ${chat.name === user.name && "selected_user"}`}
-            >
-                <img
-                    src={user.avatar || Img}
-                    alt="avatar"
-                    className="avatar sm_screen"
-                />
-            </div>
+           
         </>
     );
 };

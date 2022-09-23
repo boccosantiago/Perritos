@@ -23,7 +23,7 @@ const MessageForm = ({ handleSubmit, text, setText, setImg }) => {
                 />
             </div>
             <div>
-                <button className="btn">Send</button>
+                <button className="btn send_message">Send</button>
             </div>
         </form>
     );
