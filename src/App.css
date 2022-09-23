@@ -127,9 +127,9 @@ section .form {
   /* position: relative; */
   display: grid;
   grid-template-columns: 1fr 3fr;
-  overflow: hidden;
+ 
   height: calc(100vh - 70px);
-  width: 50vw;
+  width: 80%;
 }
 .users_container {
   margin-top: 10px;
@@ -186,8 +186,8 @@ section .form {
 }
 .message_form {
   position: absolute;
-  bottom: 0;
-  left: 20%;
+  bottom: 20px;
+  left: 0;
   width: 100%;
   height: 30px;
   display: flex;
@@ -267,9 +267,9 @@ section .form {
     grid-template-columns: 2fr 3fr;
   }
   .message_form {
-    left: 3%;
+    left: -47%;
     right: 0;
-    bottom: 5px;
+    bottom: 50px;
   }
   .message_wrapper p {
     max-width: 75%;

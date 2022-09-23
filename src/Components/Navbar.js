@@ -113,7 +113,7 @@ function Navbar(props) {
             </li>
           </ul>
         </div>
-        <a className=" btn btn-secondary normal-case text-xl 	">PERRITOS</a>
+        <button className=" btn btn-secondary normal-case text-xl 	">PERRITOS</button>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">
