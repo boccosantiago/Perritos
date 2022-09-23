@@ -7,6 +7,9 @@ function Filter(props) {
   data.map((item) =>
     item.pets.map((pet) => mascotas.push(pet.breed.toString()))
   );
+  const city = data.map((item) => item.city)
+
+
   const separ = mascotas.join();
   const separadas = Array.from(new Set(separ.split(",")));
 
@@ -21,7 +24,7 @@ function Filter(props) {
   }
 
   return (
-    <div className="filter-main">
+    <div className="filter-main ">
       <div>
         <p>Nombre</p>
         <input
@@ -32,6 +35,23 @@ function Filter(props) {
             handleChange(e);
           }}
         />
+      </div>
+      <div>
+        <p>Ubicacion</p>
+        <select
+          name="city"
+          id="listCity"
+          onChange={(e) => {
+            handleChange(e);
+          }}
+        >
+          <option value="">Seleccionar</option>
+          {city.map((item) => (
+            <option value={item} key={item}>
+              {item}
+            </option>
+          ))}
+        </select>
       </div>
       <div>
         <p>Edad</p>

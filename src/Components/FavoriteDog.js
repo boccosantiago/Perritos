@@ -1,28 +1,56 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import FavoriteContext from "../context/favoritesContext";
 import { Link } from "react-router-dom";
-import datos from "../datos";
-export default function FavoriteDog(props){
-  console.log(props)
+// import { useAuth } from "../context/AuthContext";
+import { Alert } from "./Alert";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { AuthContext } from "../context/auth";
+
+export default function FavoriteDog(props) {
   const { favoriteDogs, updateFavoriteDogs } = useContext(FavoriteContext);
-  console.log('FAVS', favoriteDogs)
-//   const infoProtect = datos.map((item) => item.pets);
-//   const pets = infoProtect.map(pet => pet.name)
-//   console.log(pets)
+  //const { user } = useAuth();
+  const { user } = useContext(AuthContext)
+  const success = () =>
+    toast.success("🐶 Agregado a favoritos", {
+      position: "top-center",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
 
-    return(
-       
-        <div>
-        {/* {props.isLoggedIn ? (
-                <div className="heart" onClick={() => updateFavoriteDogs(props.petName)}>
-               {favoriteDogs.includes(props.petName) ? "❤️" : "🤍"}
-              </div>): <Link className="heart" to="./login">🤍</Link>}
-         */}
-         {props.isLoggedIn ? (
-                <div onClick={() => updateFavoriteDogs(props.petName)}>
-               {favoriteDogs.includes(props.petName) ? "❤️" : "🤍Hola"}
-              </div>): <Link to="./login">🤍</Link>}
+  const deleted = () =>
+    toast.error("🐶 Eliminado de favoritos", {
+      position: "top-center",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
 
+  const toastClick = () => {
+    updateFavoriteDogs(props.petId);
+    if (!favoriteDogs.includes(props.petId)) {
+      success();
+    } else {
+      deleted();
+    }
+  };
+
+  return (
+    <div>
+      {user ? (
+        <div className="heart" onClick={() => toastClick()}>
+          {favoriteDogs.includes(props.petId) ? "🖤" : "🤍"}
         </div>
-    )
+      ) : (
+        <Link to="/login">🤍</Link>
+      )}
+    </div>
+  );
 }

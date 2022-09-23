@@ -47,6 +47,7 @@ const datos = [
       shelterName: "El arca de Noé",
       email: "elarcadenoecordoba@gmail.com",
       address: "C. Pintor, 1, 14650 Bujalance, Córdoba",
+      coordinates: { lat: 37.897315296200176, lng: -4.3811522018836255 },
       city: "Córdoba",
       phone: "917237835",
       web: "https://arcanoecordoba.es/",
@@ -101,6 +102,7 @@ const datos = [
       shelterName: "Fundacion trifolium",
       email: "fundaciontrifolium@gmail.com",
       address: "Passeig del Pitort, 25, 08860 Castelldefels, Barcelona",
+      coordinates: { lat: 41.269533983313025, lng: 1.9695498865081797 },
       city: "Barcelona",
       phone: "932786634",
       pets: [

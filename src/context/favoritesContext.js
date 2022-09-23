@@ -1,6 +1,6 @@
-import React from "react";
+import { createContext } from "react";
 
-const FavoriteContext = React.createContext({
+const FavoriteContext = createContext({
     favoriteDogs: [],
     updateFavoriteDogs: (id) => null
 });
@@ -8,4 +8,3 @@ const FavoriteContext = React.createContext({
 export const FavoriteProvider = FavoriteContext.Provider;
 
 export default FavoriteContext;
-

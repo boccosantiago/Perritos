@@ -1,0 +1,30 @@
+/* #favorite-container{
+    padding-top: 60px;
+}
+
+#favorite-card{
+    display: flex;
+    margin: 20px ;
+    border: none;
+    padding: 20px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0px 2px 5px 0px #000000;
+    height: 200px;
+    animation: appear 1s;
+
+}
+
+
+#favorite-img{
+    height: 160px;
+    width: 180px;
+    object-fit: cover;
+    margin: 20px;
+    border-radius: 20px ;
+    margin: auto ;
+}
+
+.favorite-cardlink{
+    display: flex;
+} */
