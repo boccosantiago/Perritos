@@ -2,8 +2,7 @@ import React, { useContext } from "react";
 import FavoriteContext from "../context/favoritesContext";
 import { Link } from "react-router-dom";
 // import { useAuth } from "../context/AuthContext";
-import { Alert } from "./Alert";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "../context/auth";
 

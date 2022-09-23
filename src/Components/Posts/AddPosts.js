@@ -91,7 +91,7 @@ export default function AddPosts(props) {
           <h2>
             <Link to="/login">Login to create article</Link>
           </h2>
-          Don't have an account? <Link to="/register">Signup</Link>
+          Don't have an account? <Link to="/signup">Signup</Link>
         </>
       ) : (
         <>

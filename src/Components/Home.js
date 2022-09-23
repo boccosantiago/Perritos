@@ -11,8 +11,8 @@ function Home() {
 
 
 
-<div className="hero min-h-screen" style={{ backgroundImage: `url("https://img.freepik.com/free-photo/adorable-brown-white-basenji-dog-smiling-giving-high-five-isolated-white_346278-1657.jpg?w=1380&t=st=1663837055~exp=1663837655~hmac=c96afbd8125b15c057ef24a41db013a30fe3b9814dfc3c9d32362948eb53cace")` }}>
-<div className="hero-overlay bg-opacity-60"></div>
+<div className="hero min-h-screen bg-left" style={{ backgroundImage: `url("https://img.freepik.com/free-photo/adorable-brown-white-basenji-dog-smiling-giving-high-five-isolated-white_346278-1657.jpg?w=1380&t=st=1663837055~exp=1663837655~hmac=c96afbd8125b15c057ef24a41db013a30fe3b9814dfc3c9d32362948eb53cace")` }}>
+<div className="hero-overlay bg-opacity-50"></div>
 <div className="hero-content text-center text-neutral-content">
   <div className="max-w-sm mb-9">
     <h1 className="mb-9 text-5xl font-bold">Hola!</h1>

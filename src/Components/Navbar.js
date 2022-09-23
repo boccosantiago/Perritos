@@ -31,32 +31,7 @@ function Navbar(props) {
 
   const [open, setOpen] = useState(false);
 
-  let menuRef = useRef();
 
-  useEffect(() => {
-    let handler = (e) => {
-      if (menuRef.current !== null && menuRef.current !== undefined) {
-        if (!menuRef.current.contains(e.target)) {
-          setOpen(false);
-        }
-      }
-    };
-
-    document.addEventListener("mousedown", handler);
-
-    return () => {
-      document.removeEventListener("mousedown", handler);
-    };
-  });
-
-  // function DropdownItem(props) {
-  //   return (
-  //     <li className="dropdownItem">
-  //       <img src={props.img}></img>
-  //       <a onClick={props.onClick}> {props.text} </a>
-  //     </li>
-  //   );
-  // }
   const logout = () => signOut(auth);
   const handleSignOut = async () => {
     try {
@@ -101,9 +76,9 @@ function Navbar(props) {
             <li>
               <Link to="/shelters">Protectoras</Link>
             </li>
-            <li>
+           {/*  <li>
               <Link to="About">Que es Perritos</Link>
-            </li>
+            </li> */}
 
             <li>
               <Link to="/posts">Difunde</Link>
@@ -113,7 +88,7 @@ function Navbar(props) {
             </li>
           </ul>
         </div>
-        <button className=" btn btn-secondary normal-case text-xl 	">PERRITOS</button>
+        <button className=" btn btn-secondary normal-case text-xl">PERRITOS</button>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">
@@ -126,9 +101,9 @@ function Navbar(props) {
           <li>
             <Link to="/shelters">Protectoras</Link>
           </li>
-          <li>
+         {/*  <li>
             <Link to="About">Que es Perritos</Link>
-          </li>
+          </li> */}
           <li>
             <Link to="/chat">Chatea</Link>
           </li>
@@ -140,10 +115,10 @@ function Navbar(props) {
 
       {user === null ? (
         <div className="navbar-end">
-          <Link className="btn mx-5" to="/login">
+          <Link className="btn btn-primary btn-outline mx-1" to="/login">
             Entra
           </Link>
-          <Link className="btn" to="/signup">
+          <Link className="btn btn-primary" to="/signup">
             Registrate
           </Link>
         </div>
@@ -169,7 +144,7 @@ function Navbar(props) {
           </Link>
 
           <div className="dropdown dropdown-end">
-            <label tabIndex={0} className="btn btn-outline btn-primary m-1">
+            <label tabIndex={0} className="btn btn-primary m-1">
               {props.registeredName || user.email}
             </label>
             <ul
