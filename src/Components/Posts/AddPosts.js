@@ -8,6 +8,7 @@ import { toast } from "react-toastify";
 import { AuthContext } from "../../context/auth";
 
 export default function AddPosts(props) {
+  console.log(props)
   const { user } = useContext(AuthContext)
 
   const [formData, setFormData] = useState({

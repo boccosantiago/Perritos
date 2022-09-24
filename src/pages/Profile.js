@@ -11,12 +11,14 @@ import {
 import { getDoc, doc, updateDoc } from "firebase/firestore";
 import Delete from "../Components/Chat/svg/Delete";
 import { useNavigate } from "react-router-dom";
-import { getAuth, updateEmail, updateProfile } from "firebase/auth";
+import { getAuth, updateProfile } from "firebase/auth";
 
 const Profile = () => {
     const [img, setImg] = useState("");
     const [user, setUser] = useState();
     console.log(user)
+    const current = getAuth().currentUser
+    console.log(current)
     const navigate = useNavigate("");
 
     const [newData, setnewData] = useState({
@@ -39,31 +41,13 @@ const Profile = () => {
             // ...
         });
         await updateDoc(doc(db, "users", auth.currentUser.uid), {
-            displayName: newData.name,
+            name: newData.name,
 
         });
+        window.location.reload()
     }
 
 
-
-    //CAMBIAR EMAIL
-
-    async function changeEmail() {
-
-        const auth = getAuth();
-        console.log(auth.currentUser)
-        await updateEmail(auth.currentUser, newData.email).then(() => {
-            // Email updated!
-            // ...
-        }).catch((error) => {
-            // An error occurred
-            // ...
-        });
-        await updateDoc(doc(db, "users", auth.currentUser.uid), {
-            email: newData.email,
-
-        });
-    }
 
     //CAMBIARCONTRASEÑA
     //     import { getAuth, updatePassword } from "firebase/auth";
@@ -169,7 +153,7 @@ const Profile = () => {
                 <div className="text_container">
                     <div>
                         <h3>{user.name}</h3>
-                        <button onClick={changeName}>Cambiar nombre</button>
+                        <button onClick={() => changeName()}>Cambiar nombre</button>
                         <input
                             type="text"
                             name="name"
@@ -180,14 +164,14 @@ const Profile = () => {
                     </div>
                     <div>
                         <p>{user.email}</p>
-                        <button onClick={changeEmail}>Cambiar correo</button>
+                        {/* <button onClick={changeEmail}>Cambiar correo</button>
                         <input
                             type="text"
                             name="email"
                             value={newData.email}
                             placeholder="Instar nuevo correo"
                             onChange={handleChange}
-                        />
+                        /> */}
                     </div>
                     <hr />
                     <small>Joined on: {user.createdAt.toDate().toDateString()}</small>

@@ -33,15 +33,7 @@ const Login = ({ setRegisteredName }) => {
             // await updateDoc(doc(db, "users", result.user.uid), {
             //     isOnline: true,
             // });
-            const docRef = doc(db, "users", result.user.uid);
-            const docSnap = await getDoc(docRef);
-            if (docSnap.exists()) {
-                setRegisteredName(docSnap.data().name)
-                console.log("Document data:", docSnap.data());
-            } else {
-                // doc.data() will be undefined in this case
-                console.log("No such document!");
-            }
+
             setData({
                 email: "",
                 password: "",

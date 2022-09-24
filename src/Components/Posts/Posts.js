@@ -6,8 +6,9 @@ import { db } from "../../firebase";
 import AddPosts from "./AddPosts";
 import LikePosts from "./LikePosts";
 import DeletePosts from "./DeletePosts";
+
 import "../../styles/Posts.css";
-import MainChat from "../Chat/MainChat";
+
 // import User from "../Chat/User"
 import { AuthContext } from "../../context/auth";
 
@@ -15,9 +16,6 @@ export default function Posts(props) {
   const [posts, setPosts] = useState([]);
 
   const { user } = useContext(AuthContext)
-
-  console.log(user)
-  console.log(posts)
 
   useEffect(() => {
     const postsRef = collection(db, "Posts");
@@ -32,6 +30,7 @@ export default function Posts(props) {
     });
   }, []);
   console.log(posts);
+
 
   return (
     <>
@@ -51,7 +50,6 @@ export default function Posts(props) {
               createdBy,
               userId,
               likes,
-              comments,
               email,
 
             }) => (
@@ -84,11 +82,6 @@ export default function Posts(props) {
                       <div className="pe-2">
                         <p>{likes?.length} likes</p>
                       </div>
-                      {comments && comments.length > 0 && (
-                        <div className="pe-2">
-                          <p>{comments?.length} comments</p>
-                        </div>
-                      )}
                       <div className="">
                         {user && user.uid === userId && (
                           <DeletePosts id={id} imageUrl={imageUrl} />
