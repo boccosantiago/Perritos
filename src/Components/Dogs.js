@@ -19,7 +19,7 @@ function Dogs() {
   const indexProtectora = infoProtect.findIndex(
     (item) => item.findIndex((pet) => pet.id === Number(params.id)) > -1
   );
-  //console.log("infoprotectora", indexProtectora)
+
 
   return (
     <div className="container-dog">
@@ -34,7 +34,7 @@ function Dogs() {
             />
           </figure>
           <div className="card-body">
-          <FavoriteDog petId={dogData.id} />
+            <FavoriteDog petId={dogData.id} />
             <p className="flex text-gray-400">
               <IoLocationSharp />
               {data[indexProtectora].city}

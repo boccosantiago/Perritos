@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Camera from "../Components/Chat/svg/Camera";
 import Img from "../image1.jpg";
 import { storage, db, auth } from "../firebase";
@@ -12,11 +12,16 @@ import { getDoc, doc, updateDoc } from "firebase/firestore";
 import Delete from "../Components/Chat/svg/Delete";
 import { useNavigate } from "react-router-dom";
 import { getAuth, updateEmail, updateProfile } from "firebase/auth";
+import { AuthContext } from "../context/auth";
 
 const Profile = () => {
     const [img, setImg] = useState("");
+
+
+    const current = getAuth().currentUser
     const [user, setUser] = useState();
-    console.log(user)
+    console.log(current)
+
     const navigate = useNavigate("");
 
     const [newData, setnewData] = useState({
@@ -145,7 +150,7 @@ const Profile = () => {
             console.log(err.message);
         }
     };
-    return user ? (
+    return current ? (
         <section>
             <div className="profile_container">
                 <div className="img_container">
@@ -190,7 +195,7 @@ const Profile = () => {
                         />
                     </div>
                     <hr />
-                    <small>Joined on: {user.createdAt.toDate().toDateString()}</small>
+                    {/* <small>Joined on: {user.createdAt.toDate().toDateString()}</small> */}
                 </div>
             </div>
             <button>Eliminar cuenta</button>
