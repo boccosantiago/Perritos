@@ -6,7 +6,7 @@ import Profile from "./pages/Profile";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import Dogs from "./Components/Dogs";
-// import Shelters from "./Components/Maps/Shelters";
+import Shelters from "./Components/Maps/Shelters";
 import { FavoriteProvider } from "./context/favoritesContext";
 import Login from "./pages/Login";
 import Signup from "./pages/Register";
@@ -82,7 +82,6 @@ function App() {
 
   return (
 
-
     <FavoriteProvider
       value={{
         favoriteDogs: favorites,
@@ -98,6 +97,7 @@ function App() {
             <Route
               path="/main/:id"
               element={
+
                 <Protected>
                   <Dogs />
                 </Protected>

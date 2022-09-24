@@ -3,6 +3,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from "../firebase";
 import { setDoc, doc, Timestamp } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Register = () => {
     const [data, setData] = useState({
@@ -89,6 +90,12 @@ const Register = () => {
                     </div>
                 </form>
             </div>
+            <p className="my-4 text-sm text-center px-3">
+                Don't have an account?&nbsp; 
+                <Link to="/login" className="text-blue-700 hover:text-blue-900">
+                    Login here
+                </Link>
+            </p>
         </div>
     );
 };

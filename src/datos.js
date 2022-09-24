@@ -145,6 +145,7 @@ const datos = [
       shelterName: "Zarpas y Colmillos",
       email: "contacto@zarpasycolmillos.es",
       address: "Calle Dr. Espina, 39, 28019, Madrid",
+      coordinates: { lat: 40.387485277353974, lng: -3.7288517000000008 },
       city: "Madrid",
       phone: "848171717",
       web: "https://www.zarpasycolmillos.es/",

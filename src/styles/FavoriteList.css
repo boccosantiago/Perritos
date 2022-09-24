@@ -1,6 +1,16 @@
-/* #favorite-container{
+.favorite-container{
     padding-top: 60px;
+    height: 100%;
+    min-height: 90vh;
 }
+
+.no-favorites{
+    width: 100%;
+    text-align: center;
+    padding: 0 20px;
+    margin-top: 10%;
+}
+
 
 #favorite-card{
     display: flex;
@@ -27,4 +37,4 @@
 
 .favorite-cardlink{
     display: flex;
-} */
+} 
