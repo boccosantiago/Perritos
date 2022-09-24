@@ -35,7 +35,7 @@ export default function Posts(props) {
   return (
     <>
       <AddPosts registeredName={props.registeredName} />
-      <div className="container m-auto flex w-1/4 flex-wrap">
+      <div className=" grid md:grid-cols-3	">
 
         {posts.length === 0 ? (
           <p>No posts found!</p>
@@ -54,17 +54,17 @@ export default function Posts(props) {
 
             }) => (
               <div key={id} className='posts-main m-auto'>
-                <div className="border rounded-xl p-5 m-7 ">
+                <div className="border rounded-xl p-5 m-3">
                   <div>
                     <Link to={`/posts/${id}`}>
                       <img
-                        className=" m-auto"
+                        className="lg:h-52 object-contain"
                         src={imageUrl}
                         alt="title"
                       />
                     </Link>
                   </div>
-                  <div className="row">
+                  <div className="grid">
                     <div className="row">
                       <div className="col-6">
                         {createdBy && (

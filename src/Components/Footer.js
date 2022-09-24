@@ -2,7 +2,7 @@ export default function Footer(){
 
  return(
     <div>
-    <footer className="footer footer-center p-10 bg-zinc-300 text-base-content rounded">
+    <footer className="footer footer-center p-10 bg-primary text-base-content rounded">
   <div className="grid grid-flow-col gap-4">
     <a className="link link-hover">About us</a> 
     <a className="link link-hover">Contact</a> 

@@ -102,7 +102,7 @@ function Navbar(props) {
             </li>
           </ul>
         </div>
-        <button className=" btn btn-secondary normal-case text-xl">PERRITOS</button>
+        <button className="text-2xl text-primary-focus hover:text-primary-content">PERRITOS</button>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">
@@ -139,7 +139,7 @@ function Navbar(props) {
       ) : (
         <div className="navbar-end">
           <Link to="/favorites">
-            <button className="btn btn-circle btn-outline btn-secondary">
+            <button className="btn btn-circle btn-outline btn-primary">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6"
