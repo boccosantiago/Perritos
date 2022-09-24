@@ -33,9 +33,10 @@ export default function LikeArticle({ id, likes }) {
     return (
         <div>
             <button
+                className="btn bg-red-400 hover:bg-red-500 border-none btn-xs"
                 style={{
                     cursor: "pointer",
-                    color: likes?.includes(user.uid) ? "red" : null,
+                
                 }}
                 onClick={handleLike}>Like</button>
 

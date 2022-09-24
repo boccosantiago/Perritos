@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import Camera from "../Components/Chat/svg/Camera";
 import Img from "../image1.jpg";
 import { storage, db, auth } from "../firebase";
@@ -11,17 +11,14 @@ import {
 import { getDoc, doc, updateDoc } from "firebase/firestore";
 import Delete from "../Components/Chat/svg/Delete";
 import { useNavigate } from "react-router-dom";
-import { getAuth, updateEmail, updateProfile } from "firebase/auth";
-import { AuthContext } from "../context/auth";
+import { getAuth, updateProfile } from "firebase/auth";
 
 const Profile = () => {
     const [img, setImg] = useState("");
-
-
-    const current = getAuth().currentUser
     const [user, setUser] = useState();
-    console.log(current)
-
+    console.log(user)
+    const current = getAuth().currentUser
+    console.log('CURRENT', current)
     const navigate = useNavigate("");
 
     const [newData, setnewData] = useState({
@@ -44,69 +41,23 @@ const Profile = () => {
             // ...
         });
         await updateDoc(doc(db, "users", auth.currentUser.uid), {
-            displayName: newData.name,
+            name: newData.name,
 
         });
+        window.location.reload()
     }
 
-
-
-    //CAMBIAR EMAIL
-
-    async function changeEmail() {
-
-        const auth = getAuth();
-        console.log(auth.currentUser)
-        await updateEmail(auth.currentUser, newData.email).then(() => {
-            // Email updated!
-            // ...
-        }).catch((error) => {
-            // An error occurred
-            // ...
-        });
-        await updateDoc(doc(db, "users", auth.currentUser.uid), {
-            email: newData.email,
-
-        });
-    }
-
-    //CAMBIARCONTRASEÑA
-    //     import { getAuth, updatePassword } from "firebase/auth";
-
-    // const auth = getAuth();
-
-    // const user = auth.currentUser;
-    // const newPassword = getASecureRandomPassword();
-
-    // updatePassword(user, newPassword).then(() => {
-    //   // Update successful.
-    // }).catch((error) => {
-    //   // An error ocurred
-    //   // ...
-    // });
-
-    //ELIMINAR CUENTA
-    //     import { getAuth, deleteUser } from "firebase/auth";
-
-    // const auth = getAuth();
-    // const user = auth.currentUser;
-
-    // deleteUser(user).then(() => {
-    //   // User deleted.
-    // }).catch((error) => {
-    //   // An error ocurred
-    //   // ...
-    // });
 
     useEffect(() => {
 
         getDoc(doc(db, "users", auth.currentUser.uid)).then((docSnap) => {
+            console.log('DOC', docSnap.data())
             if (docSnap.exists) {
                 setUser(docSnap.data());
             }
 
         });
-
+        
         if (img) {
             const uploadImg = async () => {
                 const imgRef = ref(
@@ -150,7 +101,7 @@ const Profile = () => {
             console.log(err.message);
         }
     };
-    return current ? (
+    return user ? (
         <section>
             <div className="profile_container">
                 <div className="img_container">
@@ -174,7 +125,7 @@ const Profile = () => {
                 <div className="text_container">
                     <div>
                         <h3>{user.name}</h3>
-                        <button onClick={changeName}>Cambiar nombre</button>
+                        <button onClick={() => changeName()}>Cambiar nombre</button>
                         <input
                             type="text"
                             name="name"
@@ -185,17 +136,17 @@ const Profile = () => {
                     </div>
                     <div>
                         <p>{user.email}</p>
-                        <button onClick={changeEmail}>Cambiar correo</button>
+                        {/* <button onClick={changeEmail}>Cambiar correo</button>
                         <input
                             type="text"
                             name="email"
                             value={newData.email}
                             placeholder="Instar nuevo correo"
                             onChange={handleChange}
-                        />
+                        /> */}
                     </div>
                     <hr />
-                    {/* <small>Joined on: {user.createdAt.toDate().toDateString()}</small> */}
+                    <small>Joined on: {user.createdAt.toDate().toDateString()}</small>
                 </div>
             </div>
             <button>Eliminar cuenta</button>

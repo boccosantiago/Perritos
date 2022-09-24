@@ -12,22 +12,36 @@ import { AuthContext } from "../context/auth";
 import { auth, db } from "../firebase";
 import { signOut, getAuth } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
+import { async } from "@firebase/util";
 
 function Navbar(props) {
+
+  const [registeredName, setRegisteredName] = useState()
+
   const navigate = useNavigate();
   const { favoriteDogs } = useContext(FavoriteContext);
   //const { user } = useAuth()
   const { user } = useContext(AuthContext)
-  const auth = getAuth();
-  console.log("useCurrent", auth.currentUser)
 
-  console.log("userNavbar", user)
+  // async function getRegisteredName() {
+  //   const auth = getAuth();
+  //   const docRef = doc(db, "users", auth.currentUser.uid);
+  //   const docSnap = await getDoc(docRef);
+  //   if (docSnap.exists()) {
+  //     setRegisteredName(docSnap.data().name)
+  //     console.log("Document data:", docSnap.data());
 
-  // const userName = props.newUsers.filter(
-  //   (item) =>
-  //     item.email === props.userLogin.email &&
-  //     item.password === props.userLogin.password
-  // );
+  //   } else {
+  //     // doc.data() will be undefined in this case
+  //     console.log("No such document!");
+  //   }
+
+  // }
+
+  // console.log(registeredName)
+
+  // useEffect(() => getRegisteredName, [user])
+
 
   const [open, setOpen] = useState(false);
 
@@ -88,7 +102,7 @@ function Navbar(props) {
             </li>
           </ul>
         </div>
-        <button className=" btn btn-secondary normal-case text-xl">PERRITOS</button>
+        <button className="text-2xl text-primary-focus hover:text-primary-content">PERRITOS</button>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">
@@ -125,7 +139,7 @@ function Navbar(props) {
       ) : (
         <div className="navbar-end">
           <Link to="/favorites">
-            <button className="btn btn-circle btn-outline btn-secondary">
+            <button className="btn btn-circle btn-outline btn-primary">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6"
@@ -145,7 +159,7 @@ function Navbar(props) {
 
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-primary m-1">
-              {props.registeredName || user.email}
+              {user.displayName || props.registeredName || user.email}
             </label>
             <ul
               tabIndex={0}
