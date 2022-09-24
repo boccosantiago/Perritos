@@ -159,7 +159,7 @@ function Navbar(props) {
 
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-primary m-1">
-              {props.registeredName || user.email}
+              {user.displayName || props.registeredName || user.email}
             </label>
             <ul
               tabIndex={0}

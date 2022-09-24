@@ -82,6 +82,7 @@ function App() {
 
   return (
 
+
     <FavoriteProvider
       value={{
         favoriteDogs: favorites,
@@ -97,7 +98,6 @@ function App() {
             <Route
               path="/main/:id"
               element={
-
                 <Protected>
                   <Dogs />
                 </Protected>
@@ -106,7 +106,7 @@ function App() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/favorites" element={<FavoriteList />} />
             <Route path="/posts" element={<Posts registeredName={registeredName} />} />
-            {/* <Route path="/shelters" element={<Shelters />} /> */}
+            <Route path="/shelters" element={<Shelters />} /> 
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/chat" element={
