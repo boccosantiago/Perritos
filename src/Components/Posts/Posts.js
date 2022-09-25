@@ -58,7 +58,7 @@ export default function Posts(props) {
                   <div>
                     <Link to={`/posts/${id}`}>
                       <img
-                        className="lg:h-52 object-contain"
+                        className="lg:h-52 object-contain m-auto"
                         src={imageUrl}
                         alt="title"
                       />

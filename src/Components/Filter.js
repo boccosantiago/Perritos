@@ -3,15 +3,26 @@ import data from "../datos";
 import '../styles/Filter.css'
 
 function Filter(props) {
-  const mascotas = [];
+  const petArray = [];
+  const cityArray = [];
+
   data.map((item) =>
-    item.pets.map((pet) => mascotas.push(pet.breed.toString()))
+    item.pets.map((pet) => {
+      petArray.push(pet.breed.toString())
+      cityArray.push(pet.city)
+    }
+    )
   );
-  const city = data.map((item) => item.city)
 
+  const cityJoin = cityArray.join()
+  const city = Array.from(new Set(cityJoin.split(",")));
 
-  const separ = mascotas.join();
-  const separadas = Array.from(new Set(separ.split(",")));
+  const petJoin = petArray.join();
+  const petSplit = Array.from(new Set(petJoin.split(",")));
+  
+/* 
+  const city = Array.from(new Set(cityArray.split(",")));
+  console.log('city', city) */
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -92,7 +103,7 @@ function Filter(props) {
           }}
         >
           <option value="">Seleccionar</option>
-          {separadas.map((item) => (
+          {petSplit.map((item) => (
             <option value={item} key={item}>
               {item}
             </option>

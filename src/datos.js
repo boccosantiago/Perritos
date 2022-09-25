@@ -4,7 +4,6 @@ const datos = [
       email: "sosperreradelosbarrios@hotmail.com",
       address: "Lugar Ringo Rango, 21, 11370, Los Barrios, Cádiz",
       coordinates: { lat: 36.17006263581372, lng: -5.475843017196659 },
-      city: "Cádiz",
       phone: "902506893",
       web: "https://www.perreradelosbarrios.com/",
       pets: [
@@ -17,6 +16,7 @@ const datos = [
           breed: "Chihuahua",
           color: "Blanco",
           coatLength: "Corto",
+          city: "Cádiz"
           
         },
         {
@@ -28,6 +28,7 @@ const datos = [
           breed: ["Labrador", "Golden retriever"],
           color: "Marrón",
           coatLength: "Corto",
+          city: "Cádiz",
           
         },
         {
@@ -39,6 +40,7 @@ const datos = [
           breed: "Bodeguero",
           color: ["Blanco", "Marrón", "Negro"],
           coatLength: "Corto",
+          city: "Cádiz",
           
         },
       ],
@@ -48,7 +50,6 @@ const datos = [
       email: "elarcadenoecordoba@gmail.com",
       address: "C. Pintor, 1, 14650 Bujalance, Córdoba",
       coordinates: { lat: 37.897315296200176, lng: -4.3811522018836255 },
-      city: "Córdoba",
       phone: "917237835",
       web: "https://arcanoecordoba.es/",
       pets: [
@@ -61,6 +62,7 @@ const datos = [
           breed: ["Pastor alemán", "Golden retriever"],
           color: ["Negro", "Marron"],
           coatLength: "Largo",
+          city: "Córdoba",
           
         },
         {
@@ -72,6 +74,7 @@ const datos = [
           breed: "Podenco",
           color: "Marrón",
           coatLength: "Corto",
+          city: "Córdoba",
           
         },
         {
@@ -83,6 +86,7 @@ const datos = [
           breed: "Border collie",
           color: ["Marrón", "Blanco"],
           coatLength: "Largo",
+          city: "Córdoba",
           
         },
         {
@@ -94,6 +98,7 @@ const datos = [
           breed: ["Pastor alemán", "Corgi galés"],
           color: ["Negro", "Marron"],
           coatLength: "Largo",
+          city: "Córdoba",
           
         },
       ],
@@ -103,7 +108,6 @@ const datos = [
       email: "fundaciontrifolium@gmail.com",
       address: "Passeig del Pitort, 25, 08860 Castelldefels, Barcelona",
       coordinates: { lat: 41.269533983313025, lng: 1.9695498865081797 },
-      city: "Barcelona",
       phone: "932786634",
       pets: [
         {
@@ -115,6 +119,7 @@ const datos = [
           breed: "Coker spaniel",
           color: ["Blanco","Marrón"],
           coatLength: "Mediano",
+          city: "Barcelona",
           
         },
         {
@@ -126,6 +131,7 @@ const datos = [
           breed: ["Pit bull", "Labrador"],
           color: ["Blanco","Marrón"],
           coatLength: "Corto",
+          city: "Barcelona",
           
         },
         {
@@ -137,6 +143,7 @@ const datos = [
           breed: "Galgo",
           color: "Negro",
           coatLength: "Corto",
+          city: "Barcelona",
           
         },
       ],
@@ -146,7 +153,6 @@ const datos = [
       email: "contacto@zarpasycolmillos.es",
       address: "Calle Dr. Espina, 39, 28019, Madrid",
       coordinates: { lat: 40.387485277353974, lng: -3.7288517000000008 },
-      city: "Madrid",
       phone: "848171717",
       web: "https://www.zarpasycolmillos.es/",
       pets: [
@@ -159,6 +165,7 @@ const datos = [
           breed: "Bulldog inglés",
           color: ["Blanco", "Marrón"],
           coatLength: "Corto",
+          city: "Madrid",
           
         },
         {
@@ -170,6 +177,7 @@ const datos = [
           breed: ["Bulldog francés", "Boston terrier"],
           color: ["Negro", "Blanco"],
           coatLength: "Corto",
+          city: "Madrid",
           
         },
         {
@@ -181,6 +189,7 @@ const datos = [
           breed: ["Border collie", "Golden retriever"],
           color: ["Negro", "Blanco"],
           coatLength: "Largo",
+          city: "Madrid",
           
         },
         {
@@ -192,6 +201,7 @@ const datos = [
           breed: "Pastor alemán",
           color: ["Negro", "Marrón"],
           coatLength: "Medio",
+          city: "Madrid",
           
         },
         {
@@ -203,6 +213,7 @@ const datos = [
           breed: ["Jack Russell", "Yorkshire Terrier"],
           color: ["Blanco", "Marrón"],
           coatLength: "Corto",
+          city: "Madrid",
           
         },
       ],

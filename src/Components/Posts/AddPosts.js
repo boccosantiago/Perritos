@@ -86,7 +86,7 @@ export default function AddPosts(props) {
   };
 
   return (
-    <div className="publish-post">
+    <div className="publish-post bg-stone-100">
       {!user ? (
         <>
           <h2>

@@ -22,7 +22,7 @@ const containerStyle = {
 
 
   return( 
-    <div className="bg-gray-200">
+    <div className="bg-stone-100">
     <Map/>
     <Instagram/>
     </div>

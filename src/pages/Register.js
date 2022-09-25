@@ -55,8 +55,8 @@ const Register = () => {
         }
     };
     return (
-        <div className="login-container">
-            <div className="login-inner">
+        <div className=" bg-stone-100">
+            <div className="">
 
                 <form onSubmit={handleSubmit}>
                     <h3>Create An Account</h3>
@@ -90,7 +90,7 @@ const Register = () => {
                     </div>
                 </form>
             </div>
-            <p className="my-4 text-sm text-center px-3">
+            <p className="text-sm text-center p-3">
                 Don't have an account?&nbsp; 
                 <Link to="/login" className="text-blue-700 hover:text-blue-900">
                     Login here

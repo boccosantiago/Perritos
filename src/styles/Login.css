@@ -9,7 +9,7 @@
   align-items: center;
 }
 
-.login-inner {
+/* .login-inner {
   position: relative;
   padding: 32px;
   width: 80%;
@@ -18,7 +18,7 @@
   border: 1.5px solid black;
   border-radius: 20px;
   /* box-shadow: 0 0 5px 0px; */
-}
+} */
 
 .login-inner h2 {
   color: white;
@@ -35,13 +35,6 @@
   justify-content: center;
 }
 
-.form {
-  text-align: center;
-}
-
-.form div {
-  height: 50px;
-}
 
 
 .inputs div {
