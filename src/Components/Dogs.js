@@ -18,7 +18,9 @@ function Dogs() {
 
   /*  const indexProtectora = infoProtect.findIndex(
     (item) => item.findIndex((pet) => pet.id === Number(params.id)) > -1
+
   ); */
+
 
   return (
     <div className="container-dog text-center bg-stone-100">
@@ -67,7 +69,9 @@ function Dogs() {
               </div>
             </div>
             <div className="card-actions justify-end">
-              <button className="btn btn-primary">Adoptame</button>
+              <Link to="./formulario" className="btn btn-primary">
+                Adoptame
+              </Link>
             </div>
           </div>
         </div>

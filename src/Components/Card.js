@@ -15,6 +15,7 @@ function Card(props) {
       setPetFound([...infoProtect]);
     } else {
       const lowerCaseName = props.filterData.name.toLowerCase();
+
       const city = props.filterData.city;
       const age = props.filterData.age;
       const gender = props.filterData.gender;
@@ -22,6 +23,7 @@ function Card(props) {
       const coat = props.filterData.coat;
       const breed = props.filterData.breed;
       const color = props.filterData.color;
+
 
       const filteredPet = infoProtect.map((item) =>
         item.filter((pet) => {
@@ -35,6 +37,7 @@ function Card(props) {
             (!coat || pet.coatLength.includes(coat)) &&
             (!breed || pet.breed.includes(breed)) &&
             (!color || pet.color.includes(color))
+
           );
         })
       );
@@ -42,6 +45,7 @@ function Card(props) {
       setPetFound([...filteredPet]);
     }
   }
+
 
   useEffect(() => {
     filterPets()
@@ -61,7 +65,7 @@ function Card(props) {
             <div
               key={pet.id}
               className="card  card-compact w-96 bg-stone-100 shadow-xl m-5"
-            >
+              >
               <Link to={`./${pet.id}`}>
                 <figure>
                   <img
@@ -71,17 +75,16 @@ function Card(props) {
                   />
                 </figure>
                 <div className="card-body">
+
                   <div className="flex justify-between">
                     <h2 className="card-title">{pet.name}</h2>
-                    <p className="flex place-content-end	 text-gray-400">
+                    <p className="flex place-content-end	text-gray-400">
                       <IoLocationSharp />
                       {pet.city}
                     </p>
                   </div>
-                  <p>If a dog chews shoes whose shoes does he choose?</p>
+                  <p className="text-justify">{pet.description}</p>
                   <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Adoptame</button>
-                  </div>
                 </div>
               </Link>
               <FavoriteDog petId={pet.id} />
