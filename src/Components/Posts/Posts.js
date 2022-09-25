@@ -58,7 +58,7 @@ export default function Posts(props) {
                   <div>
                     <Link to={`/posts/${id}`}>
                       <img
-                        className="lg:h-52 object-contain"
+                        className="lg:h-52 object-contain m-auto"
                         src={imageUrl}
                         alt="title"
                       />
@@ -68,12 +68,12 @@ export default function Posts(props) {
                     <div className="row">
                       <div className="col-6">
                         {createdBy && (
-                          <span className="badge bg-primary">Creado por: {createdBy}</span>
+                          <span className="badge bg-primary mt-3 border-none">Creado por: {createdBy}</span>
                         )}
                         <br />
                       </div>
                     </div>
-                    <p>Publicado: {createdAt.toDate().toLocaleDateString("es-ES",
+                    <p className="text-xs	">{createdAt.toDate().toLocaleDateString("es-ES",
                       {
                         year: '2-digit',
                         month: '2-digit',
@@ -83,13 +83,17 @@ export default function Posts(props) {
                         second: '2-digit',
 
                       })}</p>
-                    <h3>{title}</h3>
-                    <span>{description}</span>
+                    <h3 className="py-3 font-bold">{title}</h3>
+                    <span className="text-justify	">{description}</span>
+                    <p className="text-left"> Contacta conmigo:</p>
+                    <p className="text-left">{email} o buscame en el chat.</p>
 
-                    <div className="">
+                    <div className="flex justify-around mt-3">
+                      <div className="flex">
                       {user && <LikePosts id={id} likes={likes} />}
                       <div className="pe-2">
-                        <p>{likes?.length} likes</p>
+                        <p className="px-1">{likes?.length} likes</p>
+                      </div>
                       </div>
                       <div className="">
                         {user && user.uid === userId && (

@@ -33,12 +33,12 @@ export default function LikeArticle({ id, likes }) {
     return (
         <div>
             <button
-                className="btn bg-red-400 hover:bg-red-500 border-none btn-xs"
+                className="text-xs"
                 style={{
                     cursor: "pointer",
                 
                 }}
-                onClick={handleLike}>Like</button>
+                onClick={handleLike}>💙</button>
 
 
         </div>

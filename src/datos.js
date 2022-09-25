@@ -17,6 +17,7 @@ const datos = [
           breed: "Chihuahua",
           color: "Blanco",
           coatLength: "Corto",
+          city: "Cádiz",
           
         },
         {
@@ -28,6 +29,7 @@ const datos = [
           breed: ["Labrador", "Golden retriever"],
           color: "Marrón",
           coatLength: "Corto",
+          city: "Cádiz",
           
         },
         {
@@ -39,6 +41,7 @@ const datos = [
           breed: "Bodeguero",
           color: ["Blanco", "Marrón", "Negro"],
           coatLength: "Corto",
+          city: "Cádiz",
           
         },
       ],
@@ -61,6 +64,7 @@ const datos = [
           breed: ["Pastor alemán", "Golden retriever"],
           color: ["Negro", "Marron"],
           coatLength: "Largo",
+          city: "Córdoba",
           
         },
         {
@@ -72,6 +76,7 @@ const datos = [
           breed: "Podenco",
           color: "Marrón",
           coatLength: "Corto",
+          city: "Córdoba",
           
         },
         {
@@ -83,6 +88,7 @@ const datos = [
           breed: "Border collie",
           color: ["Marrón", "Blanco"],
           coatLength: "Largo",
+          city: "Córdoba",
           
         },
         {
@@ -94,6 +100,7 @@ const datos = [
           breed: ["Pastor alemán", "Corgi galés"],
           color: ["Negro", "Marron"],
           coatLength: "Largo",
+          city: "Córdoba",
           
         },
       ],
@@ -115,6 +122,7 @@ const datos = [
           breed: "Coker spaniel",
           color: ["Blanco","Marrón"],
           coatLength: "Mediano",
+          city: "Barcelona",
           
         },
         {
@@ -126,6 +134,7 @@ const datos = [
           breed: ["Pit bull", "Labrador"],
           color: ["Blanco","Marrón"],
           coatLength: "Corto",
+          city: "Barcelona",
           
         },
         {
@@ -137,6 +146,7 @@ const datos = [
           breed: "Galgo",
           color: "Negro",
           coatLength: "Corto",
+          city: "Barcelona",
           
         },
       ],
@@ -159,6 +169,7 @@ const datos = [
           breed: "Bulldog inglés",
           color: ["Blanco", "Marrón"],
           coatLength: "Corto",
+          city: "Barcelona",
           
         },
         {
@@ -170,6 +181,7 @@ const datos = [
           breed: ["Bulldog francés", "Boston terrier"],
           color: ["Negro", "Blanco"],
           coatLength: "Corto",
+          city: "Barcelona",
           
         },
         {
@@ -181,6 +193,7 @@ const datos = [
           breed: ["Border collie", "Golden retriever"],
           color: ["Negro", "Blanco"],
           coatLength: "Largo",
+          city: "Barcelona",
           
         },
         {
@@ -192,6 +205,7 @@ const datos = [
           breed: "Pastor alemán",
           color: ["Negro", "Marrón"],
           coatLength: "Medio",
+          city: "Barcelona",
           
         },
         {
@@ -203,6 +217,7 @@ const datos = [
           breed: ["Jack Russell", "Yorkshire Terrier"],
           color: ["Blanco", "Marrón"],
           coatLength: "Corto",
+          city: "Barcelona",
           
         },
       ],

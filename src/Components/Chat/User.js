@@ -28,17 +28,17 @@ const User = ({ user1, user, selectUser, chat }) => {
 
                         <h4>{user.name}</h4>
                         {data?.from !== user1 && data?.unread && (
-                            <small className="unread">New</small>
+                            <small className="unread">Nuevo mensaje</small>
                         )}
                     </div>
 
                 </div>
-                {data && (
+                {/* {data && (
                     <p className="truncate">
-                        <strong>{data.from === user1 ? "Me:" : null}</strong>
-                        {data.text}
+                        <strong>{data.from === user1 ? "Nuevo mensaje" : null}</strong>
+                        
                     </p>
-                )}
+                )} */}
             </div>
 
         </>
