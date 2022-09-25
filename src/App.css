@@ -122,15 +122,8 @@ section .form {
 }
 .user_detail {
   text-align: center;
-  display: flex;
-  justify-content: flex-start;
-  margin-left: 1rem;
 }
-.user_detail h4 {
-  display: flex;
-  align-self: center;
-  margin-left: 8px;
-}
+
 
 .avatar {
   width: 50px;
@@ -155,13 +148,11 @@ section .form {
   padding-top: 2rem;
 }
 .message_form {
-  position: absolute;
-  bottom: 20px;
-  left: 10px;
   width: 100%;
   height: 30px;
   display: flex;
   align-items: center;
+  margin-top: 30px;
 }
 .message_form input {
   width: 35vw;
@@ -207,7 +198,7 @@ section .form {
   color: black;
 }
 .friend {
-  background: var(--color-6);
+  background: lightblue;
 }
 .selected_user {
   background: var(--color-6);

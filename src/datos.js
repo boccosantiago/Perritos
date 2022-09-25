@@ -4,7 +4,6 @@ const datos = [
     email: "sosperreradelosbarrios@hotmail.com",
     address: "Lugar Ringo Rango, 21, 11370, Los Barrios, Cádiz",
     coordinates: { lat: 36.17006263581372, lng: -5.475843017196659 },
-    city: "Cádiz",
     phone: "902506893",
     web: "https://www.perreradelosbarrios.com/",
     pets: [
@@ -17,6 +16,7 @@ const datos = [
         breed: "Chihuahua",
         color: "Blanco",
         coatLength: "Corto",
+        city: "Cádiz",
         description:
           "Paco es un cachorrito de aproximadamente 3 meses, alguien lo abandonó en la puerta de la protectora. Es muy cariñoso y le encanta estar en brazos.",
       },
@@ -29,6 +29,7 @@ const datos = [
         breed: ["Labrador", "Golden retriever"],
         color: "Marrón",
         coatLength: "Corto",
+        city: "Cádiz",
         description:
           "Es una perrita mestiza que desde que está en el refugio nadie a preguntado por ella. Es muy cariñosa y juguetona, le encanta estar con otros perros.",
       },
@@ -41,6 +42,7 @@ const datos = [
         breed: "Bodeguero",
         color: ["Blanco", "Marrón", "Negro"],
         coatLength: "Corto",
+        city: "Cádiz",
         description:
           "Bluey es un perrito adulto muy tranquilo y sociable. Es ideal para personas tranquilas y además le encantan los niños.",
       },
@@ -51,7 +53,6 @@ const datos = [
     email: "elarcadenoecordoba@gmail.com",
     address: "C. Pintor, 1, 14650 Bujalance, Córdoba",
     coordinates: { lat: 37.897315296200176, lng: -4.3811522018836255 },
-    city: "Córdoba",
     phone: "917237835",
     web: "https://arcanoecordoba.es/",
     pets: [
@@ -64,6 +65,7 @@ const datos = [
         breed: ["Pastor alemán", "Golden retriever"],
         color: ["Negro", "Marron"],
         coatLength: "Largo",
+        city: "Córdoba",
         description:
           "Conan es una mezcla de pastor alemán extremadamente social. Es bueno con otros perros y niños. Al ser adulto es mucho más tranquilo pero le encanta correr por el parque",
       },
@@ -76,6 +78,7 @@ const datos = [
         breed: "Podenco",
         color: "Marrón",
         coatLength: "Corto",
+        city: "Córdoba",
         description:
           "Podenco muy juegueton y cariñoso. No se lleva bien con los gatos pero le encatan los niños. ",
       },
@@ -88,6 +91,7 @@ const datos = [
         breed: "Border collie",
         color: ["Marrón", "Blanco"],
         coatLength: "Largo",
+        city: "Córdoba",
         description:
           "Deila fue encontrada en la carretera de Córdoba en el mes de Agosto. Ya está desparasitada. Es un poco miedosa pero muy buena con otros perros y gatos. ",
       },
@@ -100,6 +104,7 @@ const datos = [
         breed: ["Pastor alemán", "Corgi galés"],
         color: ["Negro", "Marron"],
         coatLength: "Largo",
+        city: "Córdoba",
         description:
           "Rocky fue devuelto a las dos semanas de ser adoptado por no llevarse bien con otros perros. Es muy noble y cariñoso pero necesita tiempo para adaptarse.",
       },
@@ -110,7 +115,6 @@ const datos = [
     email: "fundaciontrifolium@gmail.com",
     address: "Passeig del Pitort, 25, 08860 Castelldefels, Barcelona",
     coordinates: { lat: 41.269533983313025, lng: 1.9695498865081797 },
-    city: "Barcelona",
     phone: "932786634",
     pets: [
       {
@@ -122,6 +126,7 @@ const datos = [
         breed: "Coker spaniel",
         color: ["Blanco", "Marrón"],
         coatLength: "Mediano",
+        city: "Barcelona",
         description:
           "Cachorrito de 4 meses, un poco miedosa pero está empezando a socializar correctamente en los paseos y a buscar mismos entre la gente. Lleva al día todas sus vacunas y está esterillizado.",
       },
@@ -134,6 +139,7 @@ const datos = [
         breed: ["Pit bull", "Labrador"],
         color: ["Blanco", "Marrón"],
         coatLength: "Corto",
+        city: "Barcelona",
         description:
           "El dueño de Pitu quería sacrificarlo por tener lishmaniosis, una enfermedad que con medicación se puede controlar y llevar una vida muy normal. Es muy sociable y le encantan los niños.",
       },
@@ -146,6 +152,7 @@ const datos = [
         breed: "Galgo",
         color: "Negro",
         coatLength: "Corto",
+        city: "Barcelona",
         description:
           "Galgo de 3 años, muy tranquilo y un poco miedoso. Se está adaptando de maravilla a convivir con otros perros.",
       },
@@ -156,7 +163,6 @@ const datos = [
     email: "contacto@zarpasycolmillos.es",
     address: "Calle Dr. Espina, 39, 28019, Madrid",
     coordinates: { lat: 40.387485277353974, lng: -3.7288517000000008 },
-    city: "Madrid",
     phone: "848171717",
     web: "https://www.zarpasycolmillos.es/",
     pets: [
@@ -169,6 +175,7 @@ const datos = [
         breed: "Bulldog inglés",
         color: ["Blanco", "Marrón"],
         coatLength: "Corto",
+        city: "Madrid",
         description:
           "Buli tiene ya 10 años, lleva mucho tiempo con nosotros y queremos encontrarle una familia que pueda hacerle feliz en sus últimos años. Es extremadamente cariñoso y bueno.",
       },
@@ -181,6 +188,7 @@ const datos = [
         breed: ["Bulldog francés", "Boston terrier"],
         color: ["Negro", "Blanco"],
         coatLength: "Corto",
+        city: "Madrid",
         description:
           "Piña lleva muchos años con nosotros. Se pone un poco nervioso con la gente que no conoce y no le gustan las aglomeraciones. Necesita una casa con mucha tranquilidad. ",
       },
@@ -193,6 +201,7 @@ const datos = [
         breed: ["Border collie", "Golden retriever"],
         color: ["Negro", "Blanco"],
         coatLength: "Largo",
+        city: "Madrid",
         description:
           "Kimba es una mezcla de Border Collie, creemos que tiene unos 4 años de edad. Es muy dulce y jugetona. Le encanta dar paseos muy largos por la montaña.",
       },
@@ -205,6 +214,7 @@ const datos = [
         breed: "Pastor alemán",
         color: ["Negro", "Marrón"],
         coatLength: "Medio",
+        city: "Madrid",
         description:
           "Sherpi viene de una casa donde sufría maltrato animal, eso hace que tenga un carácter algo especial. Al principio es miedoso y desconfiado pero una vez se acostumbra es muy mimoso y tranquilo.",
       },
@@ -217,6 +227,7 @@ const datos = [
         breed: ["Jack Russell", "Yorkshire Terrier"],
         color: ["Blanco", "Marrón"],
         coatLength: "Corto",
+        city: "Madrid",
         description:
           "Kiara es una de los tres cachorros abandonados en una caja de fruta en medio de una finca. A sus hermanitos ya los han adoptado. Está totalmente desparasitada, vacunada y lista para conocer a su nueva familia.",
       },

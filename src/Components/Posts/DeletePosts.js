@@ -21,7 +21,7 @@ export default function DeleteArticle({ id, imageUrl }) {
     return (
         <div>
             <button onClick={handleDelete}
-               className="btn bg-red-400 hover:bg-red-500 border-none btn-xs">Delete</button>
+               className="btn btn-xs">Delete</button>
 
         </div>
     );
