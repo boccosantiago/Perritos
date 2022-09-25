@@ -41,28 +41,28 @@ function Dogs() {
               {dogData.city}
             </p>
             <h2 className="card-title text-2xl ">{dogData.name}</h2>
-            <h2 className="text-xl">Detalles: </h2>
+            <h2 className="text-xl text-start">Detalles: </h2>
             <div className="grid grid-cols-2 ">
               <div className="col1">
-                <p>
+                <p className="text-start">
                   <span className="font-bold">Edad:</span>{" "}
                   <span>{dogData.age}</span>
                 </p>
-                <p>
+                <p className="text-start">
                   <span className="font-bold">Sexo:</span>{" "}
                   <span>{dogData.gender}</span>
                 </p>
-                <p>
+                <p className="text-start">
                   <span className="font-bold">Tamaño:</span>{" "}
                   <span>{dogData.size}</span>
                 </p>
               </div>
               <div className="col2 ">
-                <p>
+                <p className="text-start">
                   <span className="font-bold">Raza:</span>{" "}
                   <span>{dogData.breed}</span>
                 </p>
-                <p>
+                <p className="text-start">
                   <span className="font-bold">Pelo:</span>{" "}
                   <span>{dogData.coatLength}</span>
                 </p>

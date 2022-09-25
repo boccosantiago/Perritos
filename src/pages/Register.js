@@ -55,7 +55,7 @@ const Register = () => {
         }
     };
     return (
-        <div className=" bg-stone-100">
+        <div style={{height:'76vh'}} className=" bg-stone-100 h-76">
             <div className="">
 
                 <form onSubmit={handleSubmit}>

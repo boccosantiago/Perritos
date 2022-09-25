@@ -65,7 +65,7 @@ const Login = ({ setRegisteredName }) => {
 
 
     return (
-        <div className='bg-stone-100 text-center'>
+        <div style={{height:'76vh'}}  className='bg-stone-100 text-center'>
            
             <form className="form" onSubmit={handleSubmit}> 
             <h3>Log into your Account</h3>

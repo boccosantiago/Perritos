@@ -51,21 +51,27 @@ function Card(props) {
     filterPets()
   },[value]);
 
+  
+
+  const isTherePets = petFound.flat() 
+
+  console.log('PETFOUND', isTherePets)
+
 
   const cargarImagen = require.context("../img", true);
 
   return (
-    <div id="container">
-       {/* <button className="btn m-auto buscar" onClick={filterPets}>
+   isTherePets.length !== 0 ? (<div id="container">
+     {/*  <button className="btn m-auto buscar" onClick={filterPets}>
         Buscar
-      </button>  */}
+      </button> */}
       <div id="container-card">
         {petFound.map((pets) =>
           pets.map((pet) => (
             <div
               key={pet.id}
-              className="card  card-compact w-96 bg-stone-100 shadow-xl m-5"
-              >
+              className="card  card-compact w-96 bg-base-100 shadow-xl m-5"
+            >
               <Link to={`./${pet.id}`}>
                 <figure>
                   <img
@@ -75,16 +81,14 @@ function Card(props) {
                   />
                 </figure>
                 <div className="card-body">
-
-                  <div className="flex justify-between">
-                    <h2 className="card-title">{pet.name}</h2>
-                    <p className="flex place-content-end	text-gray-400">
+                <div className="flex justify-between">
+                  <h2 className="card-title">{pet.name}</h2>
+                  <p className="flex place-content-end	text-gray-400">
                       <IoLocationSharp />
                       {pet.city}
                     </p>
                   </div>
                   <p className="text-justify">{pet.description}</p>
-                  <div className="card-actions justify-end">
                 </div>
               </Link>
               <FavoriteDog petId={pet.id} />
@@ -92,7 +96,7 @@ function Card(props) {
           ))
         )}
       </div>
-    </div>
+    </div>) : <div className="notFound"><p className="text-2xl pt-20">Modifique sus criterios de busqueda.</p> </div>
   );
 }
 

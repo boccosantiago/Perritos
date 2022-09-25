@@ -106,7 +106,7 @@ section .form {
 }
 .users_container {
   border-right: 2px solid var(--color-6);
-  overflow-y: auto;
+  overflow-y: scroll;
   background-color: rgba(129, 173, 217, 0.745);
   max-width: 14rem;
 }
