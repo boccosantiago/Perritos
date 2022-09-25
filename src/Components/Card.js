@@ -17,7 +17,7 @@ function Card(props) {
       setPetFound([...infoProtect]);
     } else {
       const lowerCaseName = props.filterData.name.toLowerCase();
-      const lowerCaseCity = props.filterData.city;
+      // const lowerCaseCity = props.filterData.city;
       const lowerCaseAge = props.filterData.age;
       const lowerCaseGender = props.filterData.gender;
       const lowerCaseSize = props.filterData.size;
@@ -25,12 +25,11 @@ function Card(props) {
       const lowerCaseBreed = props.filterData.breed;
       const lowerCaseColor = props.filterData.color;
 
-      const objectProtect = data.filter(item => item.city === lowerCaseCity);
+      // const objectProtect = data.filter(item => item.city === lowerCaseCity);
 
-      objectProtect[0].pets.map(pet => Object.assign(pet, { city: lowerCaseCity }));
-      console.log("INDICE CITY", objectProtect[0].pets)
-      console.log(infoProtect)
-
+      // objectProtect[0].pets.map(pet => Object.assign(pet, { city: lowerCaseCity }));
+      // console.log("INDICE CITY", objectProtect[0].pets)
+      // console.log(infoProtect)
 
       // if (lowerCaseCity) {
       //   objectProtect[0].pets.map(pets => {
@@ -42,9 +41,9 @@ function Card(props) {
 
       const filteredPet = infoProtect.map((item) =>
         item.filter((pet) => {
-
           return (
-            (!lowerCaseName || pet.name.toLowerCase().includes(lowerCaseName)) &&
+            (!lowerCaseName ||
+              pet.name.toLowerCase().includes(lowerCaseName)) &&
             // (!lowerCaseCity || data[indexProtectora].city.includes(lowerCaseCity)) &&
             // (!lowerCaseCity || pet.city.includes(lowerCaseCity)) &&
             (!lowerCaseAge || pet.age.includes(lowerCaseAge)) &&
@@ -61,8 +60,6 @@ function Card(props) {
     }
   }
 
-
-
   const cargarImagen = require.context("../img", true);
 
   return (
@@ -73,7 +70,10 @@ function Card(props) {
       <div id="container-card">
         {petFound.map((pets) =>
           pets.map((pet) => (
-            <div key={pet.id} className="card  card-compact w-96 bg-base-100 shadow-xl m-5">
+            <div
+              key={pet.id}
+              className="card  card-compact w-96 bg-base-100 shadow-xl m-5"
+            >
               <Link to={`./${pet.id}`}>
                 <figure>
                   <img
@@ -85,14 +85,13 @@ function Card(props) {
                 <div className="card-body">
                   <h2 className="card-title">{pet.name}</h2>
                   <p>If a dog chews shoes whose shoes does he choose?</p>
-                  <div className="card-actions justify-end">
+                  {/* <div className="card-actions justify-end">
                     <button className="btn btn-primary">Adoptame</button>
-                  </div>
+                  </div> */}
                 </div>
               </Link>
               <FavoriteDog petId={pet.id} />
             </div>
-
           ))
         )}
       </div>

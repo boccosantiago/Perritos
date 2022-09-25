@@ -18,6 +18,7 @@ import User from "../Components/Chat/User";
 import MessageForm from "../Components/Chat/MessageForm";
 import Message from "../Components/Chat/Message";
 
+
 const Home = () => {
     const [users, setUsers] = useState([]);
     const [chat, setChat] = useState("");
@@ -109,7 +110,6 @@ const Home = () => {
     return (
         <div className="home_container">
             <div className="users_container">
-                <h3>USUARIOS</h3>
                 {users.map((user) => (
                     <User
                         key={user.uid}
@@ -133,16 +133,17 @@ const Home = () => {
                                 ))
                                 : null}
                         </div>
-                        <MessageForm
-                            handleSubmit={handleSubmit}
-                            text={text}
-                            setText={setText}
-                            setImg={setImg}
-                        />
+
                     </>
                 ) : (
                     <h3 className="no_conv">Select a user to start conversation</h3>
                 )}
+                <MessageForm
+                    handleSubmit={handleSubmit}
+                    text={text}
+                    setText={setText}
+                    setImg={setImg}
+                />
             </div>
         </div>
     );

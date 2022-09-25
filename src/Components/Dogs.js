@@ -20,7 +20,6 @@ function Dogs() {
     (item) => item.findIndex((pet) => pet.id === Number(params.id)) > -1
   );
 
-
   return (
     <div className="container-dog">
       <div className="dog-card">
@@ -47,7 +46,9 @@ function Dogs() {
             <p>Raza: {dogData.breed}</p>
             <p>Pelo: {dogData.coatLength}</p>
             <div className="card-actions justify-end">
-              <button className="btn btn-primary">Adoptame</button>
+              <Link to="./formulario" className="btn btn-primary">
+                Adoptame
+              </Link>
             </div>
           </div>
         </div>

@@ -3,6 +3,7 @@ import "./App.css";
 import Main from "./Components/Main";
 import Home from "./Components/Home";
 import Profile from "./pages/Profile";
+import AdoptionForm from "./pages/AdoptionForm";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import Dogs from "./Components/Dogs";
@@ -30,26 +31,26 @@ import { db } from "./firebase";
 import { doc, getDoc } from "firebase/firestore";
 import { AuthContext } from "./context/auth";
 function App() {
-  const { user } = useContext(AuthContext)
+  const { user } = useContext(AuthContext);
 
-  //Login 
-  const [registeredName, setRegisteredName] = useState()
+  //Login
+  const [registeredName, setRegisteredName] = useState();
 
   async function getRegisteredName() {
     const auth = getAuth();
     const docRef = doc(db, "users", auth.currentUser.uid);
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
-      setRegisteredName(docSnap.data().name)
+      setRegisteredName(docSnap.data().name);
       console.log("Document data:", docSnap.data());
     } else {
       // doc.data() will be undefined in this case
       console.log("No such document!");
     }
   }
-  console.log(registeredName)
+  console.log(registeredName);
 
-  useEffect(() => getRegisteredName, [user])
+  useEffect(() => getRegisteredName, [user]);
 
   //Favoritos
   const [favorites, setFavorites] = useState(() => {
@@ -81,8 +82,6 @@ function App() {
   };
 
   return (
-
-
     <FavoriteProvider
       value={{
         favoriteDogs: favorites,
@@ -104,15 +103,23 @@ function App() {
               }
             />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/main/:id/formulario" element={<AdoptionForm />} />
             <Route path="/favorites" element={<FavoriteList />} />
-            <Route path="/posts" element={<Posts registeredName={registeredName} />} />
-            <Route path="/shelters" element={<Shelters />} /> 
+            <Route
+              path="/posts"
+              element={<Posts registeredName={registeredName} />}
+            />
+            <Route path="/shelters" element={<Shelters />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
-            <Route path="/chat" element={
-              <Protected>
-                <MainChat />
-              </Protected>} />
+            <Route
+              path="/chat"
+              element={
+                <Protected>
+                  <MainChat />
+                </Protected>
+              }
+            />
           </Routes>
           <Footer />
           <ToastContainer
@@ -129,7 +136,6 @@ function App() {
         </BrowserRouter>
       </div>
     </FavoriteProvider>
-
   );
 }
 
