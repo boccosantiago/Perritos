@@ -9,6 +9,8 @@ export default function Formulario() {
       </p>
       <form>
         <div>
+          <h3>Datos de las mascota a adoptar</h3>
+
           <h3>Datos del adoptante</h3>
           <label>
             Nombre completo:
@@ -38,6 +40,9 @@ export default function Formulario() {
         <div>
           <h3>Información personal</h3>
         </div>
+        <button>
+          Formulario enviado. Se pondrán en contacto con usted lo antes posible.
+        </button>
       </form>
     </div>
   );
