@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import data from "../datos";
 import "../styles/Card.css";
 import { Link } from "react-router-dom";
@@ -43,13 +43,18 @@ function Card(props) {
     }
   }
 
+  useEffect(() => {
+    filterPets()
+  },[value]);
+
+
   const cargarImagen = require.context("../img", true);
 
   return (
     <div id="container">
-      <button className="btn m-auto buscar" onClick={filterPets}>
+       {/* <button className="btn m-auto buscar" onClick={filterPets}>
         Buscar
-      </button>
+      </button>  */}
       <div id="container-card">
         {petFound.map((pets) =>
           pets.map((pet) => (
