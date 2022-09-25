@@ -48,7 +48,7 @@ export default function FavoriteDog(props) {
           {favoriteDogs.includes(props.petId) ? "🖤" : "🤍"}
         </div>
       ) : (
-        <Link to="/login">🤍</Link>
+        <div className="heart"><Link to="/login">🤍</Link></div>
       )}
     </div>
   );

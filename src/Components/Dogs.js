@@ -16,12 +16,14 @@ function Dogs() {
   const result = arrayPets.filter((item) => item.id === Number(params.id));
   const dogData = result[0];
 
-  const indexProtectora = infoProtect.findIndex(
+  /*  const indexProtectora = infoProtect.findIndex(
     (item) => item.findIndex((pet) => pet.id === Number(params.id)) > -1
-  );
+
+  ); */
+
 
   return (
-    <div className="container-dog">
+    <div className="container-dog text-center bg-stone-100">
       <div className="dog-card">
         <div className="card w-96 mx-auto bg-base-100 shadow-xl">
           <figure>
@@ -36,15 +38,36 @@ function Dogs() {
             <FavoriteDog petId={dogData.id} />
             <p className="flex text-gray-400">
               <IoLocationSharp />
-              {data[indexProtectora].city}
+              {dogData.city}
             </p>
             <h2 className="card-title text-2xl ">{dogData.name}</h2>
             <h2 className="text-xl">Detalles: </h2>
-            <p>Edad: {dogData.age}</p>
-            <p>Sexo: {dogData.gender}</p>
-            <p>Tamaño: {dogData.size}</p>
-            <p>Raza: {dogData.breed}</p>
-            <p>Pelo: {dogData.coatLength}</p>
+            <div className="grid grid-cols-2 ">
+              <div className="col1">
+                <p>
+                  <span className="font-bold">Edad:</span>{" "}
+                  <span>{dogData.age}</span>
+                </p>
+                <p>
+                  <span className="font-bold">Sexo:</span>{" "}
+                  <span>{dogData.gender}</span>
+                </p>
+                <p>
+                  <span className="font-bold">Tamaño:</span>{" "}
+                  <span>{dogData.size}</span>
+                </p>
+              </div>
+              <div className="col2 ">
+                <p>
+                  <span className="font-bold">Raza:</span>{" "}
+                  <span>{dogData.breed}</span>
+                </p>
+                <p>
+                  <span className="font-bold">Pelo:</span>{" "}
+                  <span>{dogData.coatLength}</span>
+                </p>
+              </div>
+            </div>
             <div className="card-actions justify-end">
               <Link to="./formulario" className="btn btn-primary">
                 Adoptame
@@ -53,6 +76,11 @@ function Dogs() {
           </div>
         </div>
       </div>
+      <Link to='/main'>
+      <button className="btn btn-secondary mb-5">
+        Regresar
+      </button>
+      </Link>
     </div>
   );
 }

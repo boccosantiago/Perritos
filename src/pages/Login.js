@@ -65,10 +65,11 @@ const Login = ({ setRegisteredName }) => {
 
 
     return (
-        <section style={{textAlign:'center'}}>
+        <div className='bg-stone-100 text-center'>
+           
+            <form className="form" onSubmit={handleSubmit}> 
             <h3>Log into your Account</h3>
-            <form className="form" onSubmit={handleSubmit}>
-                <div className="input_container">
+                <div className="input_container text-left">
                     <label htmlFor="email">Email</label>
                     <input
                         type="text"
@@ -99,13 +100,13 @@ const Login = ({ setRegisteredName }) => {
             >
                 Google login
             </button>
-            <p className="my-4 text-sm text-center px-3">
+            <p className=" text-sm text-center p-3">
                 Don't have an account?&nbsp; 
                 <Link to="/signup" className="text-blue-700 hover:text-blue-900">
                     Signup here
                 </Link>
             </p>
-        </section>
+        </div>
     );
 };
 

@@ -40,7 +40,7 @@ export default function FavoriteList() {
   const cargarImagen = require.context("../img", true);
 
   return (
-    <div className="favorite-container">
+    <div className="favorite-container bg-stone-100">
       {dogList.length !== 0 ? (
         <div>
           {dogList.map((pet, index) => (
