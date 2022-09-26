@@ -9,15 +9,12 @@ import "./Shelters.css";
 import { useState } from "react";
 import datos from "../../datos";
 
-
-
-
 const api = process.env.REACT_APP_API_KEY;
 const containerStyle = {
-  width: '97%',
-  maxWidth: '700px',
+  width: "97%",
+  maxWidth: "700px",
   height: "100%",
-  minHeight: '400px'
+  minHeight: "400px",
 };
 
 export default function Map() {
@@ -32,30 +29,27 @@ export default function Map() {
 
   const [infoWindowOpen, SetInfoWindowOpen] = useState(false);
 
-  const [dataClicked, setDataClicked] = useState({})
+  const [dataClicked, setDataClicked] = useState({});
 
-  const onMarkerClick = (data, coordinates) =>
-    {setDataClicked(data)
-     setCenter(coordinates) 
+  const onMarkerClick = (data, coordinates) => {
+    setDataClicked(data);
+    setCenter(coordinates);
     SetInfoWindowOpen({
       showingInfoWindow: true,
-    })}
-
-    console.log('dataClick', dataClicked)
-
-  const onInfoWindowClose = () =>
-    SetInfoWindowOpen(false);
-
-  const onMapClicked = () => {
-    if (infoWindowOpen)
-      SetInfoWindowOpen(false);
+    });
   };
 
+  console.log("dataClick", dataClicked);
 
-  return( 
-   isLoaded ? (
+  const onInfoWindowClose = () => SetInfoWindowOpen(false);
+
+  const onMapClicked = () => {
+    if (infoWindowOpen) SetInfoWindowOpen(false);
+  };
+
+  return isLoaded ? (
     <div className="map-container">
-      <h2 className="text-2xl text-stone-500	">Protectoras</h2>
+      <h2 className="text-2xl text-stone-500 divider">Localización</h2>
       <br />
       <GoogleMap
         mapContainerStyle={containerStyle}
@@ -71,11 +65,10 @@ export default function Map() {
               key={index}
               position={data.coordinates}
               onClick={() => onMarkerClick(data, data.coordinates)}
-              
             >
               {infoWindowOpen && data.shelterName === dataClicked.shelterName && (
                 <InfoWindow
-                  onClick={()=>onMarkerClick(data.coordinates)}
+                  onClick={() => onMarkerClick(data.coordinates)}
                   onCloseClick={onInfoWindowClose}
                 >
                   <div className="info-shelters">
@@ -93,6 +86,5 @@ export default function Map() {
     </div>
   ) : (
     <></>
-  ))
-  ;
+  );
 }

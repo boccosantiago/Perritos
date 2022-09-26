@@ -110,15 +110,15 @@ const Profile = () => {
 
     const user = auth.currentUser;
     const newPassword = "nuevacontraseña";
-
-    updatePassword(user, newPassword)
-      .then(() => {
-        console.log("Update successful");
-      })
-      .catch((error) => {
-        // An error ocurred
-        // ...
-      });
+    console.log(user);
+    // updatePassword(user, newPassword)
+    //   .then(() => {
+    //     console.log("Update successful");
+    //   })
+    //   .catch((error) => {
+    //     // An error ocurred
+    //     // ...
+    //   });
   }
 
   //ELIMINAR CUENTA
@@ -139,19 +139,20 @@ const Profile = () => {
 
   // }
 
-  const deleteUsuario = async (password) => {
+  const deleteUsuario = async (oldPassword) => {
     const credential = EmailAuthProvider.credential(
       auth.currentUser.email,
-      password
+      oldPassword
     );
     console.log(credential);
     const result = await reauthenticateWithCredential(
       auth.currentUser,
       credential
     );
+    console.log(result);
 
     // // Pass result.user here
-    await deleteUser(result.user);
+    //await deleteUser(result.user);
 
     console.log("success in deleting");
   };
@@ -192,7 +193,9 @@ const Profile = () => {
           <div>
             <p>{user.email}</p>
           </div>
-          <button onClick={() => contraseñaNueva()}>Cambiar contraseña</button>
+          <button onClick={() => contraseñaNueva("123456")}>
+            Cambiar contraseña
+          </button>
           <hr />
           <small>Joined on: {user.createdAt.toDate().toDateString()}</small>
         </div>

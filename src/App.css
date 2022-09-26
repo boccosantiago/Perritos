@@ -23,7 +23,7 @@ nav div a {
   margin-right: 20px;
 } */
 
-form {
+.form-user {
   max-width: 500px;
   margin: 0 auto;
   margin-top: 100px;
@@ -31,7 +31,7 @@ form {
   padding: 10px 20px;
   border-radius: 5px;
 }
-form h3 {
+.form-user h3 {
   text-align: center;
   font-size: 20px;
   color: var(--color-4);
@@ -123,7 +123,6 @@ section .form {
 .user_detail {
   text-align: center;
 }
-
 
 .avatar {
   width: 50px;

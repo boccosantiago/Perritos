@@ -85,9 +85,6 @@ function Card(props) {
                 <div className="card-body">
                   <h2 className="card-title">{pet.name}</h2>
                   <p className="text-justify">{pet.description}</p>
-                  {/* <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Adoptame</button>
-                  </div> */}
                 </div>
               </Link>
               <FavoriteDog petId={pet.id} />
