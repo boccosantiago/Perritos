@@ -44,8 +44,10 @@ export default function FavoriteList() {
       {dogList.length !== 0 ? (
         <div>
           {dogList.map((pet, index) => (
-            <div key={index} className="card sm:card-side bg-base-100 shadow-xl m-7">
-              <figure>
+            
+            <div key={index} className="card my-10 card-side bg-base-100 shadow-xl m-auto md:w-2/4">
+              <Link to={`../main/${pet.id}`}>
+                <figure>
                 <img
                   style={{ height: "180px", borderRadius: "20px" }}
                   id="favorite-img"
@@ -53,11 +55,12 @@ export default function FavoriteList() {
                   src={cargarImagen(`./id${pet.id}.jpg`)}
                 />
               </figure>
+              </Link>
               <div className="card-body">
                 <h2 className="card-title">{pet.name}</h2>
-                <p>Click the button to watch on Jetflix app.</p>
+                <p></p>
                 <div className="card-actions justify-end block">
-                  <button onClick={()=> toastClick(pet.id)} className="btn btn-circle float-right btn-outline">
+                  <button onClick={()=> toastClick(pet.id)} className="btn btn-circle absolute right-2 top-2 btn-outline">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-6 w-6"
@@ -73,7 +76,7 @@ export default function FavoriteList() {
                       />
                     </svg>
                   </button>
-                  <button className="btn btn-primary">Adoptame</button>
+                  <Link to="../formulario" className="btn btn-primary">Adóptame</Link>
                 </div>
               </div>
             </div>
@@ -81,7 +84,7 @@ export default function FavoriteList() {
         </div>
       ) : (
         <div className="no-favorites">
-          <span>Agrega tus perros favoritos para verlos en esta seccion</span>
+          <span>Agrega tus perros favoritos para verlos en esta sección.</span>
         </div>
       )}
     </div>

@@ -59,7 +59,7 @@ const Register = () => {
             <div className="">
 
                 <form onSubmit={handleSubmit}>
-                    <h3>Create An Account</h3>
+                    <h3>Crea tu cuenta</h3>
                     <div className="input_container">
                         <label htmlFor="name">Name</label>
                         <input type="text" name="name" value={name} onChange={handleChange} />
@@ -91,9 +91,9 @@ const Register = () => {
                 </form>
             </div>
             <p className="text-sm text-center p-3">
-                Don't have an account?&nbsp; 
-                <Link to="/login" className="text-blue-700 hover:text-blue-900">
-                    Login here
+                Tienes una cuenta?&nbsp; 
+                <Link to="/login" className="text-neutral hover:text-neutral-focus">
+                    Entra aquí
                 </Link>
             </p>
         </div>

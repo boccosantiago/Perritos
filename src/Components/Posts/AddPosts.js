@@ -90,9 +90,9 @@ export default function AddPosts(props) {
       {!user ? (
         <>
           <h2>
-            <Link to="/login">Login to create article</Link>
+            <Link to="/login">Logueate para publicar.</Link>
           </h2>
-          Don't have an account? <Link to="/signup">Signup</Link>
+          No tienes una cuenta? <Link to="/signup" className="text-neutral hover:text-neutral-focus">Registrate aquí</Link>
         </>
       ) : (
         <>
