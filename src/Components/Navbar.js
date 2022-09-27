@@ -102,7 +102,7 @@ function Navbar(props) {
             </li>
           </ul>
         </div>
-        <button className=" text-xl sm:text-2xl text-primary-focus hover:text-primary-content">PERRITOS</button>
+        <Link to="/home" className="text-xl sm:text-2xl text-primary-focus hover:text-primary-content cartel">PERRITOS</Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">

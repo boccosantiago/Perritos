@@ -58,7 +58,7 @@ const Register = () => {
            
     return (
         <div style={{height:'76vh'}} className=" bg-stone-100 h-76">
-            <div className="">
+            <div className="form-user">
 
                 <form onSubmit={handleSubmit}>
                     <h3>Crea tu cuenta</h3>

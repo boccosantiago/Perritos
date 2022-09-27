@@ -4,6 +4,7 @@ import "./Shelters.css";
 import { useState } from "react";
 import Instagram from "./Instagram";
 import Map from "./Map";
+import datos from "../../datos"
 
 export default function Shelters() {
   const api = process.env.REACT_APP_API_KEY;
