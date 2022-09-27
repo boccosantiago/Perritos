@@ -155,8 +155,6 @@ const Profile = () => {
 
 
 
-
-
   return user ? (
     <div className="mockup-window lg:w-1/2 mx-auto mb-96 mt-10 bg-neutral">
       <div className="px-4 py-16 bg-base-200">
