@@ -4,38 +4,18 @@
   box-sizing: border-box;
   font-family: "Josefin Sans", sans-serif;
 }
-.graph{
-  width: 70vw;
 
-}
 
 html, body{
   height: 100%
 }
 
-/* Navbar */
-/* nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 70px;
-  padding: 0px 20px;
-  background-color: var(--color-1);
-  border-bottom: 1px solid var(--color-6);
-}
-nav a {
-  color: var(--color-2);
-  text-decoration: none;
-}
-nav div a {
-  margin-right: 20px;
-} */
 
 .form-user {
   max-width: 500px;
   margin: 0 auto;
   box-shadow: 1px 2px 10px var(--color-4);
-  padding: 10px 20px;
+  padding: 30px 20px;
   border-radius: 5px;
 }
 .form-user h3 {
@@ -99,16 +79,18 @@ section .form-user {
   background-color: rgb(225, 225, 225);
   /* position: relative; */
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 1fr 5fr;
   border: 1px solid #0000003b;
   height: calc(100vh - 70px);
   width: 70%;
+  border-radius: 20px;
 }
 .users_container {
-  border-right: 2px solid var(--color-6);
-  overflow-y: scroll;
+  border-right: 1px solid rgb(110, 110, 110);
+  overflow-y: auto;
   background-color: rgba(129, 173, 217, 0.745);
-  width: 12rem;
+  width: 100px;
+  border-radius: 20px 0 0 20px;
 }
 .user_wrapper {
   margin-bottom: 10px;
@@ -237,31 +219,10 @@ section .form-user {
   }
 }
 
-@media screen and (max-width: 576px) {
+ @media screen and (max-width: 576px) {
   .home_container {
-    grid-template-columns: 2fr 3fr;
-    width: 100%;
-  }
-  .user.container {
-    width: 300px;
-  }
-  .sm_container {
-    padding: 10px 0px;
-    text-align: center;
-    cursor: pointer;
-  }
-  .sm_screen {
-    display: inline-block;
-  }
-  .message_form input {
-    width: 60vw;
-    margin: 0px 10px;
-  }
-  .message_form .btn {
-    margin: 0px;
+    grid-template-columns: 1fr 3fr;
+    width: 100vw;
   }
 
-  .message_wrapper p {
-    max-width: 75%;
-  }
 }

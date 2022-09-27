@@ -13,7 +13,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Register";
 import Protected from "./Components/Protected";
 import Posts from "./Components/Posts/Posts";
-import AboutUs from "./Components/AboutUs";
+import About from "./Components/About";
 
 // import { ChatProvider } from "./context/Chat";
 import MainChat from "./pages/Chat";
@@ -121,7 +121,7 @@ function App() {
                 </Protected>
               }
             />
-            <Route path="/aboutus" element={<AboutUs />} />
+            <Route path="/about" element={<About />} />
           </Routes>
           <Footer />
           <ToastContainer

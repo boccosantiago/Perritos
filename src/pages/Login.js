@@ -82,7 +82,7 @@ const Login = ({ setRegisteredName }) => {
                         onChange={handleChange}
                     />
                 </div>
-                <div className="input_container">
+                <div className="input_container text-left">
                     <label htmlFor="password">Password</label>
                     <input
                         type="password"

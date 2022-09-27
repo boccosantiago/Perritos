@@ -58,7 +58,7 @@ const Register = () => {
            
     return (
         <div style={{height:'76vh'}} className=" bg-stone-100 h-76">
-            <div className="form-user">
+            <div className="">
 
                 <form className="form-user" onSubmit={handleSubmit}>
                     <h3>Crea tu cuenta</h3>
@@ -87,7 +87,7 @@ const Register = () => {
                     {error ? <p className="error">{error}</p> : null}
                     <div className="btn_container">
                         <button className="btn" disabled={loading}>
-                            {loading ? "Creating ..." : "Register"}
+                            {loading ? "Creando cuenta.." : "Regístrate"}
                         </button>
                     </div>
                 </form>

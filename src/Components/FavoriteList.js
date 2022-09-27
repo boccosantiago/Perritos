@@ -21,9 +21,9 @@ export default function FavoriteList() {
     toast.error("🐶 Eliminado de favoritos", {
       position: "top-center",
       autoClose: 1000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
-      pauseOnHover: true,
+      pauseOnHover: false,
       draggable: true,
       progress: undefined,
     });

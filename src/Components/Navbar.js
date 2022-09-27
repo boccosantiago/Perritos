@@ -82,18 +82,14 @@ function Navbar(props) {
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <Link to="/">Inicio</Link>
-            </li>
-            <li>
               <Link to="/main">Adopta</Link>
             </li>
             <li>
               <Link to="/shelters">Protectoras</Link>
             </li>
-           {/*  <li>
-              <Link to="About">Que es Perritos</Link>
-            </li> */}
-
+           <li>
+              <Link to="/about">Que es Perritos</Link>
+            </li> 
             <li>
               <Link to="/posts">Difunde</Link>
             </li>
@@ -102,22 +98,19 @@ function Navbar(props) {
             </li>
           </ul>
         </div>
-        <Link to="/home" className="text-xl sm:text-2xl text-primary-focus hover:text-primary-content cartel">PERRITOS</Link>
+        <Link to="/" className="text-xl sm:text-2xl text-primary-focus hover:text-primary-content cartel">PERRITOS</Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">
-          <li>
-            <Link to="/">Inicio</Link>
-          </li>
           <li>
             <Link to="/main">Adopta</Link>
           </li>
           <li>
             <Link to="/shelters">Protectoras</Link>
           </li>
-         {/*  <li>
-            <Link to="About">Que es Perritos</Link>
-          </li> */}
+          <li>
+              <Link to="/about">Que es Perritos</Link>
+            </li> 
           <li>
             <Link to="/chat">Chatea</Link>
           </li>

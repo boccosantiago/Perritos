@@ -40,8 +40,8 @@ function Dogs() {
               <IoLocationSharp />
               {dogData.city}
             </p>
-            <h2 className="card-title text-2xl ">{dogData.name}</h2>
-            <h2 className="text-xl text-start">Detalles: </h2>
+            <h2 className="card-title text-2xl p-0">{dogData.name}</h2>
+            <h2 className="text-xl text-start p-0">Detalles: </h2>
             <div className="grid grid-cols-2 ">
               <div className="col1">
                 <p className="text-start">
@@ -68,9 +68,10 @@ function Dogs() {
                 </p>
               </div>
             </div>
+            <h2 className="text-xl text-start p-0">Descripción: </h2>
             <div className="text-justify">{dogData.description}</div>
             <div className="card-actions justify-end">
-              <Link to="./formulario" className="btn btn-primary">
+              <Link to="./formulario" className="btn btn-primary absolute top-80">
                 Adoptame
               </Link>
             </div>

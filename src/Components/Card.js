@@ -82,13 +82,13 @@ function Card(props) {
                 </figure>
                 <div className="card-body">
                 <div className="flex justify-between">
-                  <h2 className="card-title">{pet.name}</h2>
+                  <h2 className="card-title p-0">{pet.name}</h2>
                   <p className="flex place-content-end	text-gray-400">
                       <IoLocationSharp />
                       {pet.city}
                     </p>
                   </div>
-                  <p className="text-justify">{pet.description}</p>
+                  <p className="text-justify m-2">{pet.description}</p>
                 </div>
               </Link>
               <FavoriteDog petId={pet.id} />
