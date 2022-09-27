@@ -63,7 +63,7 @@ export default function Login(props) {
 
 
   return (
-    <div className="login-container">
+    <div className="login-container bg-stone-100">
       <div className="login-inner">
         {error && <Alert message={error} />}
 

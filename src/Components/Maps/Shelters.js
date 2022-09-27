@@ -2,7 +2,6 @@ import React from "react";
 import { useJsApiLoader } from "@react-google-maps/api";
 import "./Shelters.css";
 import { useState } from "react";
-import datos from "../../datos";
 import Instagram from "./Instagram";
 import Map from "./Map";
 
@@ -40,12 +39,3 @@ export default function Shelters() {
     </div>
   );
 }
-
-// return (
-//   <div className="bg-gray-200">
-//     <div>
-//       <h1>Información de contacto</h1>
-//     </div>
-//
-//   </div>
-// );

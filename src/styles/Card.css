@@ -51,6 +51,10 @@
     transform: scale(1);
 }  
 
+.notFound{
+    height: 66vh;
+}
+
 @keyframes appear {
     0%{
         opacity: 0;

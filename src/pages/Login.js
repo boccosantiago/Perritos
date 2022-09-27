@@ -65,49 +65,52 @@ const Login = ({ setRegisteredName }) => {
     return signInWithPopup(auth, googleProvider);
   };
 
-  return (
-    <section style={{ textAlign: "center" }}>
-      <form className="form-user" onSubmit={handleSubmit}>
-        <h3>Log into your Account</h3>
-        <div className="input_container">
-          <label htmlFor="email">Email</label>
-          <input
-            type="text"
-            name="email"
-            value={email}
-            onChange={handleChange}
-          />
+
+    return (
+        <div style={{height:'76vh'}}  className='bg-stone-100 text-center'>
+           
+            <form className="form" onSubmit={handleSubmit}> 
+            <h3>Log into your Account</h3>
+                <div className="input_container text-left">
+                    <label htmlFor="email">Email</label>
+                    <input
+                        type="text"
+                        name="email"
+                        value={email}
+                        onChange={handleChange}
+                    />
+                </div>
+                <div className="input_container">
+                    <label htmlFor="password">Password</label>
+                    <input
+                        type="password"
+                        name="password"
+                        value={password}
+                        onChange={handleChange}
+                    />
+                </div>
+                {error ? <p className="error">{error}</p> : null}
+                <div className="btn_container">
+                    <button className="btn" disabled={loading}>
+                        {loading ? "Logging in ..." : "Login"}
+                    </button>
+                </div>
+            </form>
+            <button
+                onClick={handleGoogleSignin}
+                className="bg-slate-50 hover:bg-slate-200 text-black  shadow rounded border-2 border-gray-300 py-2 px-4"
+            >
+                Google login
+            </button>
+            <p className=" text-sm text-center p-3">
+                No tienes una cuenta?&nbsp; 
+                <Link to="/signup" className="text-neutral hover:text-neutral-focus">
+                    Registrate aquí
+                </Link>
+            </p>
         </div>
-        <div className="input_container">
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            name="password"
-            value={password}
-            onChange={handleChange}
-          />
-        </div>
-        {error ? <p className="error">{error}</p> : null}
-        <div className="btn_container">
-          <button className="btn" disabled={loading}>
-            {loading ? "Logging in ..." : "Login"}
-          </button>
-        </div>
-      </form>
-      <button
-        onClick={handleGoogleSignin}
-        className="bg-slate-50 hover:bg-slate-200 text-black  shadow rounded border-2 border-gray-300 py-2 px-4"
-      >
-        Google login
-      </button>
-      <p className="my-4 text-sm text-center px-3">
-        Don't have an account?&nbsp;
-        <Link to="/signup" className="text-blue-700 hover:text-blue-900">
-          Signup here
-        </Link>
-      </p>
-    </section>
-  );
+    );
+
 };
 
 export default Login;

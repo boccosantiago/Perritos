@@ -38,7 +38,7 @@ export default function Posts(props) {
       <div className=" grid md:grid-cols-3	">
 
         {posts.length === 0 ? (
-          <p>No posts found!</p>
+          <p>No se encontraron publicaciones.</p>
         ) : (
           posts.map(
             ({

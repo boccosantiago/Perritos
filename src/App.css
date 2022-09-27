@@ -5,6 +5,10 @@
   font-family: "Josefin Sans", sans-serif;
 }
 
+html, body{
+  height: 100%
+}
+
 /* Navbar */
 /* nav {
   display: flex;
@@ -26,7 +30,6 @@ nav div a {
 .form-user {
   max-width: 500px;
   margin: 0 auto;
-  margin-top: 100px;
   box-shadow: 1px 2px 10px var(--color-4);
   padding: 10px 20px;
   border-radius: 5px;
@@ -67,8 +70,6 @@ section .form-user {
   margin-right: 20px;
 }
 .img_container img {
-  width: 100px;
-  height: 100px;
   border-radius: 50%;
   border: 1px solid black;
   transition: 0.5s ease-in-out all;
@@ -88,12 +89,6 @@ section .form-user {
   transform: translate(-50%, -50%);
   text-align: center;
 }
-.text_container {
-  flex-grow: 1;
-}
-.text_container h3 {
-  text-align: left;
-}
 
 .home_container {
   margin: auto;
@@ -107,9 +102,9 @@ section .form-user {
 }
 .users_container {
   border-right: 2px solid var(--color-6);
-  overflow-y: auto;
+  overflow-y: scroll;
   background-color: rgba(129, 173, 217, 0.745);
-  max-width: 14rem;
+  width: 100px;
 }
 .user_wrapper {
   margin-bottom: 10px;
@@ -240,7 +235,7 @@ section .form-user {
 
 @media screen and (max-width: 576px) {
   .home_container {
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 2fr 3fr;
     width: 100%;
   }
   .user.container {
@@ -263,6 +258,6 @@ section .form-user {
   }
 
   .message_wrapper p {
-    max-width: 100%;
+    max-width: 75%;
   }
 }
