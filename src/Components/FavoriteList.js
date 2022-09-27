@@ -55,9 +55,11 @@ export default function FavoriteList() {
                   src={cargarImagen(`./id${pet.id}.jpg`)}
                 />
               </figure>
-              </Link>
+              </Link >
               <div className="card-body">
+                <Link to={`../main/${pet.id}`}>
                 <h2 className="card-title">{pet.name}</h2>
+                </Link>
                 <p></p>
                 <div className="card-actions justify-end block">
                   <button onClick={()=> toastClick(pet.id)} className="btn btn-circle absolute right-2 top-2 btn-outline">
@@ -76,7 +78,7 @@ export default function FavoriteList() {
                       />
                     </svg>
                   </button>
-                  <Link to="../formulario" className="btn btn-primary">Adóptame</Link>
+                  <Link to={`/main/${pet.id}/formulario`} className="btn btn-primary">Adóptame</Link>
                 </div>
               </div>
             </div>

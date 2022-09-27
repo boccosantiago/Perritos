@@ -69,8 +69,10 @@ const Login = ({ setRegisteredName }) => {
     return (
         <div style={{height:'76vh'}}  className='bg-stone-100 text-center'>
            
-            <form className="form-user" onSubmit={handleSubmit}> 
-            <h3>Entra en tu cuenta</h3>
+
+            <form className="form form-user" onSubmit={handleSubmit}> 
+            <h3>Inicia sesión</h3>
+
                 <div className="input_container text-left">
                     <label htmlFor="email">Email</label>
                     <input
