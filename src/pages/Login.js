@@ -101,9 +101,9 @@ const Login = ({ setRegisteredName }) => {
                 Google login
             </button>
             <p className=" text-sm text-center p-3">
-                Don't have an account?&nbsp; 
-                <Link to="/signup" className="text-blue-700 hover:text-blue-900">
-                    Signup here
+                No tienes una cuenta?&nbsp; 
+                <Link to="/signup" className="text-neutral hover:text-neutral-focus">
+                    Registrate aquí
                 </Link>
             </p>
         </div>

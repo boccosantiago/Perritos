@@ -96,7 +96,7 @@ function Card(props) {
           ))
         )}
       </div>
-    </div>) : <div className="notFound"><p className="text-2xl pt-20">Modifique sus criterios de busqueda.</p> </div>
+    </div>) : <div className="notFound"><p className="text-2xl pt-20">Modifique sus criterios de búsqueda.</p> </div>
   );
 }
 

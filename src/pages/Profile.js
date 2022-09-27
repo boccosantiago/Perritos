@@ -11,12 +11,8 @@ import {
 import { getDoc, doc, updateDoc } from "firebase/firestore";
 import Delete from "../Components/Chat/svg/Delete";
 import { useNavigate } from "react-router-dom";
-import { updateProfile, deleteUser, updatePassword } from "firebase/auth";
-import {
-  EmailAuthProvider,
-  getAuth,
-  reauthenticateWithCredential,
-} from "firebase/auth";
+import { getAuth, updateProfile, updateEmail } from "firebase/auth";
+
 const Profile = () => {
   const [img, setImg] = useState("");
   const [user, setUser] = useState();
@@ -104,101 +100,87 @@ const Profile = () => {
     }
   };
 
-  //CAMBIARCONTRASEÑA
-  function contraseñaNueva() {
+  async function changeEmail() {
+
     const auth = getAuth();
-
-    const user = auth.currentUser;
-    const newPassword = "nuevacontraseña";
-
-    updatePassword(user, newPassword)
-      .then(() => {
-        console.log("Update successful");
-      })
-      .catch((error) => {
-        // An error ocurred
+    console.log(auth.currentUser)
+    await updateEmail(auth.currentUser, newData.email).then(() => {
+        // Email updated!
         // ...
-      });
-  }
+    }).catch((error) => {
+        // An error occurred
+        // ...
+    });
+    await updateDoc(doc(db, "users", auth.currentUser.uid), {
+        email: newData.email,
 
-  //ELIMINAR CUENTA
+    });
+}
 
-  // function deleteUser() {
 
-  //     const auth = getAuth();
-  //     const user = auth.currentUser;
-  //     console.log("USER DELETE", user)
-  //     deleteUser(user).then(() => {
-  //         // User deleted.
-  //         console.log(user)
-  //     }).catch((error) => {
-  //         // An error ocurred
-  //         // ...
-  //         console.log(error)
-  //     });
-
-  // }
-
-  const deleteUsuario = async (password) => {
-    const credential = EmailAuthProvider.credential(
-      auth.currentUser.email,
-      password
-    );
-    console.log(credential);
-    const result = await reauthenticateWithCredential(
-      auth.currentUser,
-      credential
-    );
-
-    // // Pass result.user here
-    await deleteUser(result.user);
-
-    console.log("success in deleting");
-  };
 
   return user ? (
-    <section>
-      <div className="profile_container">
-        <div className="img_container">
-          <img src={user.avatar || Img} alt="avatar" />
-          <div className="overlay">
-            <div>
-              <label htmlFor="photo">
-                <Camera />
-              </label>
-              {user.avatar ? <Delete deleteImage={deleteImage} /> : null}
-              <input
-                type="file"
-                accept="image/*"
-                style={{ display: "none" }}
-                id="photo"
-                onChange={(e) => setImg(e.target.files[0])}
-              />
+    <div className="mockup-window lg:w-1/2 mx-auto mb-96 mt-10 bg-neutral">
+      <div className="px-4 py-16 bg-base-200">
+      <div className="profile_container p-3 justify-center">
+                <div className="img_container w-32">
+                    <img className="" src={user.avatar || Img} alt="avatar" />
+                    <div className="overlay">
+                        <div>
+                            <label htmlFor="photo">
+                                <Camera />
+                            </label>
+                            {user.avatar ? <Delete deleteImage={deleteImage} /> : null}
+                            <input
+                                type="file"
+                                accept="image/*"
+                                style={{ display: "none" }}
+                                id="photo"
+                                onChange={(e) => setImg(e.target.files[0])}
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div className="text_container">
+                    <div>
+                    <p className="my-1">{user.name}</p>
+                        <input
+                            type="text"
+                            name="name"
+                            value={newData.name}
+                            placeholder={user.name}
+                            onChange={handleChange}
+                        />
+                        <button className="btn btn-xs btn-primary ms-1 mt-3" onClick={() => changeName()}>Cambiar nombre</button>
+                        {/* <input
+                            type="text"
+                            name="name"
+                            value={newData.name}
+                            placeholder='Completa tus datos'
+                            onChange={handleChange}
+                        /> */}
+                    </div>
+                    <div>
+                        <p className="my-1">{user.email}</p>
+                        
+                        <input
+                            type="text"
+                            name="email"
+                            value={newData.email}
+                            placeholder={user.email}
+                            onChange={handleChange}
+                        />
+                        <button className="btn btn-xs btn-primary ms-1 mt-3" onClick={changeEmail}>Cambiar correo</button>
+                    </div>
+                    
+                    <hr />
+                    <small>Usuario desde: {user.createdAt.toDate().toDateString()}</small>
+                </div>
             </div>
-          </div>
-        </div>
-        <div className="text_container">
-          <div>
-            <h3>{user.name}</h3>
-            <button onClick={() => changeName()}>Cambiar nombre</button>
-            <input
-              type="text"
-              name="name"
-              value={newData.name}
-              placeholder="Instar nuevo nombre"
-              onChange={handleChange}
-            />
-          </div>
-          <div>
-            <p>{user.email}</p>
-          </div>
-          <button onClick={() => contraseñaNueva()}>Cambiar contraseña</button>
-          <hr />
-          <small>Joined on: {user.createdAt.toDate().toDateString()}</small>
-        </div>
+            {/* <button>Eliminar cuenta</button> */}
+      
       </div>
-      <button onClick={() => deleteUsuario()}>Eliminar cuenta</button>
-    </section>
+    </div>
   ) : null;
 };
 

@@ -55,7 +55,7 @@ export default function Map() {
   return( 
    isLoaded ? (
     <div className="map-container">
-      <h2 className="text-2xl text-stone-500	">Protectoras</h2>
+      <h2 className="text-2xl text-stone-200">Protectoras</h2>
       <br />
       <GoogleMap
         mapContainerStyle={containerStyle}

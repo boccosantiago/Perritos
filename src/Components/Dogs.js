@@ -68,6 +68,7 @@ function Dogs() {
                 </p>
               </div>
             </div>
+            <div className="text-justify">{dogData.description}</div>
             <div className="card-actions justify-end">
               <Link to="./formulario" className="btn btn-primary">
                 Adoptame
