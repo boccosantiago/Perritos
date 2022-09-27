@@ -6,7 +6,9 @@ import { AuthContext } from "../context/auth";
 import { db } from "../firebase";
 
 import { setDoc, doc, Timestamp } from "firebase/firestore";
+
 export default function Formulario() {
+  const loadImage = require.context("../img", true);
   const { id } = useParams();
   console.log(id);
 
@@ -15,14 +17,13 @@ export default function Formulario() {
   infoProtect.map((item) => item.map((y) => arrayPets.push(y)));
   const result = arrayPets.filter((item) => item.id === Number(id));
   console.log(result);
-  
+
   const [formData, setFormData] = useState({
-    
     dogName: result[0].name,
     breed: result[0].breed,
-    dogAge:result[0].age,
-    gender:result[0].gender,
-    size:result[0].size,
+    dogAge: result[0].age,
+    gender: result[0].gender,
+    size: result[0].size,
     color: result[0].color,
     coatLength: result[0].coatLength,
     name: "",
@@ -104,7 +105,6 @@ export default function Formulario() {
     }
   }
 
- 
   return (
     <div id="form-container">
       <h1>FORMULARIO DE SOLICITUD DE ADOPCIÓN</h1>
@@ -116,6 +116,7 @@ export default function Formulario() {
       <form id="formulario">
         <div>
           <h2>Datos del adoptado</h2>
+          <img src={loadImage(`./id${id}.jpg`)}></img>
           <p>Nombre: {result[0].name}</p>
           <p>Raza: {result[0].breed}</p>
           <p>Edad: {result[0].age}</p>
