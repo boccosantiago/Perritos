@@ -114,8 +114,8 @@ const Profile = () => {
     await updateDoc(doc(db, "users", auth.currentUser.uid), {
         email: newData.email,
 
-  }
-  
+  })
+}
 
   //ELIMINAR CUENTA
 
@@ -135,26 +135,26 @@ const Profile = () => {
 
   // }
 
-  const deleteUsuario = async (oldPassword) => {
-    const credential = EmailAuthProvider.credential(
-      auth.currentUser.email,
-      oldPassword
-    );
-    console.log(credential);
-    const result = await reauthenticateWithCredential(
-      auth.currentUser,
-      credential
-    );
-    console.log(result);
+  // const deleteUsuario = async (oldPassword) => {
+  //   const credential = EmailAuthProvider.credential(
+  //     auth.currentUser.email,
+  //     oldPassword
+  //   );
+  //   console.log(credential);
+  //   const result = await reauthenticateWithCredential(
+  //     auth.currentUser,
+  //     credential
+  //   );
+  //   console.log(result);
 
-    // // Pass result.user here
-    //await deleteUser(result.user);
+  //   // // Pass result.user here
+  //   //await deleteUser(result.user);
 
-    console.log("success in deleting");
-  };
+  //   console.log("success in deleting");
+  // };
 
-    });
-}
+
+
 
 
   return user ? (

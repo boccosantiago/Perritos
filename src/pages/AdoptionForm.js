@@ -1,7 +1,30 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import "../styles/AdoptionForm.css";
+import { useParams, Link } from "react-router-dom";
+import data from "../datos";
+import { AuthContext } from "../context/auth";
+import { db } from "../firebase";
+
+import { setDoc, doc, Timestamp } from "firebase/firestore";
 export default function Formulario() {
+  const { id } = useParams();
+  console.log(id);
+
+  const infoProtect = data.map((item) => item.pets);
+  const arrayPets = [];
+  infoProtect.map((item) => item.map((y) => arrayPets.push(y)));
+  const result = arrayPets.filter((item) => item.id === Number(id));
+  console.log(result);
+  
   const [formData, setFormData] = useState({
+    
+    dogName: result[0].name,
+    breed: result[0].breed,
+    dogAge:result[0].age,
+    gender:result[0].gender,
+    size:result[0].size,
+    color: result[0].color,
+    coatLength: result[0].coatLength,
     name: "",
     age: "",
     city: "",
@@ -37,12 +60,51 @@ export default function Formulario() {
     });
   }
 
-  function handleSubmit(event) {
+  const { user } = useContext(AuthContext);
+
+  async function handleSubmit(event) {
+    setFormData({ ...formData });
     event.preventDefault();
     // submitToApi(formData)
     console.log(formData);
+    try {
+      await setDoc(doc(db, "form", user.uid), {
+        uid: user.uid,
+        formData,
+        createdAt: Timestamp.fromDate(new Date()),
+        // isOnline: false,
+      });
+      setFormData({
+        name: "",
+        age: "",
+        city: "",
+        address: "",
+        phone: "",
+        email: "",
+        adoptar: "",
+        otrasMascotas: "",
+        pasadoMascotas: "",
+        tieneMascotas: "",
+        casa: "",
+        alergia: "",
+        dormitorio: "",
+        encargado: "",
+        personasCasa: "",
+        niños: "",
+        acuerdo: "",
+        visitas: "",
+        paseos: "",
+        tiempoSolo: "",
+        vacaciones: "",
+        cambioCasa: "",
+        gasto: "",
+      });
+    } catch (err) {
+      console.log(err);
+    }
   }
 
+ 
   return (
     <div id="form-container">
       <h1>FORMULARIO DE SOLICITUD DE ADOPCIÓN</h1>
@@ -52,6 +114,16 @@ export default function Formulario() {
         la protectora que corresponda.
       </p>
       <form id="formulario">
+        <div>
+          <h2>Datos del adoptado</h2>
+          <p>Nombre: {result[0].name}</p>
+          <p>Raza: {result[0].breed}</p>
+          <p>Edad: {result[0].age}</p>
+          <p>Sexo: {result[0].gender}</p>
+          <p>Tamaño: {result[0].size}</p>
+          <p>Color: {result[0].color}</p>
+          <p>Pelaje: {result[0].coatLength}</p>
+        </div>
         <div className="datos-container">
           <h2>Datos del adoptante</h2>
           <label>
@@ -323,6 +395,9 @@ export default function Formulario() {
           Enviar
         </button>
       </form>
+      <Link to="/main" className="btn btn-secondary mb-5">
+        Regresar
+      </Link>
     </div>
   );
 }

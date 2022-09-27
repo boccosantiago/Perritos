@@ -60,10 +60,10 @@ const Register = () => {
         <div style={{height:'76vh'}} className=" bg-stone-100 h-76">
             <div className="">
 
-                <form onSubmit={handleSubmit}>
+                <form className="form-user" onSubmit={handleSubmit}>
                     <h3>Crea tu cuenta</h3>
                     <div className="input_container">
-                        <label htmlFor="name">Name</label>
+                        <label htmlFor="name">Nombre</label>
                         <input type="text" name="name" value={name} onChange={handleChange} />
                     </div>
                     <div className="input_container">
