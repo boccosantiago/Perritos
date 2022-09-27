@@ -27,20 +27,20 @@ nav div a {
   margin-right: 20px;
 } */
 
-form {
+.form-user {
   max-width: 500px;
   margin: 0 auto;
   box-shadow: 1px 2px 10px var(--color-4);
   padding: 10px 20px;
   border-radius: 5px;
 }
-form h3 {
+.form-user h3 {
   text-align: center;
   font-size: 20px;
   color: var(--color-4);
 }
 /* Register */
-section .form {
+section .form-user {
   margin-top: 30px;
   padding: 0px 20px;
 }
@@ -118,7 +118,6 @@ section .form {
 .user_detail {
   text-align: center;
 }
-
 
 .avatar {
   width: 50px;

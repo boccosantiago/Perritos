@@ -1,67 +1,69 @@
 import React, { useState } from "react";
-import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import {
+  signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
+} from "firebase/auth";
 import { auth, db } from "../firebase";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { doc, getDoc } from "firebase/firestore";
 
 const Login = ({ setRegisteredName }) => {
-    const [data, setData] = useState({
+  const [data, setData] = useState({
+    email: "",
+    password: "",
+    error: null,
+    loading: false,
+  });
+
+  const navigate = useNavigate();
+
+  const { email, password, error, loading } = data;
+
+  const handleChange = (e) => {
+    setData({ ...data, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setData({ ...data, error: null, loading: true });
+    if (!email || !password) {
+      setData({ ...data, error: "All fields are required" });
+    }
+    try {
+      const result = await signInWithEmailAndPassword(auth, email, password);
+
+      // await updateDoc(doc(db, "users", result.user.uid), {
+      //     isOnline: true,
+      // });
+
+      setData({
         email: "",
         password: "",
         error: null,
         loading: false,
-    });
+      });
+      navigate("/");
+    } catch (err) {
+      setData({ ...data, error: err.message, loading: false });
+    }
+  };
 
-    const navigate = useNavigate();
+  const handleGoogleSignin = async () => {
+    try {
+      await loginWithGoogle();
+      // props.setUserLogin(true)
+      navigate("/");
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
 
-    const { email, password, error, loading } = data;
-
-    const handleChange = (e) => {
-        setData({ ...data, [e.target.name]: e.target.value });
-    };
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        setData({ ...data, error: null, loading: true });
-        if (!email || !password) {
-            setData({ ...data, error: "All fields are required" });
-        }
-        try {
-            const result = await signInWithEmailAndPassword(auth, email, password);
-
-            // await updateDoc(doc(db, "users", result.user.uid), {
-            //     isOnline: true,
-            // });
-
-            setData({
-                email: "",
-                password: "",
-                error: null,
-                loading: false,
-            });
-            navigate("/");
-        } catch (err) {
-            setData({ ...data, error: err.message, loading: false });
-        }
-
-    };
-
-
-    const handleGoogleSignin = async () => {
-        try {
-            await loginWithGoogle();
-            // props.setUserLogin(true)
-            navigate("/");
-        } catch (error) {
-            console.log(error.message);
-        }
-    };
-
-    const loginWithGoogle = () => {
-        const googleProvider = new GoogleAuthProvider();
-        return signInWithPopup(auth, googleProvider);
-    };
+  const loginWithGoogle = () => {
+    const googleProvider = new GoogleAuthProvider();
+    return signInWithPopup(auth, googleProvider);
+  };
 
 
     return (
@@ -108,6 +110,7 @@ const Login = ({ setRegisteredName }) => {
             </p>
         </div>
     );
+
 };
 
 export default Login;

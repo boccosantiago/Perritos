@@ -1,6 +1,6 @@
 const datos = [
   {
-    shelterName: "sosperreradelosbarrios",
+    shelterName: "Perrera de los barrios",
     email: "sosperreradelosbarrios@hotmail.com",
     address: "Lugar Ringo Rango, 21, 11370, Los Barrios, Cádiz",
     coordinates: { lat: 36.17006263581372, lng: -5.475843017196659 },

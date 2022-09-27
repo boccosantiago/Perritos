@@ -114,9 +114,47 @@ const Profile = () => {
     await updateDoc(doc(db, "users", auth.currentUser.uid), {
         email: newData.email,
 
+  }
+  
+
+  //ELIMINAR CUENTA
+
+  // function deleteUser() {
+
+  //     const auth = getAuth();
+  //     const user = auth.currentUser;
+  //     console.log("USER DELETE", user)
+  //     deleteUser(user).then(() => {
+  //         // User deleted.
+  //         console.log(user)
+  //     }).catch((error) => {
+  //         // An error ocurred
+  //         // ...
+  //         console.log(error)
+  //     });
+
+  // }
+
+  const deleteUsuario = async (oldPassword) => {
+    const credential = EmailAuthProvider.credential(
+      auth.currentUser.email,
+      oldPassword
+    );
+    console.log(credential);
+    const result = await reauthenticateWithCredential(
+      auth.currentUser,
+      credential
+    );
+    console.log(result);
+
+    // // Pass result.user here
+    //await deleteUser(result.user);
+
+    console.log("success in deleting");
+  };
+
     });
 }
-
 
 
   return user ? (
@@ -177,8 +215,9 @@ const Profile = () => {
                     <small>Usuario desde: {user.createdAt.toDate().toDateString()}</small>
                 </div>
             </div>
+
             {/* <button>Eliminar cuenta</button> */}
-      
+
       </div>
     </div>
   ) : null;

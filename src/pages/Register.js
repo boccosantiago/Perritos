@@ -6,54 +6,56 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 const Register = () => {
-    const [data, setData] = useState({
+  const [data, setData] = useState({
+    name: "",
+    email: "",
+    password: "",
+    error: null,
+    loading: false,
+  });
+
+  const navigate = useNavigate();
+
+  const { name, email, password, error, loading } = data;
+
+  const handleChange = (e) => {
+    setData({ ...data, [e.target.name]: e.target.value });
+  };
+
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setData({ ...data, error: null, loading: true });
+    if (!name || !email || !password) {
+      setData({ ...data, error: "All fields are required" });
+    }
+    try {
+      const result = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+
+      await setDoc(doc(db, "users", result.user.uid), {
+        uid: result.user.uid,
+        name,
+        email,
+        createdAt: Timestamp.fromDate(new Date()),
+        // isOnline: false,
+      });
+      setData({
         name: "",
         email: "",
         password: "",
         error: null,
         loading: false,
-    });
-
-    const navigate = useNavigate();
-
-    const { name, email, password, error, loading } = data;
-
-    const handleChange = (e) => {
-        setData({ ...data, [e.target.name]: e.target.value });
-    };
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        setData({ ...data, error: null, loading: true });
-        if (!name || !email || !password) {
-            setData({ ...data, error: "All fields are required" });
-        }
-        try {
-            const result = await createUserWithEmailAndPassword(
-                auth,
-                email,
-                password
-            );
-
-            await setDoc(doc(db, "users", result.user.uid), {
-                uid: result.user.uid,
-                name,
-                email,
-                createdAt: Timestamp.fromDate(new Date()),
-                // isOnline: false,
-            });
-            setData({
-                name: "",
-                email: "",
-                password: "",
-                error: null,
-                loading: false,
-            });
-            navigate("/");
-        } catch (err) {
-            setData({ ...data, error: err.message, loading: false });
-        }
-    };
+      });
+      navigate("/");
+    } catch (err) {
+      setData({ ...data, error: err.message, loading: false });
+    }
+  };
+           
     return (
         <div style={{height:'76vh'}} className=" bg-stone-100 h-76">
             <div className="">
@@ -98,6 +100,7 @@ const Register = () => {
             </p>
         </div>
     );
+
 };
 
 export default Register;
