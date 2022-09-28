@@ -1,70 +1,56 @@
-# Getting Started with Create React App
+# Perritos Project
+## Description
+This app was created as the Final Project of the React Course at the IT Academy - Barcelona.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Developers
+- @Laura-Ruiz
+- @BoccoSantiago
 
-## Available Scripts
 
-In the project directory, you can run:
+## What is this app about? 
 
-### `npm start`
+You will be able to: 
+- Search with different filters dogs looking for home around Spain.
+- Chat with people offering pets in adoption.
+- Post lost pets or pets in adoption.
+- Save your favorite dogs to get in contact to the shelters later.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+[See deployed web here](https://BoccoSantiago.github.io/Perritos/)
 
-### `npm test`
+## Techlonogies in use
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- REACT JS
+- CSS
+- CONTEXT
+- FIREBASE
+- TAILWIND & DAISYUI
+- TOASTIFY
+- REACT ICONS 
+- CHART JS
+- GOOGLE MAPS API
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Screen shots
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![landingpage](./src/Assets/img/screenshots/landingpage.jpg)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![search](./src/Assets/img/screenshots/search.jpg)
 
-### `npm run eject`
+![posts](./src/Assets/img/screenshots/posts.jpg)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![chat](./src/Assets/img/screenshots/chat.jpg)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## How to install
+1. Clone this repository 
+    > `git clone https://github.com/Laura-Ruiz/perritos-adoption.git`
+2. Access the app directory
+    > `cd <repository folder>`
+4. Installation 
+    >`npm install`
+    >>`npm install firebase chartjs chartjs2 daisyui @react-google-maps/api moment react-toastify react-social-media-embed react-icons`
+5. Run
+    >`npm run start`
+## How to use
+**IMPORTANT! To access some parts of the application you must first Sign Up then Log In with your created user.**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
