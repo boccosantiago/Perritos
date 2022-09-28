@@ -1,4 +1,3 @@
-
 .form-user {
   max-width: 500px;
   margin: 0 auto;
@@ -32,4 +31,6 @@ section .form-user {
   text-align: center;
 }
 
-
+.error {
+  color: rgb(255, 0, 0);
+}

@@ -12,7 +12,6 @@ import Signup from "../pages/Register";
 import Protected from "../router/Protected";
 import Posts from "../pages/Posts";
 import About from "../pages/About";
-import MainChat from "../pages/Chat";
 import Footer from "../Components/Footer";
 import { ToastContainer } from "react-toastify";
 import FavoriteList from "../Components/FavoriteList";
@@ -20,7 +19,7 @@ import { getAuth } from "firebase/auth";
 import { db } from "../firebase";
 import { doc, getDoc } from "firebase/firestore";
 import { AuthContext } from "../context/auth";
-
+import InitChat from "../Components/InitChat";
 
 export default function AppRoutes(props) {
   const { user } = useContext(AuthContext);
@@ -28,62 +27,55 @@ export default function AppRoutes(props) {
   const [registeredName, setRegisteredName] = useState();
 
   async function getRegisteredName() {
-
     const auth = getAuth();
-    if(auth.currentUser){
+    if (auth.currentUser) {
       const docRef = doc(db, "users", auth.currentUser.uid);
-    console.log(docRef)
-    const docSnap = await getDoc(docRef);
-    if (docSnap.exists()) {
-      setRegisteredName(docSnap.data().name);
-      
-    } else {
-      console.log("No such document!");
+      console.log(docRef);
+      const docSnap = await getDoc(docRef);
+      if (docSnap.exists()) {
+        setRegisteredName(docSnap.data().name);
+      } else {
+        console.log("No such document!");
+      }
     }
   }
-  }
- 
+
   useEffect(() => getRegisteredName, [user]);
 
-  
   return (
     <div className="App">
-    <BrowserRouter>
-      <Navbar setFavorites={props.setFavorites} registeredName={registeredName} />
-      <Routes>
-        <Route path="/" element={<Welcome />} />
-        <Route path="/main" element={<DogSearch />} />
-        <Route
-          path="/main/:id"
-          element={
-            <Protected>
-              <InfoDog />
-            </Protected>
-          }
+      <BrowserRouter>
+        <Navbar
+          setFavorites={props.setFavorites}
+          registeredName={registeredName}
         />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/main/:id/formulario" element={<AdoptionForm />} />
-        <Route path="/favorites" element={<FavoriteList />} />
-        <Route
-          path="/posts"
-          element={<Posts registeredName={registeredName} />}
-        />
-        <Route path="/shelters" element={<Shelters />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route
-          path="/chat"
-          element={
-            <Protected>
-              <MainChat />
-            </Protected>
-          }
-        />
-        <Route path="/about" element={<About />} />
-      </Routes>
-      <Footer />
-      <ToastContainer/>
-    </BrowserRouter>
-  </div>
-  )
+        <Routes>
+          <Route path="/" element={<Welcome />} />
+          <Route path="/main" element={<DogSearch />} />
+          <Route
+            path="/main/:id"
+            element={
+              <Protected>
+                <InfoDog />
+              </Protected>
+            }
+          />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/main/:id/formulario" element={<AdoptionForm />} />
+          <Route path="/favorites" element={<FavoriteList />} />
+          <Route
+            path="/posts"
+            element={<Posts registeredName={registeredName} />}
+          />
+          <Route path="/shelters" element={<Shelters />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/chat" element={<InitChat />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+        <Footer />
+        <ToastContainer />
+      </BrowserRouter>
+    </div>
+  );
 }

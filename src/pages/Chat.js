@@ -18,8 +18,9 @@ import User from "../Components/Chat/User";
 import MessageForm from "../Components/Chat/MessageForm";
 import Message from "../Components/Chat/Message";
 import "../styles/Chat.css";
+// import { Link } from "react-router-dom";
 
-const Home = () => {
+const Chat = () => {
   const [users, setUsers] = useState([]);
   const [chat, setChat] = useState("");
   const [text, setText] = useState("");
@@ -118,7 +119,7 @@ const Home = () => {
         </div>
         <div className="messages_container">
           {chat ? (
-            <>
+            <div>
               <div className="messages_user">
                 <h3>{chat.name}</h3>
               </div>
@@ -135,7 +136,7 @@ const Home = () => {
                 setText={setText}
                 setImg={setImg}
               />
-            </>
+            </div>
           ) : (
             <h3 className="no_conv">
               Selecciona un usuario para comenzar chat.
@@ -147,4 +148,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Chat;
