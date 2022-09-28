@@ -7,7 +7,7 @@ import {
 import { auth, db } from "../firebase";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { doc, getDoc } from "firebase/firestore";
+import "../styles/Login.css"
 
 const Login = ({ setRegisteredName }) => {
   const [data, setData] = useState({
@@ -32,11 +32,7 @@ const Login = ({ setRegisteredName }) => {
       setData({ ...data, error: "All fields are required" });
     }
     try {
-      const result = await signInWithEmailAndPassword(auth, email, password);
-
-      // await updateDoc(doc(db, "users", result.user.uid), {
-      //     isOnline: true,
-      // });
+      await signInWithEmailAndPassword(auth, email, password);
 
       setData({
         email: "",
@@ -53,7 +49,6 @@ const Login = ({ setRegisteredName }) => {
   const handleGoogleSignin = async () => {
     try {
       await loginWithGoogle();
-      // props.setUserLogin(true)
       navigate("/");
     } catch (error) {
       console.log(error.message);
@@ -68,12 +63,9 @@ const Login = ({ setRegisteredName }) => {
 
     return (
         <div style={{height:'76vh'}}  className='bg-stone-100 text-center'>
-           
-
-            <form className="form form-user" onSubmit={handleSubmit}> 
+           <form className="form form-user" onSubmit={handleSubmit}> 
             <h3>Inicia sesión</h3>
-
-                <div className="input_container text-left">
+               <div className="input_container text-left">
                     <label htmlFor="email">Email</label>
                     <input
                         type="text"

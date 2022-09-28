@@ -6,11 +6,11 @@ import AdoptionForm from "../pages/AdoptionForm";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import InfoDog from "../pages/InfoDog";
-import Shelters from "../Components/Maps/Shelters";
+import Shelters from "../pages/Shelters";
 import Login from "../pages/Login";
 import Signup from "../pages/Register";
 import Protected from "../router/Protected";
-import Posts from "../Components/Posts/Posts";
+import Posts from "../pages/Posts";
 import About from "../pages/About";
 import MainChat from "../pages/Chat";
 import Footer from "../Components/Footer";
@@ -28,16 +28,19 @@ export default function AppRoutes(props) {
   const [registeredName, setRegisteredName] = useState();
 
   async function getRegisteredName() {
+
     const auth = getAuth();
-    const docRef = doc(db, "users", auth.currentUser.uid);
+    if(auth.currentUser){
+      const docRef = doc(db, "users", auth.currentUser.uid);
+    console.log(docRef)
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
       setRegisteredName(docSnap.data().name);
       
     } else {
-      
       console.log("No such document!");
     }
+  }
   }
  
   useEffect(() => getRegisteredName, [user]);
@@ -79,17 +82,7 @@ export default function AppRoutes(props) {
         <Route path="/about" element={<About />} />
       </Routes>
       <Footer />
-      <ToastContainer
-        position="top-center"
-        autoClose={500}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
+      <ToastContainer/>
     </BrowserRouter>
   </div>
   )

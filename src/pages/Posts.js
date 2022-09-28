@@ -1,16 +1,16 @@
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
-import { db } from "../../firebase";
+import { db } from "../firebase";
 
-import AddPosts from "./AddPosts";
-import LikePosts from "./LikePosts";
-import DeletePosts from "./DeletePosts";
+import AddPosts from "../Components/Posts/AddPosts";
+import LikePosts from "../Components/Posts/LikePosts";
+import DeletePosts from "../Components/Posts/DeletePosts";
 
-import "../../styles/Posts.css";
+import "../styles/Posts.css";
 
 // import User from "../Chat/User"
-import { AuthContext } from "../../context/auth";
+import { AuthContext } from "../context/auth";
 
 export default function Posts(props) {
   const [posts, setPosts] = useState([]);

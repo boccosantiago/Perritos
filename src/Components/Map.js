@@ -1,15 +1,15 @@
-import React from "react";
+import React, {useState} from "react";
 import {
   GoogleMap,
   useJsApiLoader,
   Marker,
   InfoWindow,
 } from "@react-google-maps/api";
-import "./Shelters.css";
-import { useState } from "react";
-import datos from "../../datos";
+import datos from "../datos";
+import "../styles/Shelters.css";
 
-const api = process.env.REACT_APP_API_KEY;
+export default function Map() {
+  const api = process.env.REACT_APP_API_KEY;
 const containerStyle = {
   width: "97%",
   maxWidth: "700px",
@@ -17,7 +17,6 @@ const containerStyle = {
   minHeight: "400px",
 };
 
-export default function Map() {
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
     googleMapsApiKey: api,
