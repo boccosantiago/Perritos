@@ -1,110 +1,36 @@
-.login-container {
-  position: fixed;
-  top: 0;
-  left: 0;
+.form-user {
+  max-width: 500px;
+  margin: 0 auto;
+  box-shadow: 1px 2px 10px var(--color-4);
+  padding: 30px 20px;
+  border-radius: 5px;
+}
+.form-user h3 {
+  text-align: center;
+  font-size: 20px;
+  color: var(--color-4);
+}
+
+section .form-user {
+  margin-top: 30px;
+  padding: 0px 20px;
+}
+.input_container {
+  margin-top: 20px;
+}
+.input_container input {
   width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.login-inner {
-  position: relative;
-  padding: 32px;
-  width: 80%;
-  max-width: 450px;
-  text-align: center;
-  border: 1.5px solid black;
-  border-radius: 20px;
-  /* box-shadow: 0 0 5px 0px; */
-}
-
-.login-inner h2 {
-  color: white;
-  font-weight: 500;
-  font-size: 2em;
-}
-
-.login-inner label {
-  color:white;
- 
-}
-
-.inputs {
-  justify-content: center;
-}
-
-.form {
-  text-align: center;
-}
-
-.form div {
-  height: 50px;
-}
-
-
-.inputs div {
-  width: 100%;
-  text-align: center;
-  margin: 5px 10px;
-  text-align: left;
-}
-
-.sub-btn {
-  width: 200px;
-  background-color: rgb(182, 95, 95);
-  border-radius: 20px;
+  padding: 10px;
   outline: none;
-  cursor: pointer;
-  color: white;
-  padding: 5px;
-  border: none;
-  font-size: 1em;
+  margin-top: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
 }
-
-.sub-btn:hover {
-  background-color: rgb(190, 82, 82);
-}
-
-.login-inner input {
-  background-color: rgb(255, 255, 255);
-  color: rgb(0, 0, 0);
-  font-size: large;
-  padding: 5px;
-  border: none;
-  width: 95%;
-  border-radius: 20px;
+.btn_container {
+  margin: 10px 0px;
+  text-align: center;
 }
 
 .error {
-  color: rgb(247, 212, 55);
-  font-size: 0.8em;
-  margin: 5px 0;
-}
-
-.btn-x {
-  color: rgb(225, 222, 222);
-  font-size: 2em;
-  position: absolute;
-  right: 5px;
-  top: 5px;
-}
-
-.btn-x:hover {
-  cursor: pointer;
-  z-index: 10;
-  color: rgb(160, 160, 160);
-}
-
-.success {
-  color: rgb(255, 255, 255);
-  font-size: 1.5em;
-
-}
-
-.fail {
-  color: rgb(255, 255, 255);
-  font-size: 1.5em;
-  margin-top: 20px;
+  color: rgb(255, 0, 0);
 }

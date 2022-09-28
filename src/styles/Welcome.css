@@ -1,0 +1,29 @@
+.bienvenida:hover{
+    transform: scale(1.03);
+    transition: all 1s;
+}
+
+.bienvenida{
+    transition: all 1s;
+    animation: showIn 3s ease;
+}
+
+
+@keyframes showIn {
+    0%{
+        opacity: 0;
+        
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+
+
+
+
+
+
+
+

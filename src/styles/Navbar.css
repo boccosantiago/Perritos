@@ -6,11 +6,8 @@
     .navbar .btn-circle{
       display: none;
     }
-   /*  .btn-ghost{
-      position: absolute;
-      top: 40px;
-    } */
   }
+  
   @keyframes fromthetop {
     0%{
         opacity: 0;
@@ -20,4 +17,39 @@
         opacity: 1;
         transform: translate(0px, 0px);
     }
+  }
+
+  
+  /* Asignamos la animación mediante pseudoclases cuando haya una interacción del usuario */
+  
+  
+  /* Creamos la animación (con keyframes) */
+  
+
+  .cartel {
+  
+    animation: 2s cartel;
+    transform-origin: center top; /* <----- Cambiamos el origen de la transformación */
+  }
+  
+  /* Creamos la animación (con keyframes) */
+  
+  @keyframes cartel {
+  /* De a poco el cartel va perdiendo fuera lo que se traduce en menos rotación */
+     10% {
+      transform: rotate(20deg);
+    }
+    
+     30% {
+      transform: rotate(-15deg);
+    }
+    
+     50% {
+      transform: rotate(10deg);
+    }
+    
+     70% {
+      transform: rotate(-5deg);
+    }
+    
   }

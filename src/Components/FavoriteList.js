@@ -21,9 +21,9 @@ export default function FavoriteList() {
     toast.error("🐶 Eliminado de favoritos", {
       position: "top-center",
       autoClose: 1000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
-      pauseOnHover: true,
+      pauseOnHover: false,
       draggable: true,
       progress: undefined,
     });
@@ -37,27 +37,32 @@ export default function FavoriteList() {
 
 
 
-  const cargarImagen = require.context("../img", true);
+  const loadImage = require.context("../Assets/img", true);
 
   return (
-    <div className="favorite-container">
+    <div className="favorite-container bg-stone-100">
       {dogList.length !== 0 ? (
         <div>
           {dogList.map((pet, index) => (
-            <div key={index} className="card sm:card-side bg-base-100 shadow-xl m-7">
-              <figure>
+            
+            <div key={index} className="card my-10 card-side bg-base-100 shadow-xl m-auto md:w-2/4">
+              <Link to={`../main/${pet.id}`}>
+                <figure>
                 <img
                   style={{ height: "180px", borderRadius: "20px" }}
                   id="favorite-img"
                   alt=""
-                  src={cargarImagen(`./id${pet.id}.jpg`)}
+                  src={loadImage(`./id${pet.id}.jpg`)}
                 />
               </figure>
+              </Link >
               <div className="card-body">
+                <Link to={`../main/${pet.id}`}>
                 <h2 className="card-title">{pet.name}</h2>
-                <p>Click the button to watch on Jetflix app.</p>
+                </Link>
+                <p></p>
                 <div className="card-actions justify-end block">
-                  <button onClick={()=> toastClick(pet.id)} className="btn btn-circle float-right btn-outline">
+                  <button onClick={()=> toastClick(pet.id)} className="btn btn-circle absolute right-2 top-2 btn-outline">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-6 w-6"
@@ -73,7 +78,7 @@ export default function FavoriteList() {
                       />
                     </svg>
                   </button>
-                  <button className="btn btn-primary">Adoptame</button>
+                  <Link to={`/main/${pet.id}/formulario`} className="btn btn-primary">Adóptame</Link>
                 </div>
               </div>
             </div>
@@ -81,7 +86,7 @@ export default function FavoriteList() {
         </div>
       ) : (
         <div className="no-favorites">
-          <span>Agrega tus perros favoritos para verlos en esta seccion</span>
+          <span>Agrega tus perros favoritos para verlos en esta sección.</span>
         </div>
       )}
     </div>

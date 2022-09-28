@@ -1,57 +1,21 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import FavoriteContext from "../context/favoritesContext";
 import "../styles/Navbar.css";
-import { useRef, useEffect, useState, useContext } from "react";
-import userImg from '../img/user.png';
-import edit from '../img/edit.png';
-import heart from '../img/heart.png';
-import envelope from '../img/envelope.png';
-import logoutImg from '../img/log-out.png';
+import { useContext } from "react";
 import { AuthContext } from "../context/auth";
-import { auth, db } from "../firebase";
-import { signOut, getAuth } from "firebase/auth";
-import { doc, getDoc } from "firebase/firestore";
-import { async } from "@firebase/util";
+import { auth } from "../firebase";
+import { signOut } from "firebase/auth";
 
 function Navbar(props) {
-
-  const [registeredName, setRegisteredName] = useState()
-
   const navigate = useNavigate();
-  const { favoriteDogs } = useContext(FavoriteContext);
-  //const { user } = useAuth()
-  const { user } = useContext(AuthContext)
-
-  // async function getRegisteredName() {
-  //   const auth = getAuth();
-  //   const docRef = doc(db, "users", auth.currentUser.uid);
-  //   const docSnap = await getDoc(docRef);
-  //   if (docSnap.exists()) {
-  //     setRegisteredName(docSnap.data().name)
-  //     console.log("Document data:", docSnap.data());
-
-  //   } else {
-  //     // doc.data() will be undefined in this case
-  //     console.log("No such document!");
-  //   }
-
-  // }
-
-  // console.log(registeredName)
-
-  // useEffect(() => getRegisteredName, [user])
-
-
-  const [open, setOpen] = useState(false);
-
+  const { user } = useContext(AuthContext);
 
   const logout = () => signOut(auth);
   const handleSignOut = async () => {
     try {
       await logout();
-      navigate('/')
-      props.setFavorites([])
+      navigate("/");
+      props.setFavorites([]);
     } catch (error) {
       console.log(error);
     }
@@ -82,18 +46,14 @@ function Navbar(props) {
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <Link to="/">Inicio</Link>
-            </li>
-            <li>
               <Link to="/main">Adopta</Link>
             </li>
             <li>
               <Link to="/shelters">Protectoras</Link>
             </li>
-           {/*  <li>
-              <Link to="About">Que es Perritos</Link>
-            </li> */}
-
+            <li>
+              <Link to="/about">Que es Perritos</Link>
+            </li>
             <li>
               <Link to="/posts">Difunde</Link>
             </li>
@@ -102,22 +62,24 @@ function Navbar(props) {
             </li>
           </ul>
         </div>
-        <button className="text-2xl text-primary-focus hover:text-primary-content">PERRITOS</button>
+        <Link
+          to="/"
+          className="text-xl sm:text-2xl text-primary-focus hover:text-primary-content cartel"
+        >
+          PERRITOS
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">
-          <li>
-            <Link to="/">Inicio</Link>
-          </li>
           <li>
             <Link to="/main">Adopta</Link>
           </li>
           <li>
             <Link to="/shelters">Protectoras</Link>
           </li>
-         {/*  <li>
-            <Link to="About">Que es Perritos</Link>
-          </li> */}
+          <li>
+            <Link to="/about">Que es Perritos</Link>
+          </li>
           <li>
             <Link to="/chat">Chatea</Link>
           </li>

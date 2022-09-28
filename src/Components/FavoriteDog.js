@@ -14,9 +14,9 @@ export default function FavoriteDog(props) {
     toast.success("🐶 Agregado a favoritos", {
       position: "top-center",
       autoClose: 1000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
-      pauseOnHover: true,
+      pauseOnHover: false,
       draggable: true,
       progress: undefined,
     });
@@ -25,9 +25,9 @@ export default function FavoriteDog(props) {
     toast.error("🐶 Eliminado de favoritos", {
       position: "top-center",
       autoClose: 1000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
-      pauseOnHover: true,
+      pauseOnHover: false,
       draggable: true,
       progress: undefined,
     });
@@ -48,7 +48,7 @@ export default function FavoriteDog(props) {
           {favoriteDogs.includes(props.petId) ? "🖤" : "🤍"}
         </div>
       ) : (
-        <Link to="/login">🤍</Link>
+        <div className="heart"><Link to="/login">🤍</Link></div>
       )}
     </div>
   );

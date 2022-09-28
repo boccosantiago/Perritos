@@ -1,58 +1,43 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import data from "../datos";
 import "../styles/Card.css";
 import { Link } from "react-router-dom";
 import FavoriteDog from "./FavoriteDog";
+import { IoLocationSharp } from "react-icons/io5";
 
 function Card(props) {
   const value = props.filterData;
   const infoProtect = data.map((item) => item.pets);
   const [petFound, setPetFound] = useState([...infoProtect]);
 
-  // console.log('filter', props.filterData)
-  // console.log(data)
-
   function filterPets() {
     if (Object.values(value).length === 0) {
       setPetFound([...infoProtect]);
     } else {
       const lowerCaseName = props.filterData.name.toLowerCase();
-      const lowerCaseCity = props.filterData.city;
-      const lowerCaseAge = props.filterData.age;
-      const lowerCaseGender = props.filterData.gender;
-      const lowerCaseSize = props.filterData.size;
-      const lowerCaseCoat = props.filterData.coat;
-      const lowerCaseBreed = props.filterData.breed;
-      const lowerCaseColor = props.filterData.color;
 
-      const objectProtect = data.filter(item => item.city === lowerCaseCity);
+      const city = props.filterData.city;
+      const age = props.filterData.age;
+      const gender = props.filterData.gender;
+      const size = props.filterData.size;
+      const coat = props.filterData.coat;
+      const breed = props.filterData.breed;
+      const color = props.filterData.color;
 
-      objectProtect[0].pets.map(pet => Object.assign(pet, { city: lowerCaseCity }));
-      console.log("INDICE CITY", objectProtect[0].pets)
-      console.log(infoProtect)
-
-
-      // if (lowerCaseCity) {
-      //   objectProtect[0].pets.map(pets => {
-      //     pets.filter(pet => {
-      //       return (
-
-      //     )
-      //     })k
 
       const filteredPet = infoProtect.map((item) =>
         item.filter((pet) => {
-
           return (
-            (!lowerCaseName || pet.name.toLowerCase().includes(lowerCaseName)) &&
-            // (!lowerCaseCity || data[indexProtectora].city.includes(lowerCaseCity)) &&
-            // (!lowerCaseCity || pet.city.includes(lowerCaseCity)) &&
-            (!lowerCaseAge || pet.age.includes(lowerCaseAge)) &&
-            (!lowerCaseGender || pet.gender.includes(lowerCaseGender)) &&
-            (!lowerCaseSize || pet.size.includes(lowerCaseSize)) &&
-            (!lowerCaseCoat || pet.coatLength.includes(lowerCaseCoat)) &&
-            (!lowerCaseBreed || pet.breed.includes(lowerCaseBreed)) &&
-            (!lowerCaseColor || pet.color.includes(lowerCaseColor))
+            (!lowerCaseName ||
+              pet.name.toLowerCase().includes(lowerCaseName)) &&
+            (!city || pet.city.includes(city)) &&
+            (!age || pet.age.includes(age)) &&
+            (!gender || pet.gender.includes(gender)) &&
+            (!size || pet.size.includes(size)) &&
+            (!coat || pet.coatLength.includes(coat)) &&
+            (!breed || pet.breed.includes(breed)) &&
+            (!color || pet.color.includes(color))
+
           );
         })
       );
@@ -61,42 +46,49 @@ function Card(props) {
     }
   }
 
+  useEffect(() => {
+    filterPets()
+  },[value]);
 
 
-  const cargarImagen = require.context("../img", true);
+  const isTherePets = petFound.flat() 
+
+  const loadImage = require.context("../Assets/img", true);
 
   return (
-    <div id="container">
-      <button className="btn m-auto buscar" onClick={filterPets}>
-        Buscar
-      </button>
+   isTherePets.length !== 0 ? (<div id="container">
       <div id="container-card">
         {petFound.map((pets) =>
           pets.map((pet) => (
-            <div key={pet.id} className="card  card-compact w-96 bg-base-100 shadow-xl m-5">
+            <div
+              key={pet.id}
+              className="card  card-compact w-96 bg-base-100 shadow-xl m-5"
+            >
               <Link to={`./${pet.id}`}>
                 <figure>
                   <img
                     id="img-card"
                     alt=""
-                    src={cargarImagen(`./id${pet.id}.jpg`)}
+                    src={loadImage(`./id${pet.id}.jpg`)}
                   />
                 </figure>
                 <div className="card-body">
-                  <h2 className="card-title">{pet.name}</h2>
-                  <p>If a dog chews shoes whose shoes does he choose?</p>
-                  <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Adoptame</button>
+                <div className="flex justify-between">
+                  <h2 className="card-title p-0">{pet.name}</h2>
+                  <p className="flex place-content-end	text-gray-400">
+                      <IoLocationSharp />
+                      {pet.city}
+                    </p>
                   </div>
+                  <p className="text-justify m-2">{pet.description}</p>
                 </div>
               </Link>
               <FavoriteDog petId={pet.id} />
             </div>
-
           ))
         )}
       </div>
-    </div>
+    </div>) : <div className="notFound"><p className="text-2xl pt-20">Modifique sus criterios de búsqueda.</p> </div>
   );
 }
 
