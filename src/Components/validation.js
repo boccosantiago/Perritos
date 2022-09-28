@@ -1,4 +1,4 @@
-export default function validation(values) {
+export default function Validation(values) {
   let errors = {};
   let nameRegex = /^[a-zA-Z]+$/;
   let passwordRegex =
