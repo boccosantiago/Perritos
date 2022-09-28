@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Camera from "../Components/Chat/svg/Camera";
-import Img from "../image1.jpg";
+import Img from "../Assets/img/avatar.jpg";
 import { storage, db, auth } from "../firebase";
 import {
   ref,
@@ -12,6 +12,7 @@ import { getDoc, doc, updateDoc } from "firebase/firestore";
 import Delete from "../Components/Chat/svg/Delete";
 import { useNavigate } from "react-router-dom";
 import { getAuth, updateProfile, updateEmail } from "firebase/auth";
+import "../styles/Profile.css"
 
 const Profile = () => {
   const [img, setImg] = useState("");

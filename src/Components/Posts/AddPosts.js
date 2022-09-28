@@ -1,15 +1,14 @@
-
-import { Link } from "react-router-dom";
 import { useState, useContext } from "react";
 import { Timestamp, collection, addDoc } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { storage, db } from "../../firebase";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../context/auth";
+import LogMessage from "../LogMessage";
 
 export default function AddPosts(props) {
-  console.log(props)
-  const { user } = useContext(AuthContext)
+  console.log(props);
+  const { user } = useContext(AuthContext);
 
   const [formData, setFormData] = useState({
     title: "",
@@ -88,12 +87,7 @@ export default function AddPosts(props) {
   return (
     <div className="publish-post bg-stone-200">
       {!user ? (
-        <>
-          <h2>
-            <Link to="/login">Inicia sesión para publicar.</Link>
-          </h2>
-          No tienes una cuenta? <Link to="/signup" className="text-neutral hover:text-neutral-focus">Registrate aquí</Link>
-        </>
+        <LogMessage text={"Inicia sesión para poder publicar."} />
       ) : (
         <>
           <p className="text-2xl">Publica tu mascota en adopcion</p>
@@ -110,7 +104,7 @@ export default function AddPosts(props) {
             />
           </div>
           <br />
-          {/* description */}
+
           <label htmlFor="">Descripcion</label>
           <br />
           <textarea
@@ -121,14 +115,12 @@ export default function AddPosts(props) {
             onChange={(e) => handleChange(e)}
           />
           <br />
-          {/* image */}
           <label htmlFor="">Subir imagen</label>
           <br />
           <input
             type="file"
             name="image"
             accept="image/*"
-            /* className="form-control" */
             onChange={(e) => handleImageChange(e)}
           />
           <br />

@@ -37,7 +37,7 @@ export default function FavoriteList() {
 
 
 
-  const cargarImagen = require.context("../img", true);
+  const loadImage = require.context("../Assets/img", true);
 
   return (
     <div className="favorite-container bg-stone-100">
@@ -52,7 +52,7 @@ export default function FavoriteList() {
                   style={{ height: "180px", borderRadius: "20px" }}
                   id="favorite-img"
                   alt=""
-                  src={cargarImagen(`./id${pet.id}.jpg`)}
+                  src={loadImage(`./id${pet.id}.jpg`)}
                 />
               </figure>
               </Link >

@@ -46,25 +46,17 @@ function Card(props) {
     }
   }
 
-
   useEffect(() => {
     filterPets()
   },[value]);
 
-  
 
   const isTherePets = petFound.flat() 
 
-  console.log('PETFOUND', isTherePets)
-
-
-  const cargarImagen = require.context("../img", true);
+  const loadImage = require.context("../Assets/img", true);
 
   return (
    isTherePets.length !== 0 ? (<div id="container">
-     {/*  <button className="btn m-auto buscar" onClick={filterPets}>
-        Buscar
-      </button> */}
       <div id="container-card">
         {petFound.map((pets) =>
           pets.map((pet) => (
@@ -77,7 +69,7 @@ function Card(props) {
                   <img
                     id="img-card"
                     alt=""
-                    src={cargarImagen(`./id${pet.id}.jpg`)}
+                    src={loadImage(`./id${pet.id}.jpg`)}
                   />
                 </figure>
                 <div className="card-body">

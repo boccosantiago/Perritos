@@ -17,8 +17,10 @@ import { ref, getDownloadURL, uploadBytes } from "firebase/storage";
 import User from "../Components/Chat/User";
 import MessageForm from "../Components/Chat/MessageForm";
 import Message from "../Components/Chat/Message";
+import "../styles/Chat.css";
+// import { Link } from "react-router-dom";
 
-const Home = () => {
+const Chat = () => {
   const [users, setUsers] = useState([]);
   const [chat, setChat] = useState("");
   const [text, setText] = useState("");
@@ -29,9 +31,7 @@ const Home = () => {
 
   useEffect(() => {
     const usersRef = collection(db, "users");
-    // create query object
     const q = query(usersRef, where("uid", "not-in", [user1]));
-    // execute query
     const unsub = onSnapshot(q, (querySnapshot) => {
       let users = [];
       querySnapshot.forEach((doc) => {
@@ -59,11 +59,8 @@ const Home = () => {
       setMsgs(msgs);
     });
 
-    // get last message b/w logged in user and selected user
     const docSnap = await getDoc(doc(db, "lastMsg", id));
-    // if last message exists and message is from selected user
     if (docSnap.data() && docSnap.data().from !== user1) {
-      // update last message doc, set unread to false
       await updateDoc(doc(db, "lastMsg", id), { unread: false });
     }
   };
@@ -107,44 +104,48 @@ const Home = () => {
     setImg("");
   };
   return (
-    <div className="home_container">
-      <div className="users_container">
-        {users.map((user) => (
-          <User
-            key={user.uid}
-            user={user}
-            selectUser={selectUser}
-            user1={user1}
-            chat={chat}
-          />
-        ))}
-      </div>
-      <div className="messages_container">
-        {chat ? (
-          <>
-            <div className="messages_user">
-              <h3>{chat.name}</h3>
-            </div>
-            <div className="messages">
-              {msgs.length
-                ? msgs.map((msg, i) => (
-                    <Message key={i} msg={msg} user1={user1} />
-                  ))
-                : null}
-            </div>
-            <MessageForm
-              handleSubmit={handleSubmit}
-              text={text}
-              setText={setText}
-              setImg={setImg}
+    <div className="bg-stone-100">
+      <div className="home_container">
+        <div className="users_container">
+          {users.map((user) => (
+            <User
+              key={user.uid}
+              user={user}
+              selectUser={selectUser}
+              user1={user1}
+              chat={chat}
             />
-          </>
-        ) : (
-          <h3 className="no_conv">Selecciona un usuario para comenzar chat.</h3>
-        )}
+          ))}
+        </div>
+        <div className="messages_container">
+          {chat ? (
+            <div>
+              <div className="messages_user">
+                <h3>{chat.name}</h3>
+              </div>
+              <div className="messages">
+                {msgs.length
+                  ? msgs.map((msg, i) => (
+                      <Message key={i} msg={msg} user1={user1} />
+                    ))
+                  : null}
+              </div>
+              <MessageForm
+                handleSubmit={handleSubmit}
+                text={text}
+                setText={setText}
+                setImg={setImg}
+              />
+            </div>
+          ) : (
+            <h3 className="no_conv">
+              Selecciona un usuario para comenzar chat.
+            </h3>
+          )}
+        </div>
       </div>
     </div>
   );
 };
 
-export default Home;
+export default Chat;

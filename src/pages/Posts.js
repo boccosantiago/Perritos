@@ -1,16 +1,16 @@
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
-import { db } from "../../firebase";
+import { db } from "../firebase";
 
-import AddPosts from "./AddPosts";
-import LikePosts from "./LikePosts";
-import DeletePosts from "./DeletePosts";
+import AddPosts from "../Components/Posts/AddPosts";
+import LikePosts from "../Components/Posts/LikePosts";
+import DeletePosts from "../Components/Posts/DeletePosts";
 
-import "../../styles/Posts.css";
+import "../styles/Posts.css";
 
 // import User from "../Chat/User"
-import { AuthContext } from "../../context/auth";
+import { AuthContext } from "../context/auth";
 
 export default function Posts(props) {
   const [posts, setPosts] = useState([]);
@@ -35,7 +35,7 @@ export default function Posts(props) {
   return (
     <>
       <AddPosts registeredName={props.registeredName} />
-      <div className=" grid md:grid-cols-3 bg-stone-100	">
+      <div className=" grid md:grid-cols-3 bg-stone-100 " style={{minHeight:'62vh'}}>
 
         {posts.length === 0 ? (
           <p>No se encontraron publicaciones.</p>

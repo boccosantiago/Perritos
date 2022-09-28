@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../styles/Home.css";
+import "../styles/Welcome.css";
 
 
-function Home() {
+function Welcome() {
 
 
   
@@ -21,4 +21,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Welcome;
