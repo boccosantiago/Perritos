@@ -35,7 +35,7 @@ export default function Posts(props) {
   return (
     <>
       <AddPosts registeredName={props.registeredName} />
-      <div className=" grid md:grid-cols-3 bg-stone-100	">
+      <div className=" grid md:grid-cols-3 bg-stone-100 " style={{minHeight:'62vh'}}>
 
         {posts.length === 0 ? (
           <p>No se encontraron publicaciones.</p>

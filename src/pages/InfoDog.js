@@ -7,7 +7,7 @@ import { IoLocationSharp } from "react-icons/io5";
 import FavoriteDog from "../Components/FavoriteDog";
 
 function Dogs() {
-  const loadImage = require.context("../img", true);
+  const loadImage = require.context("../Assets/img", true);
   const params = useParams();
   const infoProtect = data.map((item) => item.pets);
 
@@ -16,10 +16,6 @@ function Dogs() {
   const result = arrayPets.filter((item) => item.id === Number(params.id));
   const dogData = result[0];
 
-  /*  const indexProtectora = infoProtect.findIndex(
-    (item) => item.findIndex((pet) => pet.id === Number(params.id)) > -1
-
-  ); */
 
 
   return (

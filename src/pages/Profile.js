@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Camera from "../Components/Chat/svg/Camera";
-import Img from "../img/avatar.jpg";
+import Img from "../Assets/img/avatar.jpg";
 import { storage, db, auth } from "../firebase";
 import {
   ref,

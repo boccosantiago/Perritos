@@ -49,7 +49,7 @@ function App() {
       console.log("No such document!");
     }
   }
-  console.log(registeredName);
+  
 
   useEffect(() => getRegisteredName, [user]);
 
@@ -68,9 +68,7 @@ function App() {
   useEffect(() => {
     localStorage.setItem("favorites", JSON.stringify(favorites));
   }, [favorites]);
-
-  console.log("favorites", favorites);
-
+  
   const updateFavoriteDogs = (name) => {
     const updated = [...favorites];
     const isFavorite = favorites.indexOf(name);
@@ -125,15 +123,7 @@ function App() {
           </Routes>
           <Footer />
           <ToastContainer
-            position="top-center"
-            autoClose={500}
-            hideProgressBar={false}
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
+            
           />
         </BrowserRouter>
       </div>

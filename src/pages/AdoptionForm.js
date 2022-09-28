@@ -8,9 +8,8 @@ import { db } from "../firebase";
 import { setDoc, doc, Timestamp } from "firebase/firestore";
 
 export default function Formulario() {
-  const loadImage = require.context("../img", true);
+  const loadImage = require.context("../Assets/img", true);
   const { id } = useParams();
-  console.log(id);
 
   const infoProtect = data.map((item) => item.pets);
   const arrayPets = [];
@@ -66,14 +65,11 @@ export default function Formulario() {
   async function handleSubmit(event) {
     setFormData({ ...formData });
     event.preventDefault();
-    // submitToApi(formData)
-    console.log(formData);
     try {
       await setDoc(doc(db, "form", user.uid), {
         uid: user.uid,
         formData,
         createdAt: Timestamp.fromDate(new Date()),
-        // isOnline: false,
       });
       setFormData({
         name: "",
