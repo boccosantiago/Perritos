@@ -2,9 +2,9 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import data from "../datos";
 import { Link } from "react-router-dom";
-import "../styles/Dogs.css";
+import "../styles/InfoDog.css";
 import { IoLocationSharp } from "react-icons/io5";
-import FavoriteDog from "./FavoriteDog";
+import FavoriteDog from "../Components/FavoriteDog";
 
 function Dogs() {
   const loadImage = require.context("../img", true);

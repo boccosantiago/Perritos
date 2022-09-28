@@ -1,4 +1,4 @@
-.login-container {
+/* .login-container {
   position: fixed;
   top: 0;
   left: 0;
@@ -18,9 +18,9 @@
   border: 1.5px solid black;
   border-radius: 20px;
   /* box-shadow: 0 0 5px 0px; */
- */
+ 
 
-.login-inner h2 {
+/* .login-inner h2 {
   color: white;
   font-weight: 500;
   font-size: 2em;
@@ -102,4 +102,4 @@
 
 .register-container{
   height: 72vh;
-}
+} */

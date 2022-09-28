@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Card from "./Card";
-import Filter from "./Filter";
-import "../styles/Main.css";
+import Card from "../Components/Card";
+import Filter from "../Components/Filter";
+import "../styles/DogSearch.css";
 
 
 function Main() {

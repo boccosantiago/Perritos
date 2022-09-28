@@ -1,19 +1,19 @@
 import React, { useState, useEffect, useContext } from "react";
 import "./App.css";
-import Main from "./Components/Main";
-import Home from "./Components/Home";
+import DogSearch from "./pages/DogSearch";
+import Welcome from "./pages/Welcome";
 import Profile from "./pages/Profile";
 import AdoptionForm from "./pages/AdoptionForm";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Navbar from "./Components/Navbar";
-import Dogs from "./Components/Dogs";
+import InfoDog from "./pages/InfoDog";
 import Shelters from "./Components/Maps/Shelters";
 import { FavoriteProvider } from "./context/favoritesContext";
 import Login from "./pages/Login";
 import Signup from "./pages/Register";
 import Protected from "./Components/Protected";
 import Posts from "./Components/Posts/Posts";
-import About from "./Components/About";
+import About from "./pages/About";
 
 // import { ChatProvider } from "./context/Chat";
 import MainChat from "./pages/Chat";
@@ -93,13 +93,13 @@ function App() {
         <BrowserRouter>
           <Navbar setFavorites={setFavorites} registeredName={registeredName} />
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/main" element={<Main />} />
+            <Route path="/" element={<Welcome />} />
+            <Route path="/main" element={<DogSearch />} />
             <Route
               path="/main/:id"
               element={
                 <Protected>
-                  <Dogs />
+                  <InfoDog />
                 </Protected>
               }
             />
