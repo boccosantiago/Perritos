@@ -1,21 +1,30 @@
-import Main from '../Components/Main'
-import Home from '../Components/Home'
-import Profile from '../pages/Profile';
-import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import React, { useState, useEffect, useContext } from "react";
+import DogSearch from "../pages/DogSearch";
+import Welcome from "../pages/Welcome";
+import Profile from "../pages/Profile";
+import AdoptionForm from "../pages/AdoptionForm";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Navbar from "../Components/Navbar";
-import Dogs from '../Components/Dogs';
-import Map from '../Components/Maps/Maps'
-import Login from "../pages/Login"
-import Signup from "../pages/Register"
-import Protected from "./Protected";
+import InfoDog from "../pages/InfoDog";
+import Shelters from "../Components/Maps/Shelters";
+import Login from "../pages/Login";
+import Signup from "../pages/Register";
+import Protected from "../router/Protected";
 import Posts from "../Components/Posts/Posts";
-import FavoriteList from '../Components/FavoriteList';
-import Chat from "../pages/Chat"
+import About from "../pages/About";
+import MainChat from "../pages/Chat";
+import Footer from "../Components/Footer";
+import { ToastContainer } from "react-toastify";
+import FavoriteList from "../Components/FavoriteList";
+import { getAuth } from "firebase/auth";
+import { db } from "../firebase";
+import { doc, getDoc } from "firebase/firestore";
+import { AuthContext } from "../context/auth";
+
 
 export default function AppRoutes(props) {
   const { user } = useContext(AuthContext);
 
-  //Login
   const [registeredName, setRegisteredName] = useState();
 
   async function getRegisteredName() {
@@ -24,21 +33,20 @@ export default function AppRoutes(props) {
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
       setRegisteredName(docSnap.data().name);
-      console.log("Document data:", docSnap.data());
+      
     } else {
-      // doc.data() will be undefined in this case
+      
       console.log("No such document!");
     }
   }
-  console.log(registeredName);
-
+ 
   useEffect(() => getRegisteredName, [user]);
 
   
   return (
     <div className="App">
     <BrowserRouter>
-      <Navbar setFavorites={setFavorites} registeredName={registeredName} />
+      <Navbar setFavorites={props.setFavorites} registeredName={registeredName} />
       <Routes>
         <Route path="/" element={<Welcome />} />
         <Route path="/main" element={<DogSearch />} />
