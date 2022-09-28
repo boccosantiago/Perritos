@@ -1,4 +1,4 @@
-# Perritos Project
+# Perritos Project 🐕‍🦺
 ## Description
 This app was created as the Final Project of the React Course at the IT Academy - Barcelona.
 
