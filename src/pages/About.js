@@ -98,6 +98,7 @@ export default function About() {
     <div className="bg-stone-100">
     <div className="mx-auto w-full sm:w-4/6">
       <br />
+      <h1 className="text-xl bold text-center">¿Quiénes somos?</h1>
       <p className="text-justify text-stone-600 mx-10">
         Somos una plataforma de adopción de animales, cuyo fin es ayudar a las
         protectoras a dar visibilidad en internet a sus animales. Trabajamos por
