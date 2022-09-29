@@ -401,7 +401,7 @@ export default function Formulario() {
         </div>
       </form>
       <div className="text-center">
-      <Link to="/main" className="btn btn-secondary mt-0 mb-5">
+      <Link to={`../main/${id}`} className="btn btn-secondary mt-0 mb-5">
         Regresar
       </Link>
       </div>

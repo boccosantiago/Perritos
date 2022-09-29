@@ -11,7 +11,11 @@ const Loading = () => {
           transform: "translate(-50%, -50%)",
         }}
       >
-        Cargando...
+        <div
+          className="spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full text-blue-300"
+          role="status"
+        >
+        </div>
       </h2>
     </div>
   );
