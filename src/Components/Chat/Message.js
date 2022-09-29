@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import Moment from "react-moment";
+import "moment/locale/es";
 
 const Message = ({ msg, user1 }) => {
     const scrollRef = useRef();
