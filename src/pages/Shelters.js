@@ -11,13 +11,13 @@ export default function Shelters() {
       <h1 className="text-2xl text-stone-500 divider">
         Información de contacto
       </h1>
-      <div className=" lg:grid grid-cols-4 ">
+      <div className=" xl:grid grid-cols-4 xl:px-12 p-5">
         {datos.map((info) => (
-          <div tabIndex={0} className="collapse">
-            <div className="collapse-title text-xl font-medium">
-              <p className="">{info.shelterName}</p>
+          <div className="pb-6">
+            <div className="text-xl font-medium">
+              <p className="px-5">{info.shelterName}</p>
             </div>
-            <div className="collapse-content bg-stone-100">
+            <div className=" bg-stone-100 p-5">
               <p>{info.email}</p>
               <p>{info.address}</p>
               <p>{info.phone}</p>
