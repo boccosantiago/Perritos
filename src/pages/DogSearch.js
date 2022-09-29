@@ -3,8 +3,7 @@ import Card from "../Components/Card";
 import Filter from "../Components/Filter";
 import "../styles/DogSearch.css";
 
-
-function Main() {
+function DogSearch() {
 
     const [filterData, setFilterData] = useState({
         name: "",
@@ -23,4 +22,4 @@ function Main() {
     )
 }
 
-export default Main;
+export default DogSearch;

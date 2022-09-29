@@ -2,13 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../styles/Welcome.css";
 
-
 function Welcome() {
-
-
-  
   return (
-<div className="hero min-h-screen bg-left" style={{ backgroundImage: `url("https://img.freepik.com/free-photo/adorable-brown-white-basenji-dog-smiling-giving-high-five-isolated-white_346278-1657.jpg?w=1380&t=st=1663837055~exp=1663837655~hmac=c96afbd8125b15c057ef24a41db013a30fe3b9814dfc3c9d32362948eb53cace")` }}>
+
+<div className="hero min-h-screen bg-left">
 <div className="hero-overlay bg-opacity-30"></div>
 <div className="hero-content lg:absolute lg:right-36 text-center text-neutral-content">
   <div className="max-w-sm mb-9 bienvenida ">

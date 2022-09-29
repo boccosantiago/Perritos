@@ -1,7 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase";
-import Loading from "../Components/Chat/Loading";
+import Loading from "../Components/Loading";
 
 export const AuthContext = createContext();
 

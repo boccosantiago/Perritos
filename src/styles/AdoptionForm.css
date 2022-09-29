@@ -1,5 +1,5 @@
 #form-container {
-  width: 40rem;
+  width: 42rem;
   margin: 0 auto;
 }
 
@@ -8,9 +8,10 @@
   border-radius: 10px;
   margin-left: 1rem;
   margin-top: 0.3rem;
+  padding-left: 5px;
 }
 
-h2 {
+#form-container h2 {
   text-align: center;
   font-size: 20px;
   padding: 1rem;
@@ -27,4 +28,17 @@ h2 {
 .datos-container {
   display: flex;
   flex-direction: column;
+}
+
+@media (max-width: 600px) {
+  #form-container {
+    width: 100%;
+
+  }
+
+  #formulario {
+ 
+    padding: 0;
+   
+  }
 }

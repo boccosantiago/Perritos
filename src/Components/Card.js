@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import data from "../datos";
 import "../styles/Card.css";
 import { Link } from "react-router-dom";
@@ -14,8 +14,8 @@ function Card(props) {
     if (Object.values(value).length === 0) {
       setPetFound([...infoProtect]);
     } else {
-      const lowerCaseName = props.filterData.name.toLowerCase();
 
+      const lowerCaseName = props.filterData.name.toLowerCase();
       const city = props.filterData.city;
       const age = props.filterData.age;
       const gender = props.filterData.gender;
@@ -23,7 +23,6 @@ function Card(props) {
       const coat = props.filterData.coat;
       const breed = props.filterData.breed;
       const color = props.filterData.color;
-
 
       const filteredPet = infoProtect.map((item) =>
         item.filter((pet) => {
@@ -37,7 +36,6 @@ function Card(props) {
             (!coat || pet.coatLength.includes(coat)) &&
             (!breed || pet.breed.includes(breed)) &&
             (!color || pet.color.includes(color))
-
           );
         })
       );
@@ -47,16 +45,16 @@ function Card(props) {
   }
 
   useEffect(() => {
+
     filterPets()
   },[value]);
-
 
   const isTherePets = petFound.flat() 
 
   const loadImage = require.context("../Assets/img", true);
 
-  return (
-   isTherePets.length !== 0 ? (<div id="container">
+  return isTherePets.length !== 0 ? (
+    <div id="container">
       <div id="container-card">
         {petFound.map((pets) =>
           pets.map((pet) => (
@@ -73,9 +71,9 @@ function Card(props) {
                   />
                 </figure>
                 <div className="card-body">
-                <div className="flex justify-between">
-                  <h2 className="card-title p-0">{pet.name}</h2>
-                  <p className="flex place-content-end	text-gray-400">
+                  <div className="flex justify-between">
+                    <h2 className="card-title p-0">{pet.name}</h2>
+                    <p className="flex place-content-end	text-gray-400">
                       <IoLocationSharp />
                       {pet.city}
                     </p>
@@ -88,7 +86,11 @@ function Card(props) {
           ))
         )}
       </div>
-    </div>) : <div className="notFound"><p className="text-2xl pt-20">Modifique sus criterios de búsqueda.</p> </div>
+    </div>
+  ) : (
+    <div className="notFound">
+      <p className="text-2xl pt-20">Modifique sus criterios de búsqueda.</p>{" "}
+    </div>
   );
 }
 

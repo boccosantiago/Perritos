@@ -1,19 +1,19 @@
 import { deleteDoc, doc } from "firebase/firestore";
 import React from "react";
 import { db, storage } from "../../firebase";
-import { toast } from "react-toastify";
 import { deleteObject, ref } from "firebase/storage";
+import {success, deleted} from "../../toast";
 
 export default function DeleteArticle({ id, imageUrl }) {
     const handleDelete = async () => {
-        if (window.confirm("Are you sure you want to delete this article?")) {
+        if (window.confirm("Está seguro de querer eliminar este anuncio?")) {
             try {
                 await deleteDoc(doc(db, "Posts", id));
-                toast("Posts deleted successfully", { type: "success" });
+                success("Anuncio eliminado correctamente")
                 const storageRef = ref(storage, imageUrl);
                 await deleteObject(storageRef);
             } catch (error) {
-                toast("Error deleting article", { type: "error" });
+                deleted("Error al eliminar anuncio")
                 console.log(error);
             }
         }

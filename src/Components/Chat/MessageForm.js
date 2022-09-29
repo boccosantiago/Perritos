@@ -17,7 +17,7 @@ const MessageForm = ({ handleSubmit, text, setText, setImg }) => {
             <div>
                 <input
                     type="text"
-                    placeholder="Enter message"
+                    placeholder="Escriba un mensaje"
                     value={text}
                     onChange={(e) => setText(e.target.value)}
                 />

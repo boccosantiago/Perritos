@@ -1,8 +1,5 @@
 import React from "react";
-import "../styles/Card.css";
-
 import catsdogs from "../catsdogs.json";
-
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -14,6 +11,7 @@ import {
   ArcElement,
 } from "chart.js";
 import { Bar, Doughnut } from "react-chartjs-2";
+import "../styles/Card.css";
 
 ChartJS.register(
   CategoryScale,
@@ -40,12 +38,12 @@ export const options = {
 
 const catdog = catsdogs.Respuesta.Datos.Metricas[0].Datos;
 const dogs = catsdogs.Respuesta.Datos.Metricas[1].Datos;
-const cats = catsdogs.Respuesta.Datos.Metricas[2].Datos;
+
 
 const year = catdog.map((i) => i.Agno);
 const quantityAll = catdog.map((i) => i.Valor);
 const quantityDogs = dogs.map((i) => i.Valor);
-const quantityCats = cats.map((i) => i.Valor);
+
 
 const labels = year;
 
@@ -53,20 +51,16 @@ export const data = {
   labels,
   datasets: [
     {
-      label: "Todos",
+      label: "España",
       data: quantityAll,
       backgroundColor: "rgba(92, 92, 255, 0.5)",
     },
     {
-      label: "Perros",
+      label: "Nuestras protectoras",
       data: quantityDogs,
       backgroundColor: "rgba(53, 162, 235, 0.5)",
     },
-    {
-      label: "Gatos",
-      data: quantityCats,
-      backgroundColor: "rgba(105, 200, 255, 0.5)",
-    },
+  
   ],
 };
 
@@ -78,13 +72,11 @@ export const dataCircle = {
       data: [1833, 1288, 255],
       backgroundColor: [
         "rgba(54, 162, 235, 0.2)",
-
         "rgba(255, 99, 132, 0.2)",
         "rgba(255, 206, 86, 0.2)",
       ],
       borderColor: [
         "rgba(54, 162, 235, 1)",
-
         "rgba(255, 99, 132, 1)",
         "rgba(255, 206, 86, 1)",
       ],
@@ -98,30 +90,27 @@ export default function About() {
     <div className="bg-stone-100">
     <div className="mx-auto w-full sm:w-4/6">
       <br />
+      <h1 className="text-xl bold text-center">¿Quiénes somos?</h1>
       <p className="text-justify text-stone-600 mx-10">
         Somos una plataforma de adopción de animales, cuyo fin es ayudar a las
-        protectoras a dar visibilidad en internet a sus animales. Trabajamos por
-        y para los animales sin hogar.
+        protectoras a dar visibilidad en internet a sus animales. 
       </p>
       <p className="text-justify text-stone-600 mx-10">
         Alrededor de 280.000 perros y gatos fueron abandonados o se perdieron en
-        2020 en España, un descenso del 6,6% respecto a 2019, según las
-        estimaciones elaboradas por la Fundación Affinity a partir de los
-        animales recuperados por sociedades protectoras, ayuntamientos y
-        consejos comarcales de España.
+        2020 en España, según las estimaciones elaboradas por la Fundación Affinity. Por eso nuestra misión es trabajar por
+        y para los animales sin hogar.
       </p>
       <br />
       <h1 className="text-xl bold text-center">
-        Perros y gatos recogidos por refugios y protectoras en España.
+        Animales recogidos en España y animales recogidos por nuestras protectoras.
       </h1>
       <br />
       <div className="sm:m-auto mx-10">
         <Bar options={options} data={data} />
       </div>
-
       <br />
       <h1 className="text-xl bold text-center">
-        Mascotas recogidas por nuestras protectoras.
+        Relación de animales recogidos por nuestras protectoras.
       </h1>
       <br />
       <div className="md:w-2/4 sm:mx-auto mx-10">

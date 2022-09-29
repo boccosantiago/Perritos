@@ -2,9 +2,9 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import data from "../datos";
 import { Link } from "react-router-dom";
-import "../styles/InfoDog.css";
 import { IoLocationSharp } from "react-icons/io5";
 import FavoriteDog from "../Components/FavoriteDog";
+import "../styles/InfoDog.css";
 
 function Dogs() {
   const loadImage = require.context("../Assets/img", true);
@@ -68,7 +68,7 @@ function Dogs() {
             <div className="text-justify">{dogData.description}</div>
             <div className="card-actions justify-end">
               <Link to="./formulario" className="btn btn-primary absolute top-80">
-                Adoptame
+                Adóptame
               </Link>
             </div>
           </div>

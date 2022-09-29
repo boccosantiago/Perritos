@@ -3,7 +3,7 @@ import DogSearch from "../pages/DogSearch";
 import Welcome from "../pages/Welcome";
 import Profile from "../pages/Profile";
 import AdoptionForm from "../pages/AdoptionForm";
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Routes, Route, HashRouter } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import InfoDog from "../pages/InfoDog";
 import Shelters from "../pages/Shelters";
@@ -23,19 +23,17 @@ import InitChat from "../Components/InitChat";
 
 export default function AppRoutes(props) {
   const { user } = useContext(AuthContext);
-
   const [registeredName, setRegisteredName] = useState();
 
   async function getRegisteredName() {
     const auth = getAuth();
     if (auth.currentUser) {
       const docRef = doc(db, "users", auth.currentUser.uid);
-      console.log(docRef);
       const docSnap = await getDoc(docRef);
       if (docSnap.exists()) {
         setRegisteredName(docSnap.data().name);
       } else {
-        console.log("No such document!");
+        console.log("No existe el documento");
       }
     }
   }
@@ -44,7 +42,7 @@ export default function AppRoutes(props) {
 
   return (
     <div className="App">
-      <BrowserRouter>
+      <HashRouter>
         <Navbar
           setFavorites={props.setFavorites}
           registeredName={registeredName}
@@ -75,7 +73,7 @@ export default function AppRoutes(props) {
         </Routes>
         <Footer />
         <ToastContainer />
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 }
