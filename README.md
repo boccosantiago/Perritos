@@ -3,8 +3,8 @@
 This app was created as the Final Project of the React Course at the IT Academy - Barcelona.
 
 ## Developers
-- @Laura-Ruiz
-- @BoccoSantiago
+- [Laura Ruiz](https://github.com/Laura-Ruiz/)
+- [Santiago Bocco](https://github.com/BoccoSantiago/)
 
 
 ## What is this app about? 
@@ -16,7 +16,7 @@ You will be able to:
 - Save your favorite dogs to get in contact to the shelters later.
 
 
-[See deployed web here](https://BoccoSantiago.github.io/Perritos/)
+[See deployed web here](https://laura-ruiz.github.io/perritos-adoption/)
 
 ## Techlonogies in use
 

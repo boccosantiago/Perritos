@@ -18,6 +18,7 @@ export default function Footer(){
     </div>
   </div> 
   <div>
+    <p>Created by Laura Ruiz & Santiago Bocco</p>
     <p>Copyright © 2022 - All right reserved by Perritos</p>
   </div>
 </footer>
