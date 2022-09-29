@@ -3,8 +3,8 @@
 This app was created as the Final Project of the React Course at the IT Academy - Barcelona.
 
 ## Developers
-- @Laura-Ruiz
-- @BoccoSantiago
+- [Laura Ruiz](https://github.com/Laura-Ruiz/)
+- [Santiago Bocco](https://github.com/BoccoSantiago/)
 
 
 ## What is this app about? 
