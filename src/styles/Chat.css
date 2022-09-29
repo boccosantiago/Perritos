@@ -6,7 +6,7 @@
   grid-template-columns: 1fr 5fr;
   border: 1px solid #0000003b;
   height: calc(100vh - 70px);
-  width: 70%;
+  width: 400px;
   border-radius: 20px;
 }
 .users_container {
@@ -38,12 +38,13 @@
 
 .messages_container {
   position: relative;
-  width: 100%;
+ 
 }
 .messages_user {
+  width: 300px;
   padding: 15px;
   text-align: center;
-  border-bottom: 2px solid var(--color-6);
+  border-bottom: 1px solid rgba(158, 153, 153, 0.561);
 }
 .no_conv {
   font-size: 20px;
@@ -52,14 +53,15 @@
   padding-top: 2rem;
 }
 .message_form {
-  width: 100%;
+  width: 300px;
   height: 30px;
   display: flex;
   align-items: center;
   margin-top: 30px;
+ 
 }
 .message_form input {
-  width: 35vw;
+  width: 150px;
   margin: 0px 10px 10px;
   padding: 10px;
   border-radius: 5px;
@@ -72,11 +74,12 @@
 .messages {
   height: calc(100vh - 200px);
   overflow-y: auto;
-  border-bottom: 1px solid var(--color-6);
+ 
 }
 .message_wrapper {
   margin-top: 1rem;
   padding: 0px 1rem;
+  text-align: initial;
 }
 .message_wrapper img {
   width: 100%;
@@ -103,6 +106,7 @@
 }
 .friend {
   background: lightblue;
+  text-align: left;
 }
 .selected_user {
   background: var(--color-6);
@@ -119,34 +123,49 @@
   margin-right: 10px;
 }
 .unread {
-  margin-left: 10px;
-  background: var(--color-3);
   color: white;
-  padding: 2px 4px;
-  border-radius: 10px;
+  padding: 2px 2px;
+  font-size: x-small;
+  border: 1px solid white;
+  border-radius: 20px;
 }
 .sm_screen {
   display: none;
 }
 
-@media screen and (max-width: 767px) {
+@media (max-width: 430px) {
   .home_container {
-    grid-template-columns: 2fr 3fr;
+    width: 350px;
   }
-  .message_form {
-    left: -47%;
+  .messages_user {
+    width: 250px;
+    padding: 0;
+    margin-left: 0;
+  }
+  .message_form{
+    width: 250px;
+  }
 
-    bottom: 50px;
+  .message_form input{
+    width: 100px;
   }
-  .message_wrapper p {
-    max-width: 75%;
+
+  .message{
+    width: 250px;
   }
+  .message_wrapper.own {
+    width: 250px;
+  
+  }
+
 }
 
- @media screen and (max-width: 576px) {
+
+/*  @media screen and (max-width: 576px) {
   .home_container {
     grid-template-columns: 1fr 3fr;
     width: 100vw;
   }
 
 }
+  */
