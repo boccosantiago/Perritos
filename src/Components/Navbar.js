@@ -5,12 +5,14 @@ import { useContext } from "react";
 import { AuthContext } from "../context/auth";
 import { auth } from "../firebase";
 import { signOut } from "firebase/auth";
+import LinksNavbar from "./LinksNavbar";
 
 function Navbar(props) {
-  const navigate = useNavigate();
+  
   const { user } = useContext(AuthContext);
-
   const logout = () => signOut(auth);
+
+  const navigate = useNavigate();
   const handleSignOut = async () => {
     try {
       await logout();
@@ -45,21 +47,7 @@ function Navbar(props) {
             tabIndex={0}
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
-            <li>
-              <Link to="/main">Adopta</Link>
-            </li>
-            <li>
-              <Link to="/shelters">Protectoras</Link>
-            </li>
-            <li>
-              <Link to="/about">Que es Perritos</Link>
-            </li>
-            <li>
-              <Link to="/posts">Difunde</Link>
-            </li>
-            <li>
-              <Link to="/chat">Chatea</Link>
-            </li>
+            <LinksNavbar/>
           </ul>
         </div>
         <Link
@@ -71,21 +59,7 @@ function Navbar(props) {
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">
-          <li>
-            <Link to="/main">Adopta</Link>
-          </li>
-          <li>
-            <Link to="/shelters">Protectoras</Link>
-          </li>
-          <li>
-            <Link to="/about">Que es Perritos</Link>
-          </li>
-          <li>
-            <Link to="/chat">Chatea</Link>
-          </li>
-          <li>
-            <Link to="/posts">Difunde</Link>
-          </li>
+          <LinksNavbar />
         </ul>
       </div>
 
@@ -134,10 +108,10 @@ function Navbar(props) {
                 <Link to="/favorites">Favoritos</Link>
               </li>
               <li>
-                <Link to="/chat">Mensajes</Link>
+                <Link to="/chat">Chat</Link>
               </li>
               <li>
-                <p onClick={handleSignOut}>Logout</p>
+                <p onClick={handleSignOut}>Salir</p>
               </li>
             </ul>
           </div>

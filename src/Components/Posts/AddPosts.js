@@ -2,12 +2,12 @@ import { useState, useContext } from "react";
 import { Timestamp, collection, addDoc } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { storage, db } from "../../firebase";
-import { toast } from "react-toastify";
 import { AuthContext } from "../../context/auth";
 import LogMessage from "../LogMessage";
+import { success, deleted } from "../../toast";
 
 export default function AddPosts(props) {
-  console.log(props);
+
   const { user } = useContext(AuthContext);
 
   const [formData, setFormData] = useState({
@@ -28,9 +28,10 @@ export default function AddPosts(props) {
     setFormData({ ...formData, image: e.target.files[0] });
   };
 
+  const [error, setError] = useState("")
   const handlePublish = () => {
     if (!formData.title || !formData.description || !formData.image) {
-      alert("Please fill all the fields");
+      setError("Complete todos los campos.");
       return;
     }
 
@@ -73,11 +74,11 @@ export default function AddPosts(props) {
             comments: [],
           })
             .then(() => {
-              toast("Article added successfully", { type: "success" });
+              success("Anuncio agregado correctamente")
               setProgress(0);
             })
             .catch((err) => {
-              toast("Error adding article", { type: "error" });
+              deleted("Error al publicar anuncio")
             });
         });
       }
@@ -90,7 +91,7 @@ export default function AddPosts(props) {
         <LogMessage text={"Inicia sesión para poder publicar."} />
       ) : (
         <>
-          <p className="text-2xl">Publica tu mascota en adopcion</p>
+          <p className="text-2xl">Publica tu anuncio.</p>
           <br />
           <div className="form-group">
             <label htmlFor="">Titulo</label>
@@ -105,7 +106,7 @@ export default function AddPosts(props) {
           </div>
           <br />
 
-          <label htmlFor="">Descripcion</label>
+          <label htmlFor="">Descripción</label>
           <br />
           <textarea
             name="description"
@@ -128,13 +129,14 @@ export default function AddPosts(props) {
           {progress === 0 ? null : (
             <div className="progress">
               <div className="progress-bar progress-bar-striped mt-2">
-                {`uploading image ${progress}%`}
+                {`cargando imagen ${progress}%`}
               </div>
             </div>
           )}
           <button className="btn btn-primary" onClick={handlePublish}>
             Publicar
           </button>
+          <div className="text-red-600">{error ? error : ""}</div>
         </>
       )}
     </div>

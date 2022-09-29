@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import {
   GoogleMap,
   useJsApiLoader,
@@ -10,12 +10,12 @@ import "../styles/Shelters.css";
 
 export default function Map() {
   const api = process.env.REACT_APP_API_KEY;
-const containerStyle = {
-  width: "97%",
-  maxWidth: "700px",
-  height: "100%",
-  minHeight: "400px",
-};
+  const containerStyle = {
+    width: "97%",
+    maxWidth: "700px",
+    height: "100%",
+    minHeight: "400px",
+  };
 
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
@@ -27,7 +27,6 @@ const containerStyle = {
   });
 
   const [infoWindowOpen, SetInfoWindowOpen] = useState(false);
-
   const [dataClicked, setDataClicked] = useState({});
 
   const onMarkerClick = (data, coordinates) => {
@@ -38,10 +37,7 @@ const containerStyle = {
     });
   };
 
-  console.log("dataClick", dataClicked);
-
   const onInfoWindowClose = () => SetInfoWindowOpen(false);
-
   const onMapClicked = () => {
     if (infoWindowOpen) SetInfoWindowOpen(false);
   };

@@ -33,13 +33,7 @@ const User = ({ user1, user, selectUser, chat }) => {
                     </div>
 
                 </div>
-                {/* {data && (
-                    <p className="truncate">
-                        <strong>{data.from === user1 ? "Nuevo mensaje" : null}</strong>
-                        
-                    </p>
-                )} */}
-            </div>
+             </div>
 
         </>
     );

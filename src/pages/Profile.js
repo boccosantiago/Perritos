@@ -17,9 +17,6 @@ import "../styles/Profile.css"
 const Profile = () => {
   const [img, setImg] = useState("");
   const [user, setUser] = useState();
-  console.log(user);
-  const current = getAuth().currentUser;
-  console.log("CURRENT", current);
   const navigate = useNavigate("");
 
   const [newData, setnewData] = useState({
@@ -30,19 +27,10 @@ const Profile = () => {
     setnewData({ [e.target.name]: e.target.value });
   };
 
-  //CAMBIAR NOMBRE USUARIO
-
   async function changeName() {
     const auth = getAuth();
     await updateProfile(auth.currentUser, newData.name)
-      .then(() => {
-        // Profile updated!
-        // ...
-      })
-      .catch((error) => {
-        // An error occurred
-        // ...
-      });
+   
     await updateDoc(doc(db, "users", auth.currentUser.uid), {
       name: newData.name,
     });
@@ -51,7 +39,7 @@ const Profile = () => {
 
   useEffect(() => {
     getDoc(doc(db, "users", auth.currentUser.uid)).then((docSnap) => {
-      console.log("DOC", docSnap.data());
+      
       if (docSnap.exists) {
         setUser(docSnap.data());
       }
@@ -86,10 +74,9 @@ const Profile = () => {
 
   const deleteImage = async () => {
     try {
-      const confirm = window.confirm("Delete avatar?");
+      const confirm = window.confirm("Eliminar avatar?");
       if (confirm) {
         await deleteObject(ref(storage, user.avatarPath));
-
         await updateDoc(doc(db, "users", auth.currentUser.uid), {
           avatar: "",
           avatarPath: "",
@@ -102,59 +89,14 @@ const Profile = () => {
   };
 
   async function changeEmail() {
-
     const auth = getAuth();
-    console.log(auth.currentUser)
-    await updateEmail(auth.currentUser, newData.email).then(() => {
-        // Email updated!
-        // ...
-    }).catch((error) => {
-        // An error occurred
-        // ...
-    });
+    await updateEmail(auth.currentUser, newData.email)
     await updateDoc(doc(db, "users", auth.currentUser.uid), {
         email: newData.email,
 
   })
+  window.location.reload();
 }
-
-  //ELIMINAR CUENTA
-
-  // function deleteUser() {
-
-  //     const auth = getAuth();
-  //     const user = auth.currentUser;
-  //     console.log("USER DELETE", user)
-  //     deleteUser(user).then(() => {
-  //         // User deleted.
-  //         console.log(user)
-  //     }).catch((error) => {
-  //         // An error ocurred
-  //         // ...
-  //         console.log(error)
-  //     });
-
-  // }
-
-  // const deleteUsuario = async (oldPassword) => {
-  //   const credential = EmailAuthProvider.credential(
-  //     auth.currentUser.email,
-  //     oldPassword
-  //   );
-  //   console.log(credential);
-  //   const result = await reauthenticateWithCredential(
-  //     auth.currentUser,
-  //     credential
-  //   );
-  //   console.log(result);
-
-  //   // // Pass result.user here
-  //   //await deleteUser(result.user);
-
-  //   console.log("success in deleting");
-  // };
-
-
 
   return user ? (
     <div className="mockup-window lg:w-1/2 mx-auto mb-96 mt-10 bg-neutral">
@@ -180,7 +122,7 @@ const Profile = () => {
                 </div>
                 <div className="text_container">
                     <div>
-                    <p className="my-1">{user.name}</p>
+                    <p className="mt-1">{user.name}</p>
                         <input
                             type="text"
                             name="name"
@@ -188,35 +130,23 @@ const Profile = () => {
                             placeholder={user.name}
                             onChange={handleChange}
                         />
-                        <button className="btn btn-xs btn-primary ms-1 mt-3" onClick={() => changeName()}>Cambiar nombre</button>
-                        {/* <input
-                            type="text"
-                            name="name"
-                            value={newData.name}
-                            placeholder='Completa tus datos'
-                            onChange={handleChange}
-                        /> */}
-                    </div>
+                        <button className="btn btn-xs btn-primary ml-4 mt-3" onClick={() => changeName()}>Cambiar nombre</button>
+                      </div>
                     <div>
-                        <p className="my-1">{user.email}</p>
-                        
+                        <p className="mt-1 pt-3">{user.email}</p>
                         <input
                             type="text"
                             name="email"
                             value={newData.email}
                             placeholder={user.email}
                             onChange={handleChange}
+                            
                         />
-                        <button className="btn btn-xs btn-primary ms-1 mt-3" onClick={changeEmail}>Cambiar correo</button>
+                        <button className="btn btn-xs btn-primary ml-4 mt-3" onClick={changeEmail}>Cambiar correo</button>
                     </div>
-                    
-                    <hr />
                     <small>Usuario desde: {user.createdAt.toDate().toDateString()}</small>
                 </div>
             </div>
-
-            {/* <button>Eliminar cuenta</button> */}
-
       </div>
     </div>
   ) : null;

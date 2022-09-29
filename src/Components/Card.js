@@ -14,8 +14,8 @@ function Card(props) {
     if (Object.values(value).length === 0) {
       setPetFound([...infoProtect]);
     } else {
-      const lowerCaseName = props.filterData.name.toLowerCase();
 
+      const lowerCaseName = props.filterData.name.toLowerCase();
       const city = props.filterData.city;
       const age = props.filterData.age;
       const gender = props.filterData.gender;
@@ -45,10 +45,11 @@ function Card(props) {
   }
 
   useEffect(() => {
-    filterPets();
-  }, [value]);
 
-  const isTherePets = petFound.flat();
+    filterPets()
+  },[value]);
+
+  const isTherePets = petFound.flat() 
 
   const loadImage = require.context("../Assets/img", true);
 

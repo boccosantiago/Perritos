@@ -2,12 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../styles/Welcome.css";
 
-
 function Welcome() {
-
-
-  
   return (
+
 <div className="hero min-h-screen bg-left">
 <div className="hero-overlay bg-opacity-30"></div>
 <div className="hero-content lg:absolute lg:right-36 text-center text-neutral-content">

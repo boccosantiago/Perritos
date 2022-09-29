@@ -1,13 +1,11 @@
 import React, { useContext } from "react";
-
 import { db } from "../../firebase";
 import { arrayRemove, arrayUnion, doc, updateDoc } from "firebase/firestore";
-
 import { AuthContext } from "../../context/auth";
+
 export default function LikeArticle({ id, likes }) {
 
     const { user } = useContext(AuthContext)
-
     const likesRef = doc(db, "Posts", id);
 
     const handleLike = () => {

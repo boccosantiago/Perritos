@@ -2,19 +2,14 @@ import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { db } from "../firebase";
-
 import AddPosts from "../Components/Posts/AddPosts";
 import LikePosts from "../Components/Posts/LikePosts";
 import DeletePosts from "../Components/Posts/DeletePosts";
-
-import "../styles/Posts.css";
-
-// import User from "../Chat/User"
 import { AuthContext } from "../context/auth";
+import "../styles/Posts.css";
 
 export default function Posts(props) {
   const [posts, setPosts] = useState([]);
-
   const { user } = useContext(AuthContext)
 
   useEffect(() => {
@@ -29,9 +24,7 @@ export default function Posts(props) {
 
     });
   }, []);
-  console.log(posts);
-
-
+  
   return (
     <>
       <AddPosts registeredName={props.registeredName} />
@@ -86,8 +79,7 @@ export default function Posts(props) {
                     <h3 className="py-3 font-bold">{title}</h3>
                     <span className="text-justify	">{description}</span>
                     <p className="text-left"> Contacta conmigo:</p>
-                    <p className="text-left">{email} o buscame en el chat.</p>
-
+                    <p className="text-left">{email} o búscame en el chat.</p>
                     <div className="flex justify-around mt-3">
                       <div className="flex">
                       {user && <LikePosts id={id} likes={likes} />}

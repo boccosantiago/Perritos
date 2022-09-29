@@ -20,10 +20,6 @@ function Filter(props) {
   const petJoin = petArray.join();
   const petSplit = Array.from(new Set(petJoin.split(",")));
   
-/* 
-  const city = Array.from(new Set(cityArray.split(",")));
-  console.log('city', city) */
-
   function handleChange(event) {
     const { name, value } = event.target;
     props.setFilterData((prevFilterData) => {
