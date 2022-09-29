@@ -15,9 +15,9 @@ export default function Shelters() {
         {datos.map((info) => (
           <div tabIndex={0} className="collapse">
             <div className="collapse-title text-xl font-medium">
-              <p>{info.shelterName}</p>
+              <p className="">{info.shelterName}</p>
             </div>
-            <div className="collapse-content">
+            <div className="collapse-content bg-stone-100">
               <p>{info.email}</p>
               <p>{info.address}</p>
               <p>{info.phone}</p>

@@ -46,13 +46,15 @@ export default function Formulario() {
     cambioCasa: "",
     gasto: "",
   });
+  
+  console.log('formData', formData)
 
   function handleChange(event) {
     const { name, value } = event.target;
     setFormData((prevFormData) => {
       return {
         ...prevFormData,
-        [name]:  value,
+        [name]: value,
       };
     });
   }
@@ -99,17 +101,19 @@ export default function Formulario() {
   }
 
   return (
+    <div className="bg-stone-100">
     <div id="form-container">
-      <h1>FORMULARIO DE SOLICITUD DE ADOPCIÓN</h1>
-      <p>
+      <h1 className="text-center py-5 font-bold">FORMULARIO DE SOLICITUD DE ADOPCIÓN</h1>
+      <p className="px-2">
         Para poder adoptar a uno de nuestros PERRITOS tendrá que rellenar el
         formulario que se muestra a continuación y automáticamente se enviará a
         la protectora que corresponda.
       </p>
-      <form id="formulario">
-        <div>
+      <form id="formulario" className="bg-stone-200">
+        <div className="relative ">
           <h2>Datos del adoptado</h2>
-          <img src={loadImage(`./id${id}.jpg`)}></img>
+          <img className="absolute right-10 w-40 sm:w-52 rounded-xl	" src={loadImage(`./id${id}.jpg`)}></img>
+          <div className="px-2 sm:px-5">
           <p>Nombre: {result[0].name}</p>
           <p>Raza: {result[0].breed}</p>
           <p>Edad: {result[0].age}</p>
@@ -117,6 +121,7 @@ export default function Formulario() {
           <p>Tamaño: {result[0].size}</p>
           <p>Color: {result[0].color}</p>
           <p>Pelaje: {result[0].coatLength}</p>
+          </div>
         </div>
         <div className="datos-container">
           <h2>Datos del adoptante</h2>
@@ -215,11 +220,11 @@ export default function Formulario() {
           </label>
         </div>
         <div className="datos-container">
-          <h2>Información sobre su hogas</h2>
+          <h2>Información sobre su hogar</h2>
           <fieldset>
             <label>
               ¿Vives en casa o departamento? ¿Propio o rentado?
-              <label htmlFor="casa-propia">Casa propia</label>
+              <br/>
               <input
                 type="radio"
                 value="casa-propia"
@@ -228,7 +233,8 @@ export default function Formulario() {
                 checked={formData.casa === "casa-propia"}
                 onChange={handleChange}
               />
-              <label htmlFor="casa-rentada">Casa rentada</label>
+              <label htmlFor="casa-propia"> Casa propia</label>
+              
               <input
                 type="radio"
                 value="casa-rentada"
@@ -237,7 +243,8 @@ export default function Formulario() {
                 checked={formData.casa === "casa-rentada"}
                 onChange={handleChange}
               />
-              <label htmlFor="departamento-propio">Departamento propio</label>
+              <label htmlFor="casa-rentada"> Casa rentada</label>
+              
               <input
                 type="radio"
                 value="departamento-propio"
@@ -246,7 +253,8 @@ export default function Formulario() {
                 name="casa"
                 onChange={handleChange}
               />
-              <label htmlFor="departamento-rentado">Departamento rentado</label>
+              <label htmlFor="departamento-propio"> Departamento propio</label>
+              
               <input
                 type="radio"
                 value="departamento-rentado"
@@ -255,6 +263,7 @@ export default function Formulario() {
                 name="casa"
                 onChange={handleChange}
               />
+              <label htmlFor="departamento-rentado"> Departamento rentado</label>
             </label>
           </fieldset>
           <label>
@@ -277,24 +286,24 @@ export default function Formulario() {
           </label>
           <label>
             ¿Están todos de acuerdo en adoptar?
-            <label htmlFor="Si">Si</label>
             <input
               type="radio"
               value="Si"
               id="Si"
               name="acuerdo"
-              checked={formData.acuerdo === "si"}
+              checked={formData.acuerdo === "Si"}
               onChange={handleChange}
             />
-            <label htmlFor="No">No</label>
+            <label htmlFor="Si"> Si</label>
             <input
               type="radio"
               value="No"
               id="No"
               name="acuerdo"
-              checked={formData.acuerdo === "no"}
+              checked={formData.acuerdo === "No"}
               onChange={handleChange}
             />
+            <label htmlFor="No"> No</label>
           </label>
           <label>
             ¿Hay alguien que sea alérgico a los animales o sufra de asma?
@@ -385,13 +394,18 @@ export default function Formulario() {
             />
           </label>
         </div>
-        <button onClick={handleSubmit} className="btn  buscar text-white">
+        <div className="text-center pt-3">
+        <button onClick={handleSubmit} className="btn buscar text-white">
           Enviar
         </button>
+        </div>
       </form>
-      <Link to="/main" className="btn btn-secondary mb-5">
+      <div className="text-center">
+      <Link to="/main" className="btn btn-secondary mt-0 mb-5">
         Regresar
       </Link>
+      </div>
+    </div>
     </div>
   );
 }
