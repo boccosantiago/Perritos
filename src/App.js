@@ -1,8 +1,8 @@
 import React, { useState, useEffect} from "react";
-import "./App.css";
-import "./index.css";
 import { FavoriteProvider } from "./context/favoritesContext";
 import AppRoutes from "./router/AppRoutes"
+import "./App.css";
+import "./index.css";
 
 function App() {
   

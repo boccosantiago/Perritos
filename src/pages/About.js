@@ -1,8 +1,5 @@
 import React from "react";
-import "../styles/Card.css";
-
 import catsdogs from "../catsdogs.json";
-
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -14,6 +11,7 @@ import {
   ArcElement,
 } from "chart.js";
 import { Bar, Doughnut } from "react-chartjs-2";
+import "../styles/Card.css";
 
 ChartJS.register(
   CategoryScale,

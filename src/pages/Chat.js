@@ -18,7 +18,7 @@ import User from "../Components/Chat/User";
 import MessageForm from "../Components/Chat/MessageForm";
 import Message from "../Components/Chat/Message";
 import "../styles/Chat.css";
-// import { Link } from "react-router-dom";
+
 
 const Chat = () => {
   const [users, setUsers] = useState([]);
@@ -69,7 +69,6 @@ const Chat = () => {
     e.preventDefault();
 
     const user2 = chat.uid;
-
     const id = user1 > user2 ? `${user1 + user2}` : `${user2 + user1}`;
 
     let url;

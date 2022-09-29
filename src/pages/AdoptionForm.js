@@ -1,21 +1,18 @@
 import { useState, useContext } from "react";
-import "../styles/AdoptionForm.css";
 import { useParams, Link } from "react-router-dom";
 import data from "../datos";
 import { AuthContext } from "../context/auth";
 import { db } from "../firebase";
-
 import { setDoc, doc, Timestamp } from "firebase/firestore";
+import "../styles/AdoptionForm.css";
 
 export default function Formulario() {
   const loadImage = require.context("../Assets/img", true);
   const { id } = useParams();
-
   const infoProtect = data.map((item) => item.pets);
   const arrayPets = [];
   infoProtect.map((item) => item.map((y) => arrayPets.push(y)));
   const result = arrayPets.filter((item) => item.id === Number(id));
-  console.log(result);
 
   const [formData, setFormData] = useState({
     dogName: result[0].name,
@@ -51,11 +48,11 @@ export default function Formulario() {
   });
 
   function handleChange(event) {
-    const { name, value, type, checked } = event.target;
+    const { name, value } = event.target;
     setFormData((prevFormData) => {
       return {
         ...prevFormData,
-        [name]: type === "checkbox" ? checked : value,
+        [name]:  value,
       };
     });
   }

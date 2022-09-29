@@ -1,43 +1,21 @@
 import React, { useContext } from "react";
 import FavoriteContext from "../context/favoritesContext";
 import { Link } from "react-router-dom";
-// import { useAuth } from "../context/AuthContext";
-import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "../context/auth";
+import {success, deleted} from "../toast";
 
 export default function FavoriteDog(props) {
   const { favoriteDogs, updateFavoriteDogs } = useContext(FavoriteContext);
-  //const { user } = useAuth();
-  const { user } = useContext(AuthContext)
-  const success = () =>
-    toast.success("🐶 Agregado a favoritos", {
-      position: "top-center",
-      autoClose: 1000,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: false,
-      draggable: true,
-      progress: undefined,
-    });
 
-  const deleted = () =>
-    toast.error("🐶 Eliminado de favoritos", {
-      position: "top-center",
-      autoClose: 1000,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: false,
-      draggable: true,
-      progress: undefined,
-    });
+  const { user } = useContext(AuthContext)
 
   const toastClick = () => {
     updateFavoriteDogs(props.petId);
     if (!favoriteDogs.includes(props.petId)) {
-      success();
+      success("🐶 Agregado a favoritos")
     } else {
-      deleted();
+      deleted("🐶 Eliminado de favoritos");
     }
   };
 

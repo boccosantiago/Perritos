@@ -1,41 +1,24 @@
-import { useContext, useState } from "react";
+import { useContext} from "react";
 import FavoriteContext from "../context/favoritesContext";
-import { toast } from "react-toastify";
-
 import { Link } from "react-router-dom";
-//import { useAuth } from "../context/AuthContext";
 import datos from "../datos";
 import "../styles/FavoriteList.css";
+import {deleted} from "../toast";
 
 export default function FavoriteList() {
+
   const { favoriteDogs, updateFavoriteDogs } = useContext(FavoriteContext);
 
   const array = [];
-
   datos.map((item) => item.pets.map((dog) => array.push(dog)));
-
-  let dogList = array.filter((item) => favoriteDogs.includes(item.id));
-
-
-  const deleted = () =>
-    toast.error("🐶 Eliminado de favoritos", {
-      position: "top-center",
-      autoClose: 1000,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: false,
-      draggable: true,
-      progress: undefined,
-    });
+  const dogList = array.filter((item) => favoriteDogs.includes(item.id));
 
   const toastClick = (e) => {
     updateFavoriteDogs(e);
     if (favoriteDogs.includes(e)) {
-      deleted();
+       deleted("🐶 Eliminado de favoritos");
     }
   };
-
-
 
   const loadImage = require.context("../Assets/img", true);
 
