@@ -1,6 +1,6 @@
 import React from "react";
 import data from "../datos";
-import '../styles/Filter.css'
+import "../styles/Filter.css";
 
 function Filter(props) {
   const petArray = [];
@@ -8,18 +8,17 @@ function Filter(props) {
 
   data.map((item) =>
     item.pets.map((pet) => {
-      petArray.push(pet.breed.toString())
-      cityArray.push(pet.city)
-    }
-    )
+      petArray.push(pet.breed.toString());
+      cityArray.push(pet.city);
+    })
   );
 
-  const cityJoin = cityArray.join()
+  const cityJoin = cityArray.join();
   const city = Array.from(new Set(cityJoin.split(",")));
 
   const petJoin = petArray.join();
   const petSplit = Array.from(new Set(petJoin.split(",")));
-  
+
   function handleChange(event) {
     const { name, value } = event.target;
     props.setFilterData((prevFilterData) => {
@@ -27,6 +26,19 @@ function Filter(props) {
         ...prevFilterData,
         [name]: value,
       };
+    });
+  }
+
+  function resetFilter() {
+    props.setFilterData({
+      name: "",
+      age: "",
+      city: "",
+      gender: "",
+      breed: "",
+      size: "",
+      color: "",
+      coat: "",
     });
   }
 
@@ -41,6 +53,7 @@ function Filter(props) {
           onChange={(e) => {
             handleChange(e);
           }}
+          value={props.filterData.name}
         />
       </div>
       <div>
@@ -51,6 +64,7 @@ function Filter(props) {
           onChange={(e) => {
             handleChange(e);
           }}
+          value={props.filterData.city}
         >
           <option value="">Seleccionar</option>
           {city.map((item) => (
@@ -68,6 +82,7 @@ function Filter(props) {
           onChange={(e) => {
             handleChange(e);
           }}
+          value={props.filterData.age}
         >
           <option value="">Seleccionar</option>
           <option value="Cachorro">Cachorro</option>
@@ -83,6 +98,7 @@ function Filter(props) {
           onChange={(e) => {
             handleChange(e);
           }}
+          value={props.filterData.gender}
         >
           <option value="">Seleccionar</option>
           <option value="Macho">Macho</option>
@@ -97,6 +113,7 @@ function Filter(props) {
           onChange={(e) => {
             handleChange(e);
           }}
+          value={props.filterData.breed}
         >
           <option value="">Seleccionar</option>
           {petSplit.map((item) => (
@@ -108,18 +125,19 @@ function Filter(props) {
       </div>
       <div>
         <p>Color</p>
-       <select
+        <select
           name="color"
           id="listColor"
           onChange={(e) => {
             handleChange(e);
           }}
+          value={props.filterData.color}
         >
           <option value="">Seleccionar</option>
           <option value="Negro">Negro</option>
           <option value="Blanco">Blanco</option>
           <option value="Marrón">Marrón</option>
-        </select> 
+        </select>
       </div>
       <div>
         <p>Tamaño</p>
@@ -129,6 +147,7 @@ function Filter(props) {
           onChange={(e) => {
             handleChange(e);
           }}
+          value={props.filterData.size}
         >
           <option value="">Seleccionar</option>
           <option value="Pequeño">Pequeño</option>
@@ -144,6 +163,7 @@ function Filter(props) {
           onChange={(e) => {
             handleChange(e);
           }}
+          value={props.filterData.coat}
         >
           <option value="">Seleccionar</option>
           <option value="Corto">Corto</option>
@@ -151,6 +171,9 @@ function Filter(props) {
           <option value="Largo">Largo</option>
         </select>
       </div>
+      <button className="btn btn-xs mt-8" onClick={resetFilter}>
+        Restablecer
+      </button>
     </div>
   );
 }

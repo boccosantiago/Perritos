@@ -10,7 +10,7 @@ import "../styles/Posts.css";
 
 export default function Posts(props) {
   const [posts, setPosts] = useState([]);
-  const { user } = useContext(AuthContext)
+  const { user } = useContext(AuthContext);
 
   useEffect(() => {
     const postsRef = collection(db, "Posts");
@@ -21,15 +21,16 @@ export default function Posts(props) {
         ...doc.data(),
       }));
       setPosts(post);
-
     });
   }, []);
-  
+
   return (
     <>
       <AddPosts registeredName={props.registeredName} />
-      <div className=" grid md:grid-cols-3 bg-stone-100 " style={{minHeight:'62vh'}}>
-
+      <div
+        className=" grid md:grid-cols-3 bg-stone-100 "
+        style={{ minHeight: "62vh" }}
+      >
         {posts.length === 0 ? (
           <p>No se encontraron publicaciones.</p>
         ) : (
@@ -44,9 +45,8 @@ export default function Posts(props) {
               userId,
               likes,
               email,
-
             }) => (
-              <div key={id} className='posts-main m-auto'>
+              <div key={id} className="posts-main m-auto">
                 <div className="border rounded-xl p-5 m-3">
                   <div>
                     <Link to={`/posts/${id}`}>
@@ -61,31 +61,33 @@ export default function Posts(props) {
                     <div className="row">
                       <div className="col-6">
                         {createdBy && (
-                          <span className="badge bg-primary mt-3 border-none">Creado por: {createdBy}</span>
+                          <span className="badge bg-primary mt-3 border-none">
+                            Creado por: {createdBy}
+                          </span>
                         )}
                         <br />
                       </div>
                     </div>
-                    <p className="text-xs	">{createdAt.toDate().toLocaleDateString("es-ES",
-                      {
-                        year: '2-digit',
-                        month: '2-digit',
-                        day: '2-digit',
-                        hour: '2-digit',
-                        minute: '2-digit',
-                        second: '2-digit',
-
-                      })}</p>
+                    <p className="text-xs	">
+                      {createdAt.toDate().toLocaleDateString("es-ES", {
+                        year: "2-digit",
+                        month: "2-digit",
+                        day: "2-digit",
+                        hour: "2-digit",
+                        minute: "2-digit",
+                        second: "2-digit",
+                      })}
+                    </p>
                     <h3 className="py-3 font-bold">{title}</h3>
                     <span className="text-justify	">{description}</span>
                     <p className="text-left"> Contacta conmigo:</p>
                     <p className="text-left">{email} o búscame en el chat.</p>
-                    <div className="flex justify-around mt-3">
-                      <div className="flex">
-                      {user && <LikePosts id={id} likes={likes} />}
-                      <div className="pe-2">
-                        <p className="px-1">{likes?.length} likes</p>
-                      </div>
+                    <div className="justify-center mt-3">
+                      <div className="flex justify-center">
+                        {user && <LikePosts id={id} likes={likes} />}
+                        <div className="pe-2">
+                          <p className="px-1">{likes?.length} likes</p>
+                        </div>
                       </div>
                       <div className="">
                         {user && user.uid === userId && (
@@ -99,6 +101,7 @@ export default function Posts(props) {
             )
           )
         )}
-      </div></>
+      </div>
+    </>
   );
 }
