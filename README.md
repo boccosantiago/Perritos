@@ -16,7 +16,7 @@ You will be able to:
 - Save your favorite dogs to get in contact to the shelters later.
 
 
-[See deployed web here](https://BoccoSantiago.github.io/Perritos/)
+[See deployed web here](https://laura-ruiz.github.io/perritos-adoption/)
 
 ## Techlonogies in use
 
