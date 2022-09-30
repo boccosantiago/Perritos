@@ -1,0 +1,35 @@
+{
+  "files": {
+    "main.css": "/Perritos/static/css/main.50fc539e.css",
+    "main.js": "/Perritos/static/js/main.76e77d57.js",
+    "static/media/adorable.jpg": "/Perritos/static/media/adorable.31eda29eac2414a4cc2a.jpg",
+    "static/media/adorable-mobile.jpg": "/Perritos/static/media/adorable-mobile.7f1f7a8cf1ab9a17daa9.jpg",
+    "static/media/id10.jpg": "/Perritos/static/media/id10.de5cba54ea0a5f1face8.jpg",
+    "static/media/id13.jpg": "/Perritos/static/media/id13.3620a09f4fcfc1174fd6.jpg",
+    "static/media/search.jpg": "/Perritos/static/media/search.f0738a4b41f22ce553a0.jpg",
+    "static/media/posts.jpg": "/Perritos/static/media/posts.6c66ec79c9993268dec0.jpg",
+    "static/media/landingpage.jpg": "/Perritos/static/media/landingpage.1a80170223a47b2cb7b8.jpg",
+    "static/media/id15.jpg": "/Perritos/static/media/id15.2dae6c96d6859aac578f.jpg",
+    "static/media/id14.jpg": "/Perritos/static/media/id14.33ac0d783ba4cc4355b4.jpg",
+    "static/media/id11.jpg": "/Perritos/static/media/id11.978a4bdf50905e274e01.jpg",
+    "static/media/chat.jpg": "/Perritos/static/media/chat.67350f79d895cf392629.jpg",
+    "static/media/id5.jpg": "/Perritos/static/media/id5.f120474f1521b403a381.jpg",
+    "static/media/id6.jpg": "/Perritos/static/media/id6.e82252ddaaeedec4abf9.jpg",
+    "static/media/id12.jpg": "/Perritos/static/media/id12.983813de7419211525f1.jpg",
+    "static/media/id7.jpg": "/Perritos/static/media/id7.45d0b16ac1a92ba11b16.jpg",
+    "static/media/id8.jpg": "/Perritos/static/media/id8.ad96693efbb4b2fcab16.jpg",
+    "static/media/id3.jpg": "/Perritos/static/media/id3.a16bbd3d7231fee7174e.jpg",
+    "static/media/id4.jpg": "/Perritos/static/media/id4.8c4842c9a72315856b19.jpg",
+    "static/media/avatar.jpg": "/Perritos/static/media/avatar.50084d2acb18acf7603c.jpg",
+    "static/media/id9.jpg": "/Perritos/static/media/id9.18c2e28dff18a29d6313.jpg",
+    "static/media/id1.jpg": "/Perritos/static/media/id1.de25349b9dcb24276e3d.jpg",
+    "static/media/id2.jpg": "/Perritos/static/media/id2.6cc796a8fcb9f310430f.jpg",
+    "index.html": "/Perritos/index.html",
+    "main.50fc539e.css.map": "/Perritos/static/css/main.50fc539e.css.map",
+    "main.76e77d57.js.map": "/Perritos/static/js/main.76e77d57.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.50fc539e.css",
+    "static/js/main.76e77d57.js"
+  ]
+}
