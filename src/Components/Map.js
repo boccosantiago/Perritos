@@ -49,7 +49,7 @@ export default function Map() {
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
-        zoom={6}
+        zoom={5}
         onClick={onMapClicked}
         yesIWantToUseGoogleMapApiInternals
       >

@@ -395,7 +395,7 @@ export default function Formulario() {
           </label>
         </div>
         <div className="text-center pt-3">
-        <button onClick={handleSubmit} className="btn buscar text-white">
+        <button onClick={handleSubmit} className="btn buscar text-white m-5">
           Enviar
         </button>
         </div>

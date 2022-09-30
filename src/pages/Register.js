@@ -30,35 +30,36 @@ const Register = () => {
     const validate = Validation(data);
     if (Object.entries(validate).length !== 0) {
       e.preventDefault();
-    }
+    } else {
+      e.preventDefault();
+      try {
+        const result = await createUserWithEmailAndPassword(
+          auth,
+          email,
+          password
+        );
 
-    try {
-      const result = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
-
-      await setDoc(doc(db, "users", result.user.uid), {
-        uid: result.user.uid,
-        name,
-        email,
-        createdAt: Timestamp.fromDate(new Date()),
-      });
-      setData({
-        name: "",
-        email: "",
-        password: "",
-        loading: false,
-      });
-      navigate("/");
-    } catch (err) {
-      setData({ ...data, loading: false });
+        await setDoc(doc(db, "users", result.user.uid), {
+          uid: result.user.uid,
+          name,
+          email,
+          createdAt: Timestamp.fromDate(new Date()),
+        });
+        setData({
+          name: "",
+          email: "",
+          password: "",
+          loading: false,
+        });
+        navigate("/");
+      } catch (err) {
+        setData({ ...data, loading: false });
+      }
     }
   };
 
   return (
-    <div style={{ height: "76vh" }} className=" bg-stone-100 h-76">
+    <div style={{ minHeight: "76vh" }} className=" bg-stone-100 h-76">
       <div className="">
         <form className="form-user" onSubmit={handleSubmit}>
           <h3>Crea tu cuenta</h3>

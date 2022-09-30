@@ -62,7 +62,7 @@ const Login = () => {
   };
 
   return (
-    <div style={{ height: "76vh" }} className="bg-stone-100 text-center">
+    <div style={{ minHeight: "76vh" }} className="bg-stone-100 text-center">
       <form className="form form-user" onSubmit={handleSubmit}>
         <h3>Inicia sesión</h3>
         <div className="input_container text-left">

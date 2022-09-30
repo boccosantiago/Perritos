@@ -21,7 +21,7 @@ function Dogs() {
   return (
     <div className="container-dog text-center bg-stone-100">
       <div className="dog-card">
-        <div className="card w-96 mx-auto bg-base-100 shadow-xl">
+        <div className="card w-80 sm:w-96 mx-auto bg-base-100 shadow-xl">
           <figure>
             <img
               style={{ width: "100%" }}
@@ -67,7 +67,7 @@ function Dogs() {
             <h2 className="text-xl text-start p-0">Descripción: </h2>
             <div className="text-justify">{dogData.description}</div>
             <div className="card-actions justify-end">
-              <Link to="./formulario" className="btn btn-primary absolute top-80">
+              <Link to="./formulario" className="btn btn-primary absolute top-72 sm:top-80">
                 Adóptame
               </Link>
             </div>

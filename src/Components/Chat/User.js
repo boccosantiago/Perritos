@@ -28,7 +28,7 @@ const User = ({ user1, user, selectUser, chat }) => {
 
                         <h4>{user.name}</h4>
                         {data?.from !== user1 && data?.unread && (
-                            <small className="unread">Nuevo mensaje</small>
+                            <p className="unread">Nuevo mensaje</p>
                         )}
                     </div>
 
