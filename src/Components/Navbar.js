@@ -52,7 +52,7 @@ function Navbar(props) {
         </div>
         <Link
           to="/"
-          className="text-xl sm:text-2xl text-primary-focus hover:text-primary-content cartel"
+          className="text-xl sm:text-2xl text-primary-focus hover:text-primary-content cartel pt-1"
         >
           PERRITOS
         </Link>
@@ -65,10 +65,10 @@ function Navbar(props) {
 
       {user === null ? (
         <div className="navbar-end">
-          <Link className="btn btn-primary btn-outline mx-1" to="/login">
+          <Link className="btn btn-primary btn-outline px-3 mx-1 transition-all duration-300" to="/login">
             Entra
           </Link>
-          <Link className="btn btn-primary" to="/signup">
+          <Link className="btn btn-primary px-3 transition-all duration-300" to="/signup">
             Registrate
           </Link>
         </div>
@@ -95,7 +95,7 @@ function Navbar(props) {
 
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-primary m-1">
-              {user.displayName || props.registeredName || user.email}
+              {user.displayName || props.registeredName || 'Bienvenido'}
             </label>
             <ul
               tabIndex={0}

@@ -54,13 +54,12 @@ function Card(props) {
   const loadImage = require.context("../Assets/img", true);
 
   return isTherePets.length !== 0 ? (
-    <div id="container">
-      <div id="container-card">
+      <div className="container-card ">
         {petFound.map((pets) =>
           pets.map((pet) => (
             <div
               key={pet.id}
-              className="card  card-compact w-96 bg-base-100 shadow-xl m-5"
+              className="card card-compact w-80 bg-base-100 shadow-xl m-5"
             >
               <Link to={`./${pet.id}`}>
                 <figure>
@@ -86,7 +85,6 @@ function Card(props) {
           ))
         )}
       </div>
-    </div>
   ) : (
     <div className="notFound">
       <p className="text-2xl pt-20">Modifique sus criterios de búsqueda.</p>{" "}

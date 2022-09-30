@@ -119,6 +119,7 @@ export default function AddPosts(props) {
           <label htmlFor="">Subir imagen</label>
           <br />
           <input
+            style={{width:'300px'}}
             type="file"
             name="image"
             accept="image/*"

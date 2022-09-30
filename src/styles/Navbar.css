@@ -27,10 +27,16 @@
   
 
   .cartel {
-  
     animation: 2s cartel;
     transform-origin: center top; /* <----- Cambiamos el origen de la transformación */
+    transition: all 1s;
   }
+
+  .cartel:hover{
+    color: rgb(255, 255, 255);
+    transition: all 1s;
+  }
+
   
   /* Creamos la animación (con keyframes) */
   
@@ -52,4 +58,12 @@
       transform: rotate(-5deg);
     }
     
+  }
+
+  @media (max-width: 400px){
+
+    .navbar{
+      padding-left: 0px !important;
+      padding-right: 1px !important;
+    }
   }

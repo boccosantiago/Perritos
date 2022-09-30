@@ -1,9 +1,9 @@
 
-#container-card{
+.container-card{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-   
+    margin: 0 auto;
 }
 
 .card{
@@ -30,7 +30,7 @@
     font-weight: 700;
 }
 
-#container-card a{
+.container-card a{
     text-decoration: none;
 }
 
@@ -55,6 +55,8 @@
     height: 66vh;
 }
 
+
+
 @keyframes appear {
     0%{
         opacity: 0;
@@ -63,6 +65,13 @@
     100%{
         opacity: 1;
         transform: translate(0px, 0px);
+    }
+}
+
+@media (max-width: 640px){
+    .card-body{
+        padding-left: 20px !important;
+        padding-right: 20px !important;
     }
 }
 
