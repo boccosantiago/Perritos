@@ -20,6 +20,7 @@ import { db } from "../firebase";
 import { doc, getDoc } from "firebase/firestore";
 import { AuthContext } from "../context/auth";
 import InitChat from "../Components/InitChat";
+import Logged from "./Logged";
 
 export default function AppRoutes(props) {
   const { user } = useContext(AuthContext);
@@ -67,7 +68,9 @@ export default function AppRoutes(props) {
           />
           <Route path="/shelters" element={<Shelters />} />
           <Route path="/login" element={<Login />} />
+          <Route element={<Logged />} >
           <Route path="/signup" element={<Signup />} />
+          </Route>
           <Route path="/chat" element={<InitChat />} />
           <Route path="/about" element={<About />} />
         </Routes>
