@@ -43,14 +43,14 @@ You will be able to:
 
 ## How to install
 1. Clone this repository 
-    > `git clone https://github.com/Laura-Ruiz/perritos-adoption.git`
+    > `git clone https://github.com/BoccoSantiago/Perritos.git`
 2. Access the app directory
     > `cd <repository folder>`
-4. Installation 
-    >`npm install`
-    >>`npm install firebase chartjs chartjs2 daisyui @react-google-maps/api moment react-toastify react-social-media-embed react-icons`
-5. Run
+3. Installation 
+    >`npm install`    
+4. Run
     >`npm run start`
+    
 ## How to use
-**IMPORTANT! To access some parts of the application you must first Sign Up then Log In with your created user.**
+**Important You need to put your own API keys in order to use app.**
 
