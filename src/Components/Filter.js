@@ -7,6 +7,7 @@ function Filter(props) {
   const cityArray = [];
 
   data.map((item) =>
+    // eslint-disable-next-line array-callback-return
     item.pets.map((pet) => {
       petArray.push(pet.breed.toString());
       cityArray.push(pet.city);

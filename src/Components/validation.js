@@ -1,10 +1,9 @@
 export default function Validation(values) {
-
   let errors = {};
   let nameRegex = /^[A-Z]+$/i;
   let emailRegex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
 
-  if (values.name == '') {
+  if (values.name === "") {
     errors.name = "Insertar nombre.";
   } else if (!nameRegex.test(values.name)) {
     errors.name = "El nombre escrito no es válido. Utilice solo letras.";
